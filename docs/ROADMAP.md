@@ -17,7 +17,8 @@
 - [x] Gaussian + LCA images and video exploratory generator.
 - [x] Scalar wave-optics PSF simulation and synthetic-data Q2 analysis code.
 - [x] R1 numerical-invariant checks, descriptive FFT-grid convergence audit and deterministic model sensitivity runner.
-- [ ] Inspect complete R1 pilot outputs, convergence/absolute residual limitations, and independently review units.
+- [x] Execute and inspect full R1 16-case / 32-row pilot, including absolute residuals and a single-case FFT-grid comparison ([review](../experiments/r1_model_sensitivity/RESULTS_REVIEW_FA.md)).
+- [ ] Independently validate physical units and PSF sampling accuracy across multiple pupil/defocus scenarios.
 - [ ] Build physically constrained, display-aware retinal image optimizer (not just Gaussian per-channel blur).
 - [x] R1 pilot design sweeps distance, pixel pitch, pupil size and defocus sign/magnitude.
 - [ ] Add measured RGB spectra, calibrated gamma and monitor brightness; these are not covered by R1.

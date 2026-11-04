@@ -103,6 +103,14 @@ defocus**, and produces CSV, JSON, SHA-256 manifest, and a model-fit plot.
 See [Track B R1 protocol (Persian)](experiments/r1_model_sensitivity/README_FA.md)
 for its numerical limitations and interpretation.
 
+Pilot verification on GitHub Actions (2026-11-04): **16 configurations, 32 model rows**.
+The median per-channel PSF residual is **0.7174** (normalized L2, not a
+percentage of visual/ocular error); the median fit advantage over a shared
+RGB Gaussian is **2.37%**, with higher model flexibility. This **does not**
+establish retinal accuracy, accommodation change, or eye-strain benefit.
+See [reviewed R1 results (Persian)](experiments/r1_model_sensitivity/RESULTS_REVIEW_FA.md)
+and [versioned simulation CSV](outputs/r1_pilot_v1/sweep.csv).
+
 ## Core research questions
 
 - **Q1 — optical feasibility:** Can a static-screen image reproduce a desired *modeled retinal blur cue* under declared assumptions?

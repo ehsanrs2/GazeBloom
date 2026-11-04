@@ -1,0 +1,21 @@
+{
+  "schema_version": "1.0",
+  "study": "R1_MODEL_SENSITIVITY_PILOT_V1",
+  "data_kind": "deterministic_computational_psf_comparison",
+  "ci_run_url": "https://github.com/ehsanrs2/GazeBloom/actions/runs/41833689541",
+  "ci_run_id": 41833689541,
+  "source_commit": "2bcc2c80add46ce173ff7158138934d09080085f",
+  "original_artifact_id": 13324201648,
+  "original_artifact_sha256": "ac305d341c6b4ecf4963e65fec24ab4295726883f84c138ded8a7f3c050ec9e8",
+  "sweep_csv_sha256": "b206268f539a3c5ef8a0e629aa11d6426a2846556ede539c45d87909eb488736",
+  "baseline_model_sha256": "5572fb26fdc15f714685b060bd68b501d9f5d6bff78d77838afffa1195142eca",
+  "runner_sha256": "70ab209fa490f9226f9ed60f1fab00449f50ecb8abd3c0dd05bd3959b7e230f8",
+  "preset": "pilot",
+  "case_count": 16,
+  "direction_rows": 32,
+  "python_version": "3.12.12",
+  "numpy_version": "2.5.4",
+  "human_outcome": "NONE",
+  "medical_claim": "NONE",
+  "decision": "R1_COMPUTATIONAL_PIPELINE_PASS__Q1_PHYSICAL_VALIDITY_UNRESOLVED"
+}

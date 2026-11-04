@@ -23,6 +23,8 @@ to fit better than the single-parameter shared-RGB baseline, without implying
 any real optical or ocular accommodation benefit.
 
 See [R1 protocol](../experiments/r1_model_sensitivity/README_FA.md).
+
+The 16-case / 32-row pilot is complete in CI; full reviewed results: [R1 result review](../experiments/r1_model_sensitivity/RESULTS_REVIEW_FA.md). Median model-only PSF L2 residual **0.7174**, median relative fit gain **2.37%** versus single-sigma shared-RGB blur. Q1 is **not** established; Q2 and Q3 have no human observations.
 The original Q1 model's outputs and prior metrics have not been replaced;
 the new run generates results into an ignored reproduction directory.
 Neither Q2 (human accommodation) nor Q3 (eye strain improvement) is measurable
