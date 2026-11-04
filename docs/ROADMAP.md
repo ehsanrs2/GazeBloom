@@ -4,7 +4,7 @@
 - [x] Target use case fixed: screen breaks and low-risk visual-wellness behavior.
 - [x] Initial evidence register, explicit confidence boundaries, intervention catalogue and low-cost evaluation proposal.
 - [ ] Confirm evaluation design and outcome measures; approve any participant study before starting.
-- [ ] Build cross-platform offline-first reminder core, local event log and accessibility-friendly UI.
+- [x] Monotonic-clock timer, private opt-in local event log and first manual desktop Tkinter UI.\n- [ ] Cross-platform reliable notifications, idle handling, accessible/localized UI and packaging.
 - [ ] Test notification state machine, idle detection, pause/snooze, user control, performance and privacy.
 - [ ] Conduct small consent-based feasibility pilot (reported symptoms and behaviors, not optics).
 - [ ] Review evidence and usability findings before any public efficacy claims.

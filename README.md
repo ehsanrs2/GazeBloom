@@ -18,6 +18,17 @@ The **primary product goal** is now a privacy-first, user-controlled reminder ap
 
 Research status: **no objective human accommodation measurements and no validated GazeBloom reduction in digital eye strain**. Literature shows mixed break-schedule results; the app will avoid therapeutic claims. The existing image/video experiments are not included as a default screen-break exercise.
 
+## Experimental desktop reminder v0
+
+The first **manual, offline-first screen-break reminder** prototype uses standard-library Tkinter:
+
+```bash
+python3 -m gazebloom
+python3 -m gazebloom --interval-min 10
+```
+
+No logging by default. Add explicit `--log ~/gazebloom-events.jsonl` to save event-only records locally. No eye measurement, verified screen-viewing time or efficacy is claimed. [Instructions and limitations (Persian)](docs/DESKTOP_REMINDER_V0_FA.md).
+
 ## What is here?
 
 | Area | Contents | Status |
