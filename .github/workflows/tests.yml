@@ -24,16 +24,10 @@ jobs:
           enable-cache: true
       - name: Install Python
         run: uv python install "${{ matrix.python-version }}"
-      - name: Resolve dependencies (bootstrap uv.lock)
-        run: uv lock
+      - name: Validate tracked uv.lock is current
+        run: uv lock --check
       - name: Sync fully isolated research environment
         run: uv sync --locked --extra research
-      - name: Keep generated uv.lock as CI artifact for initial migration
-        uses: actions/upload-artifact@v4
-        with:
-          name: uv-lock-py${{ matrix.python-version }}
-          path: uv.lock
-          if-no-files-found: error
       - name: Desktop reminder unit tests
         run: uv run --locked --extra research python -m unittest discover -s tests -p 'test_*.py' -v
       - name: Evidence policy unit tests
@@ -46,31 +40,6 @@ jobs:
         run: uv run --locked --extra research python experiments/gaussian_lca_v0/chromablur_pilot.py --out /tmp/gazebloom-pilot --width 256 --height 240 --seconds 1 --fps 4
       - name: Generate wave-optics outputs
         run: uv run --locked --extra research python experiments/waveoptics_q1_v1/waveoptics_validation.py --out /tmp/gazebloom-q1
-
-  bootstrap-uv-lock:
-    # One-time trusted-branch migration; never run with PR write credentials.
-    if: github.event_name == 'push' && github.ref == 'refs/heads/feature/desktop-reminder-core-v0'
-    runs-on: ubuntu-24.04
-    permissions:
-      contents: write
-    steps:
-      - uses: actions/checkout@v4
-      - uses: astral-sh/setup-uv@07a047e608db84b3d8c06cd9a7c7dcc9c355c18e # v10.3.2
-        with:
-          version: "0.10.0"
-      - run: uv python install 3.12
-      - name: Resolve and commit lockfile once
-        run: |
-          if test -f uv.lock; then
-            echo "uv.lock already present; no repository write"
-            exit 0
-          fi
-          uv lock
-          git add uv.lock
-          git config user.name 'github-actions[bot]'
-          git config user.email '41898282+github-actions[bot]@users.noreply.github.com'
-          git commit -m 'Lock uv dependency resolution for app and research'
-          git push origin HEAD:refs/heads/feature/desktop-reminder-core-v0
 
   ubuntu-tkinter:
     runs-on: ubuntu-24.04
