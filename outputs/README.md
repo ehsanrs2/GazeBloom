@@ -1,7 +1,7 @@
 # Generated research outputs
 
-The media generators under `experiments/` can recreate their example PNG and MP4 outputs. To avoid pretending that GitHub connector text uploads included historical binary assets, **the original image/video/plot binaries are supplied in the separate full GazeBloom handoff archive**. The archive also has historical JSON and CSV snapshots.
+Historical visual outputs for the 2026 GazeBloom research bootstrap are kept in the companion full-project archive. The **GitHub draft PR initially contains source code, tests, docs, and numeric CSV only**; the original PNG/MP4/plot binaries require a one-time owner-side push.
 
-Generate locally with the README instructions into `outputs/reproduction/`. If migrating the entire archive into GitHub from your machine, copy `outputs/gaussian_lca_v0/` and `outputs/waveoptics_q1_v1/` from the complete archive and push them with git.
+See [the Persian import guide](../docs/IMPORT_BINARY_OUTPUTS_FA.md) for copy, SHA-256 checking and push steps. Regenerated outputs go into `outputs/reproduction/` and may differ byte-for-byte from the historical evidence.
 
-The tracked `outputs/waveoptics_q1_v1/metrics.csv` is a historical deterministic simulation result, not human evidence.
+All these outputs are simulated/computed data, not human accommodation measurements.

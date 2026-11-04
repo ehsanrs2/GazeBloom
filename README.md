@@ -12,7 +12,7 @@ GazeBloom is an open research-to-app project exploring visual stimuli, ocular ac
 | --- | --- | --- |
 | [`experiments/gaussian_lca_v0`](experiments/gaussian_lca_v0) | Initial Gaussian + longitudinal chromatic aberration (LCA) visual stimulus generator: near/far still images and two short videos | Exploratory illustration, **not** an exact reproduction of ChromaBlur |
 | [`experiments/waveoptics_q1_v1`](experiments/waveoptics_q1_v1) | Scalar wave-optics PSF model, RGB blur optimization, offline tests, and a separate **future-data-only** accommodation analysis tool | Simulation; Q1 remains unresolved |
-| [`outputs/`](outputs) | Archived images, videos, plots, manifests, and numerical results from the earlier prototypes | Historical computational outputs; **not recordings of a human eye** |
+| [`outputs/`](outputs) | Historical numerical results on GitHub; complete original images, videos, plots and manifests in the [companion full-project archive](docs/IMPORT_BINARY_OUTPUTS_FA.md) pending one-time binary import | **Not recordings of a human eye** |
 | [`docs/RESEARCH_STATUS.md`](docs/RESEARCH_STATUS.md) | Questions, assumptions, current evidence, limitations, and next steps | Active research record |
 | [`docs/ROADMAP.md`](docs/ROADMAP.md) | Research-to-app milestones | Proposed, not implemented |
 | [`docs/SAFETY.md`](docs/SAFETY.md) | Safe interpretation and boundaries | Required context |
@@ -44,7 +44,7 @@ python experiments/waveoptics_q1_v1/waveoptics_validation.py \
   --pitch-mm 0.27 --pupil-mm 4 --delta-D 0.45
 ```
 
-The numerical plots and videos under `outputs/` were produced earlier and are retained as an archive; newly generated media can differ in encoding and checksums across software versions. The source scripts use a fixed random seed where applicable.
+The earlier PNG/MP4/plot artifacts are bundled separately until the [one-time binary import](docs/IMPORT_BINARY_OUTPUTS_FA.md) is completed in GitHub. Newly generated media can differ in encoding and checksums across software versions. The source scripts use a fixed random seed where applicable.
 
 ## Core research questions
 
