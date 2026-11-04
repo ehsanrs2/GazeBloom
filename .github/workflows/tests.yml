@@ -36,6 +36,22 @@ jobs:
         run: uv run --locked --extra research python experiments/gaussian_lca_v0/test_model.py
       - name: Wave-optics and analysis tests
         run: uv run --locked --extra research python -m unittest discover -s experiments/waveoptics_q1_v1 -p 'test_*.py' -v
+      - name: R1 sensitivity unit tests (model-internal)
+        run: uv run --locked --extra research python -m unittest discover -s experiments/r1_model_sensitivity -p 'test_*.py' -v
+      - name: R1 parameter pilot (16 cases x 2 signed directions)
+        if: matrix.python-version == '3.12'
+        run: |
+          uv run --locked --extra research python experiments/r1_model_sensitivity/sweep.py \
+            --preset pilot --out "$RUNNER_TEMP/gazebloom-r1-pilot"
+          cat "$RUNNER_TEMP/gazebloom-r1-pilot/summary.json"
+      - name: Archive R1 model-only results
+        if: matrix.python-version == '3.12'
+        uses: actions/upload-artifact@v4
+        with:
+          name: gazebloom-r1-pilot-simulation-only
+          path: ${{ runner.temp }}/gazebloom-r1-pilot/
+          if-no-files-found: error
+          retention-days: 30
       - name: Generate small media
         run: uv run --locked --extra research python experiments/gaussian_lca_v0/chromablur_pilot.py --out /tmp/gazebloom-pilot --width 256 --height 240 --seconds 1 --fps 4
       - name: Generate wave-optics outputs

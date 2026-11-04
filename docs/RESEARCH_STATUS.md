@@ -14,6 +14,22 @@ Nominal fixed screen distance 0.60 m, pixel pitch 0.27 mm, pupil 4 mm; assumed r
 ## Earlier restricted-simulation result
 Per-channel blur was 1.35% (near) and 1.49% (far) better than common-channel blur at a normalized PSF error objective, while substantial error remained. Those are **deterministic model comparisons, not human or medical outcomes**.
 
+## R1 stage (research/r1-waveoptics-audit-sensitivity)
+
+Track B is now prioritized; Track A remains available but feature growth is paused.
+The R1 code reports normalized model PSF fit error, parameter sensitivity and
+descriptive numerical convergence. Its 3-parameter RGB optimizer can be expected
+to fit better than the single-parameter shared-RGB baseline, without implying
+any real optical or ocular accommodation benefit.
+
+See [R1 protocol](../experiments/r1_model_sensitivity/README_FA.md).
+
+The 16-case / 32-row pilot is complete in CI; full reviewed results: [R1 result review](../experiments/r1_model_sensitivity/RESULTS_REVIEW_FA.md). Median model-only PSF L2 residual **0.7174**, median relative fit gain **2.37%** versus single-sigma shared-RGB blur. Q1 is **not** established; Q2 and Q3 have no human observations.
+The original Q1 model's outputs and prior metrics have not been replaced;
+the new run generates results into an ignored reproduction directory.
+Neither Q2 (human accommodation) nor Q3 (eye strain improvement) is measurable
+or established in this stage.
+
 ## Evidence gates
 1. Check model optics, units, gamma and RGB spectral assumptions independently.
 2. Replace restricted Gaussian rendering with physically constrained screen image optimization; include achievable intensity, clipping, and colorimetry.
