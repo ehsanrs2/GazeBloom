@@ -213,7 +213,11 @@ def launch(
             elif idle_gate.status == "active":
                 activity_line.config(text="Recent keyboard/mouse activity detected (not eye gaze)")
             else:
-                activity_line.config(text="Idle status unavailable — ordinary timer active")
+                activity_line.config(text=(
+                    "Idle status unavailable — paused; resume manually"
+                    if idle_gate.auto_paused else
+                    "Idle status unavailable — ordinary timer active"
+                ))
         if engine.state == State.PROMPT:
             engine.delivered(now)
         flush()
