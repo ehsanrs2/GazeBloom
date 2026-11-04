@@ -31,6 +31,17 @@ uv run --python /usr/bin/python3 --no-managed-python --locked \
 
 No logging by default. Add explicit `--log ~/gazebloom-events.jsonl` to save event-only records locally. No eye measurement, verified screen-viewing time or efficacy is claimed. [Instructions and limitations (Persian)](docs/DESKTOP_REMINDER_V0_FA.md).
 
+## Optional Linux idle-aware reminders (experimental)
+
+The default remains a manual timer. To **opt in** to input-idle-based countdown holds:
+
+```bash
+uv run --python /usr/bin/python3 --no-managed-python --locked \
+  python -m gazebloom --idle-aware --idle-threshold-sec 60
+```
+
+GNOME on Wayland or X11 may provide Mutter D-Bus idle information; X11 can optionally use `xprintidle`. Unsupported systems continue with the standard manual timer. **Keyboard/mouse inactivity is not verified screen viewing or measured eye physiology.** See [idle setup and limits (Persian)](docs/IDLE_AWARE_FA.md) and [application architecture](docs/ARCHITECTURE.md).
+
 ## What is here?
 
 | Area | Contents | Status |

@@ -143,7 +143,7 @@ class BreakTimer:
         self.deadline = now + self.settings.interval_seconds
         self._emit("break_interrupted", source="user")
 
-    def pause(self, now: float) -> None:
+    def pause(self, now: float, *, source: str = "user") -> None:
         now = self._time(now)
         if self.state in (State.STOPPED, State.PAUSED):
             raise TransitionError("cannot pause here")
@@ -151,9 +151,9 @@ class BreakTimer:
         self._remaining = max(0.0, self.deadline - now) if self.deadline is not None else None
         self.deadline = None
         self.state = State.PAUSED
-        self._emit("paused", source="user")
+        self._emit("paused", source=source)
 
-    def resume(self, now: float) -> None:
+    def resume(self, now: float, *, source: str = "user") -> None:
         now = self._time(now)
         if self.state != State.PAUSED or self._paused_from is None:
             raise TransitionError("not paused")
@@ -161,7 +161,7 @@ class BreakTimer:
         self.state = restored
         self.deadline = now + self._remaining if self._remaining is not None else None
         self._paused_from = self._remaining = None
-        self._emit("resumed", source="user")
+        self._emit("resumed", source=source)
 
     def clock_gap(self, now: float) -> None:
         """App detected a large wall/monotonic discrepancy (e.g. sleep).

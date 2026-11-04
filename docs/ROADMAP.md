@@ -4,7 +4,10 @@
 - [x] Target use case fixed: screen breaks and low-risk visual-wellness behavior.
 - [x] Initial evidence register, explicit confidence boundaries, intervention catalogue and low-cost evaluation proposal.
 - [ ] Confirm evaluation design and outcome measures; approve any participant study before starting.
-- [x] Monotonic-clock timer, private opt-in local event log and first manual desktop Tkinter UI.\n- [ ] Cross-platform reliable notifications, idle handling, accessible/localized UI and packaging.
+- [x] Monotonic-clock timer, private opt-in local event log and first manual desktop Tkinter UI.
+- [x] Build opt-in Linux idle-awareness probe (GNOME D-Bus / X11 xprintidle), conservative hold policy and offline tests.
+- [ ] Manually validate idle behavior on Ubuntu Wayland/X11, suspend/wake and unsupported desktops.
+- [ ] Cross-platform notifications, tray integration, versioned settings, accessible/localized UI and packaging.
 - [ ] Test notification state machine, idle detection, pause/snooze, user control, performance and privacy.
 - [ ] Conduct small consent-based feasibility pilot (reported symptoms and behaviors, not optics).
 - [ ] Review evidence and usability findings before any public efficacy claims.
