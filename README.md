@@ -6,6 +6,18 @@ GazeBloom is an open research-to-app project exploring visual stimuli, ocular ac
 
 > **Research status (November 2026):** Computational prototypes only. No human accommodation response or reduction in digital eye strain has been demonstrated by this project. The examples are **not** a validated eye exercise, medical device, or therapy.
 
+## Evidence-informed screen-break app track (November 2026)
+
+The **primary product goal** is now a privacy-first, user-controlled reminder application for screen breaks and comfortable visual habits. This is separate from the exploratory Chromablur optics project.
+
+- [Evidence review (Persian)](docs/EVIDENCE_REVIEW_FA.md)
+- [Proposed interventions (Persian)](docs/INTERVENTIONS_V1_FA.md)
+- [Low-cost study proposal (Persian)](docs/LOW_COST_EVALUATION_FA.md)
+- [MVP functional specification (Persian)](docs/MVP_SPEC_FA.md)
+- [Machine-readable intervention safety/evidence catalog](research/evidence_catalog.json)
+
+Research status: **no objective human accommodation measurements and no validated GazeBloom reduction in digital eye strain**. Literature shows mixed break-schedule results; the app will avoid therapeutic claims. The existing image/video experiments are not included as a default screen-break exercise.
+
 ## What is here?
 
 | Area | Contents | Status |

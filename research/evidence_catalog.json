@@ -1,0 +1,99 @@
+{
+  "schema_version": "1.0",
+  "updated": "2026-11-04",
+  "method": "Targeted evidence review; not a new systematic review or formal GRADE",
+  "reference_urls": {
+    "S1": "https://www.aoa.org/healthy-eyes/eye-and-vision-conditions/computer-vision-syndrome/20-20-20-rule",
+    "S2": "https://pubmed.ncbi.nlm.nih.gov/35963776/",
+    "S3": "https://doi.org/10.1097/OPX.0000000000001971",
+    "S4": "https://pubmed.ncbi.nlm.nih.gov/40466853/",
+    "S5": "https://pubmed.ncbi.nlm.nih.gov/34571605/",
+    "S6": "https://pubmed.ncbi.nlm.nih.gov/36155947/",
+    "S7": "https://pubmed.ncbi.nlm.nih.gov/37062428/",
+    "S8": "https://pubmed.ncbi.nlm.nih.gov/39308959/",
+    "S9": "https://pmc.ncbi.nlm.nih.gov/articles/PMC6126933/",
+    "S10": "https://www.cochrane.org/evidence/CD013244_blue-light-filtering-spectacle-lenses-visual-performance-macular-back-part-eye-protection-and",
+    "S11": "https://pubmed.ncbi.nlm.nih.gov/25744132/"
+  },
+  "interventions": [
+    {
+      "id": "distance_break_20",
+      "tier": "core",
+      "default_enabled": true,
+      "reference_ids": [
+        "S1",
+        "S2",
+        "S3",
+        "S4"
+      ],
+      "evidence_summary": "Reasonable standard reminder; frequency-specific outcomes mixed",
+      "claim": "Prompts breaks from near screen viewing; no proven therapeutic effect"
+    },
+    {
+      "id": "distance_break_10",
+      "tier": "core",
+      "default_enabled": false,
+      "reference_ids": [
+        "S3",
+        "S4"
+      ],
+      "evidence_summary": "Short-term study suggested benefits over one 20-min break",
+      "claim": "Alternative schedule to be compared empirically"
+    },
+    {
+      "id": "blink_prompt",
+      "tier": "core",
+      "default_enabled": false,
+      "reference_ids": [
+        "S5",
+        "S6",
+        "S7"
+      ],
+      "evidence_summary": "Promising in selected dry-eye/computer-user populations; generalization limited",
+      "claim": "Gentle opt-in reminder for comfortable blinking"
+    },
+    {
+      "id": "ergonomics",
+      "tier": "core",
+      "default_enabled": false,
+      "reference_ids": [
+        "S1",
+        "S7",
+        "S8"
+      ],
+      "evidence_summary": "Professional guidance and multifactorial DES reviews",
+      "claim": "Information on comfortable viewing and glare reduction"
+    },
+    {
+      "id": "near_far_focus_switch",
+      "tier": "optional_exploratory",
+      "default_enabled": false,
+      "reference_ids": [
+        "S7",
+        "S8"
+      ],
+      "evidence_summary": "Physiological plausibility but no clear general DES prevention efficacy",
+      "claim": "Optional exploratory activity; incremental benefit unproven"
+    },
+    {
+      "id": "chromablur",
+      "tier": "research_only",
+      "default_enabled": false,
+      "reference_ids": [
+        "S9"
+      ],
+      "evidence_summary": "Lab-measured accommodation under controlled optics; no app benefit demonstrated",
+      "claim": "Research simulation only; not a validated eye exercise"
+    },
+    {
+      "id": "blue_light_filter_for_strain",
+      "tier": "not_recommended",
+      "default_enabled": false,
+      "reference_ids": [
+        "S10"
+      ],
+      "evidence_summary": "No persuasive short-term strain benefit from blue-light filtering lenses",
+      "claim": "Do not market as prevention or treatment for strain"
+    }
+  ]
+}
