@@ -2,17 +2,21 @@
 
 **این نرم‌افزار یادآور استراحت است؛ نه ابزار پزشکی، اندازه‌گیری تطابق چشم یا درمان.**
 
-## راه‌اندازی
+## راه‌اندازی با uv در Ubuntu 24.04
+
+در سیستم‌هایی که `python3` از Linuxbrew 3.14 است ولی `python3-tk` متعلق به Python 3.12 اوبونتو است، لازم است از Python سیستم با محیط uv استفاده شود:
+
 ```bash
-git clone https://github.com/ehsanrs2/GazeBloom.git
-cd GazeBloom
-# در صورت نیاز در اوبونتو/دبیان:
+cd /home/ai/project/My/GazeBloom
 sudo apt install python3-tk
-python3 -m gazebloom
-python3 -m gazebloom --interval-min 10
-# فقط با رضایت خودتان؛ ثبت حداقلی و محلی رویدادها:
-python3 -m gazebloom --log ~/gazebloom-events.jsonl
+/usr/bin/python3 -c 'import _tkinter; print("Tk available")'
+# اگر قبلاً .venv با مفسر نامناسب ایجاد شده، فقط پوشه .venv همین پروژه را حذف کنید.
+uv sync --python /usr/bin/python3 --no-managed-python --locked
+uv run --python /usr/bin/python3 --no-managed-python --locked \
+  python -m gazebloom --interval-min 1
 ```
+
+برای آزمایش‌های پردازش تصویر وابستگی‌ها را با `uv sync --locked --extra research` نصب کنید. راهنمای تکمیلی: [UV_SETUP_FA.md](UV_SETUP_FA.md).
 
 در لینوکس اگر `notify-send` موجود باشد، اعلان سیستم به‌صورت best-effort نمایش داده می‌شود. در غیر این صورت یادآور در پنجره برنامه است. اجرای پس‌زمینه پس از بستن برنامه وجود ندارد.
 

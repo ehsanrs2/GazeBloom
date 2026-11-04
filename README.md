@@ -23,8 +23,10 @@ Research status: **no objective human accommodation measurements and no validate
 The first **manual, offline-first screen-break reminder** prototype uses standard-library Tkinter:
 
 ```bash
-python3 -m gazebloom
-python3 -m gazebloom --interval-min 10
+sudo apt install python3-tk                 # Ubuntu: OS library
+uv sync --python /usr/bin/python3 --no-managed-python --locked
+uv run --python /usr/bin/python3 --no-managed-python --locked \
+  python -m gazebloom --interval-min 10
 ```
 
 No logging by default. Add explicit `--log ~/gazebloom-events.jsonl` to save event-only records locally. No eye measurement, verified screen-viewing time or efficacy is claimed. [Instructions and limitations (Persian)](docs/DESKTOP_REMINDER_V0_FA.md).
@@ -40,7 +42,16 @@ No logging by default. Add explicit `--log ~/gazebloom-events.jsonl` to save eve
 | [`docs/ROADMAP.md`](docs/ROADMAP.md) | Research-to-app milestones | Proposed, not implemented |
 | [`docs/SAFETY.md`](docs/SAFETY.md) | Safe interpretation and boundaries | Required context |
 
-## Quick start
+## Package management: uv
+
+The standard GazeBloom workflow uses [uv](https://docs.astral.sh/uv/). `pyproject.toml` contains application and optional `research` dependencies; `uv.lock` pins exact resolutions. **Tkinter is native to the selected Python build** and is not installed from PyPI. For Ubuntu with Linuxbrew Python, see [the interpreter / uv guide](docs/UV_SETUP_FA.md).
+
+```bash
+uv sync --locked --extra research
+uv run --locked --extra research python -m unittest discover -s tests -v
+```
+
+## Legacy quick start for scientific scripts
 
 Requires **Python 3.10+** and a development environment with common numerical/scientific dependencies:
 

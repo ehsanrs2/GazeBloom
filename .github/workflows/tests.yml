@@ -2,32 +2,63 @@ name: Python research checks
 on:
   push:
   pull_request:
+
 permissions:
   contents: read
+
 jobs:
   tests:
-    runs-on: ubuntu-latest
+    runs-on: ubuntu-24.04
     strategy:
       fail-fast: false
       matrix:
-        python-version: ['3.11', '3.13']
+        python-version: ["3.12", "3.13"]
+    env:
+      UV_PYTHON: ${{ matrix.python-version }}
     steps:
       - uses: actions/checkout@v4
-      - uses: actions/setup-python@v5
+      - name: Set up uv
+        uses: astral-sh/setup-uv@v10
         with:
-          python-version: ${{ matrix.python-version }}
-          cache: pip
-      - run: python -m pip install -r requirements.txt
-      - name: Reminder timer and private logging checks
-        run: python -m unittest discover -s tests -p 'test_*.py' -v
-      - name: Evidence and intervention policy invariants
-        run: python -m unittest discover -s research -p 'test_*.py' -v
-      - name: Gaussian / LCA model sanity
-        run: python experiments/gaussian_lca_v0/test_model.py
+          version: "0.10.0"
+          enable-cache: true
+      - name: Install Python
+        run: uv python install "${{ matrix.python-version }}"
+      - name: Resolve dependencies (bootstrap uv.lock)
+        run: uv lock
+      - name: Sync fully isolated research environment
+        run: uv sync --locked --extra research
+      - name: Keep generated uv.lock as CI artifact for initial migration
+        uses: actions/upload-artifact@v4
+        with:
+          name: uv-lock-py${{ matrix.python-version }}
+          path: uv.lock
+          if-no-files-found: error
+      - name: Desktop reminder unit tests
+        run: uv run --locked --extra research python -m unittest discover -s tests -p 'test_*.py' -v
+      - name: Evidence policy unit tests
+        run: uv run --locked --extra research python -m unittest discover -s research -p 'test_*.py' -v
+      - name: Gaussian/LCA model tests
+        run: uv run --locked --extra research python experiments/gaussian_lca_v0/test_model.py
       - name: Wave-optics and analysis tests
-        working-directory: experiments/waveoptics_q1_v1
-        run: python -m unittest -v test_waveoptics test_accommodation_analysis
-      - name: Generate tiny media smoke test
-        run: python experiments/gaussian_lca_v0/chromablur_pilot.py --out /tmp/gazebloom-pilot --width 256 --height 240 --seconds 1 --fps 4
-      - name: Generate wave-optics validation smoke test
-        run: python experiments/waveoptics_q1_v1/waveoptics_validation.py --out /tmp/gazebloom-q1
+        run: uv run --locked --extra research python -m unittest discover -s experiments/waveoptics_q1_v1 -p 'test_*.py' -v
+      - name: Generate small media
+        run: uv run --locked --extra research python experiments/gaussian_lca_v0/chromablur_pilot.py --out /tmp/gazebloom-pilot --width 256 --height 240 --seconds 1 --fps 4
+      - name: Generate wave-optics outputs
+        run: uv run --locked --extra research python experiments/waveoptics_q1_v1/waveoptics_validation.py --out /tmp/gazebloom-q1
+
+  ubuntu-tkinter:
+    runs-on: ubuntu-24.04
+    steps:
+      - uses: actions/checkout@v4
+      - name: Install Tk bindings for Ubuntu's Python
+        run: sudo apt-get update && sudo apt-get install -y python3-tk
+      - name: Verify OS interpreter has Tk
+        run: /usr/bin/python3 -c 'import _tkinter, tkinter; print("system Tk:", _tkinter.TK_VERSION)'
+      - uses: astral-sh/setup-uv@v10
+        with:
+          version: "0.10.0"
+      - name: Sync uv against Tk-capable system interpreter
+        run: uv sync --python /usr/bin/python3 --no-managed-python
+      - name: Verify uv environment preserves Tk
+        run: uv run --python /usr/bin/python3 --no-managed-python python -c 'import sys, _tkinter, tkinter, gazebloom; print(sys.executable, _tkinter.TK_VERSION)'

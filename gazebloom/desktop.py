@@ -38,7 +38,14 @@ def launch(interval_min: int = 20, log_path: str | None = None) -> None:
         import tkinter as tk
         from tkinter import ttk
     except ImportError as exc:
-        raise RuntimeError("Tkinter is unavailable; install python3-tk for your Python") from exc
+        raise RuntimeError(
+            "Tkinter is unavailable for the selected Python: "
+            f"{sys.executable}. On Ubuntu, install python3-tk and select "
+            "the matching interpreter with: "
+            "uv sync --python /usr/bin/python3 --no-managed-python; "
+            "uv run --python /usr/bin/python3 --no-managed-python "
+            "python -m gazebloom. See docs/UV_SETUP_FA.md."
+        ) from exc
 
     if not 1 <= interval_min <= 120:
         raise ValueError("interval must be between 1 and 120 minutes")
