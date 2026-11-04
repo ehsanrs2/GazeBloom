@@ -3,6 +3,7 @@ from __future__ import annotations
 
 import subprocess
 import threading
+import time
 import unittest
 from types import SimpleNamespace
 
@@ -193,7 +194,7 @@ class WatcherTests(unittest.TestCase):
                 if found is not None:
                     break
                 # Allow worker to enqueue without depending on a sleep-heavy test.
-                called.wait(0.01)
+                time.sleep(0.01)
             self.assertIsNotNone(found)
             self.assertEqual((found.idle_seconds, found.backend), (5.0, "mock"))
         finally:
