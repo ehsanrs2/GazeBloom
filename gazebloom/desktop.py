@@ -13,6 +13,7 @@ import subprocess
 import sys
 import time
 
+from .activity import IdleGate, IdleWatcher, LinuxIdleProbe
 from .engine import BreakTimer, Settings, State, TransitionError
 from .eventlog import LocalEventLog
 
@@ -33,7 +34,13 @@ def maybe_notify() -> None:
             pass
 
 
-def launch(interval_min: int = 20, log_path: str | None = None) -> None:
+def launch(
+    interval_min: int = 20,
+    log_path: str | None = None,
+    *,
+    idle_aware: bool = False,
+    idle_threshold_sec: int = 60,
+) -> None:
     try:
         import tkinter as tk
         from tkinter import ttk
@@ -52,16 +59,23 @@ def launch(interval_min: int = 20, log_path: str | None = None) -> None:
 
     engine = BreakTimer(Settings(interval_seconds=interval_min * 60))
     logger = LocalEventLog(log_path, interval_seconds=interval_min * 60, break_seconds=20) if log_path else None
+    idle_gate = IdleGate(threshold_seconds=idle_threshold_sec)
+    idle_watcher = IdleWatcher(LinuxIdleProbe()) if idle_aware else None
     root = tk.Tk()
     root.title("GazeBloom — Gentle screen breaks")
-    root.geometry("525x375")
-    root.minsize(425, 355)
+    root.geometry("525x415")
+    root.minsize(425, 395)
     frame = ttk.Frame(root, padding=20)
     frame.pack(expand=True, fill="both")
     heading = ttk.Label(frame, text="GazeBloom", font=("", 20, "bold"))
     heading.pack(pady=(0, 5))
     state_line = ttk.Label(frame, text="Stopped")
     state_line.pack(pady=5)
+    activity_line = ttk.Label(frame, text=(
+        "Activity detection initializing (opt-in)" if idle_watcher
+        else "Activity detection off (manual timer)"
+    ))
+    activity_line.pack(pady=2)
     countdown = ttk.Label(frame, text="—", font=("", 24))
     countdown.pack(pady=6)
     advice = ttk.Label(frame, wraplength=475, justify="center",
@@ -86,8 +100,10 @@ def launch(interval_min: int = 20, log_path: str | None = None) -> None:
         now = time.monotonic()
         try:
             if name == "start":
+                idle_gate.manual_override()
                 engine.start(now)
             elif name == "pause":
+                idle_gate.manual_override()
                 if engine.state == State.PAUSED:
                     engine.resume(now)
                 else:
@@ -103,6 +119,7 @@ def launch(interval_min: int = 20, log_path: str | None = None) -> None:
             elif name == "interrupt":
                 engine.interrupt_break(now)
             elif name == "stop":
+                idle_gate.manual_override()
                 engine.stop(now)
         except (TransitionError, ValueError) as exc:
             advice.config(text=str(exc))
@@ -169,6 +186,8 @@ def launch(interval_min: int = 20, log_path: str | None = None) -> None:
 
     last_mono = time.monotonic()
     last_wall = time.time()
+    if idle_watcher is not None:
+        idle_watcher.start()
 
     def tick() -> None:
         nonlocal last_mono, last_wall
@@ -177,9 +196,28 @@ def launch(interval_min: int = 20, log_path: str | None = None) -> None:
         last_mono, last_wall = now, wall
         # Conservative signal, not proof of sleep: also triggered by big clock changes.
         if abs(wall_diff - mono_diff) > 8:
+            # No auto-resume after an abnormal time discontinuity.
+            idle_gate.manual_override()
             engine.clock_gap(now)
         else:
+            if idle_watcher is not None:
+                sample = idle_watcher.latest()
+                if sample is None or now - sample.observed_monotonic > 8:
+                    idle_gate.observe(None, now, engine)
+                else:
+                    idle_gate.observe(sample.idle_seconds, now, engine)
             engine.advance(now)
+        if idle_watcher is not None:
+            if idle_gate.status == "away":
+                activity_line.config(text="Away detected — work countdown held")
+            elif idle_gate.status == "active":
+                activity_line.config(text="Recent keyboard/mouse activity detected (not eye gaze)")
+            else:
+                activity_line.config(text=(
+                    "Idle status unavailable — paused; resume manually"
+                    if idle_gate.auto_paused else
+                    "Idle status unavailable — ordinary timer active"
+                ))
         if engine.state == State.PROMPT:
             engine.delivered(now)
         flush()
@@ -187,6 +225,8 @@ def launch(interval_min: int = 20, log_path: str | None = None) -> None:
         root.after(500, tick)
 
     def close() -> None:
+        if idle_watcher is not None:
+            idle_watcher.stop()
         engine.stop(time.monotonic())
         flush()
         root.destroy()
@@ -203,8 +243,21 @@ def main() -> None:
                         help="reminder interval in minutes (1..120, default 20)")
     parser.add_argument("--log", type=Path, default=None,
                         help="OPT IN: append event-only JSONL to this local file")
+    parser.add_argument("--idle-aware", action="store_true",
+                        help="OPT IN: hold work countdown when Linux input is idle")
+    parser.add_argument("--idle-threshold-sec", type=int, default=60,
+                        help="absence of keyboard/mouse input before holding countdown (15..3600)")
     args = parser.parse_args()
-    launch(args.interval_min, str(args.log) if args.log is not None else None)
+    if not 15 <= args.idle_threshold_sec <= 3600:
+        parser.error("--idle-threshold-sec must be between 15 and 3600")
+    if not args.idle_aware and args.idle_threshold_sec != 60:
+        parser.error("--idle-threshold-sec requires --idle-aware")
+    launch(
+        args.interval_min,
+        str(args.log) if args.log is not None else None,
+        idle_aware=args.idle_aware,
+        idle_threshold_sec=args.idle_threshold_sec,
+    )
 
 
 if __name__ == "__main__":
