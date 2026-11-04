@@ -52,6 +52,19 @@ jobs:
           path: ${{ runner.temp }}/gazebloom-r1-pilot/
           if-no-files-found: error
           retention-days: 30
+      - name: R2 display-inversion numerical tests
+        run: uv run --locked --extra research python -m unittest discover -s experiments/r2_display_inverse -p 'test_*.py' -v
+      - name: R2 nominal four-case simulation pilot (Python 3.12)
+        if: matrix.python-version == '3.12'
+        run: uv run --locked --extra research python experiments/r2_display_inverse/pilot.py --out "$RUNNER_TEMP/gazebloom-r2-pilot"
+      - name: Preserve R2 simulation-only pilot
+        if: matrix.python-version == '3.12'
+        uses: actions/upload-artifact@v4
+        with:
+          name: gazebloom-r2-pilot-simulation-only
+          path: ${{ runner.temp }}/gazebloom-r2-pilot/
+          if-no-files-found: error
+          retention-days: 30
       - name: Generate small media
         run: uv run --locked --extra research python experiments/gaussian_lca_v0/chromablur_pilot.py --out /tmp/gazebloom-pilot --width 256 --height 240 --seconds 1 --fps 4
       - name: Generate wave-optics outputs

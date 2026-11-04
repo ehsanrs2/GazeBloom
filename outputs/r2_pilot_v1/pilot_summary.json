@@ -1,0 +1,11 @@
+{
+  "comparisons": "unmodified vs shared-gray optimization vs per-channel RGB optimization",
+  "complete": true,
+  "human_accommodation": "NOT_MEASURED",
+  "non_independent_model_evaluation": true,
+  "note": "Three RGB fields have greater capacity than one gray field; this is a model-fit comparison, not biological evidence.",
+  "optical_calibration": "NONE",
+  "rows": 4,
+  "scope": "SIMULATION_ONLY",
+  "therapeutic_effect": "NOT_MEASURED"
+}
