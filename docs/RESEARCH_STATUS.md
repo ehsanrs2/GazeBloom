@@ -44,6 +44,17 @@ this experiment carries **inverse crime** risk and does not establish real-world
 optical accuracy. It is not a validated ChromaBlur reproduction or evidence that
 ocular accommodation changes. See [R2 protocol](../experiments/r2_display_inverse/README_FA.md).
 
+## R3 — alternative synthetic forward-model stress test
+
+Track B R2 is integrated into main as a simulation-only image inverse solver.
+R3 evaluates R2-optimized images under a **separately implemented synthetic**
+pupil-FFT forward model with toy polychromatic spectra, astigmatism/coma,
+gamma uncertainty, and channel mixing. It freezes 2 scenes x 2 signed
+defocus cases x 6 evaluator profiles. Passing a cross-simulator stress
+test is NOT physical validation, and does NOT measure eye accommodation.
+
+See [R3 protocol](../experiments/r3_model_mismatch/README_FA.md).
+
 ## Evidence gates
 1. Check model optics, units, gamma and RGB spectral assumptions independently.
 2. Replace restricted Gaussian rendering with physically constrained screen image optimization; include achievable intensity, clipping, and colorimetry.
