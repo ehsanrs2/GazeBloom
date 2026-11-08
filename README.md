@@ -144,6 +144,17 @@ uv run --locked --extra research python experiments/r3_model_mismatch/evaluate.p
 See the [R3 protocol (Persian)](experiments/r3_model_mismatch/README_FA.md).
 R3 cannot establish human accommodation or therapeutic benefit.
 
+### R3 completed synthetic pilot (November 8, 2026)
+
+All **24/24 frozen in-silico stress comparisons** favored optimized RGB over
+optimized shared-gray on the **alternative synthetic forward model**.
+Median relative retinal-image L2 discrepancy: **0.04725 RGB**, versus
+**0.07888 gray** and **0.09661 unmodified**. Gamma mismatch worsened fit.
+This is **not** independent physical validation, measured ocular accommodation,
+or evidence of an effective screen exercise. See the
+[R3 reviewed results (Persian)](experiments/r3_model_mismatch/RESULTS_REVIEW_FA.md)
+and [exact archived CSV](outputs/r3_mismatch_v1/stress.csv).
+
 ## Core research questions
 
 - **Q1 — optical feasibility:** Can a static-screen image reproduce a desired *modeled retinal blur cue* under declared assumptions?

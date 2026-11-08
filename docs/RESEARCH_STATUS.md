@@ -55,6 +55,8 @@ test is NOT physical validation, and does NOT measure eye accommodation.
 
 See [R3 protocol](../experiments/r3_model_mismatch/README_FA.md).
 
+The completed R3 experiment reported **24/24 in-model-family synthetic stress comparisons** with lower RGB relative image error than shared-gray, under six frozen alternative profiles. See [R3 results](../experiments/r3_model_mismatch/RESULTS_REVIEW_FA.md). These are *not* independent physical optic measurements and do not establish Q1, Q2 or Q3.
+
 ## Evidence gates
 1. Check model optics, units, gamma and RGB spectral assumptions independently.
 2. Replace restricted Gaussian rendering with physically constrained screen image optimization; include achievable intensity, clipping, and colorimetry.

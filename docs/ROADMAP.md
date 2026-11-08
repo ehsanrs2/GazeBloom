@@ -22,7 +22,8 @@
 - [x] R2 bounded, image-specific RGB inverse optimization with [0,1] ideal linear-intensity constraints, optional chroma penalty and gamma perturbations (research prototype).
 - [x] Review R2 pilot ([numerical report](../experiments/r2_display_inverse/RESULTS_REVIEW_FA.md)); RGB fits better on the same model, but physical Q1 remains unresolved.
 - [x] Implement R3 alternative-polychromatic forward simulator, synthetic aberrations and 24-row frozen mismatch protocol.
-- [ ] Review full R3 results and evaluate whether R2 image-specific gains persist under mismatches.
+- [x] Review R3 24-row synthetic mismatch output: RGB won all artificial profiles, yet physical validity remains unresolved ([report](../experiments/r3_model_mismatch/RESULTS_REVIEW_FA.md)).
+- [ ] Develop capacity-controlled comparisons, perceptual artifact metrics and display characterization (R4).
 - [ ] Replicate with other scene families, measured RGB SPD/EOTF or independent optical measurements, and perceptual constraints.
 - [ ] Calibrate actual display primaries/gamma and test with independent PSF model; [0,1] normalization alone is not full display-aware validation.
 - [x] R1 pilot design sweeps distance, pixel pitch, pupil size and defocus sign/magnitude.
