@@ -21,11 +21,12 @@ import numpy as np
 BASE = Path(__file__).resolve().parents[1]
 sys.path.insert(0, str(BASE / "r2_display_inverse"))
 sys.path.insert(0, str(BASE / "r3_model_mismatch"))
+sys.path.insert(0, str(BASE.parent))
 sys.path.insert(0, str(BASE / "r4_directional_controls"))
 from inverse import forward, optical_otfs, optimize_display  # noqa: E402
 from alt_optics import (code_to_light, mix_channels, optical_forward, optics_otfs,
                         relative_l2, validation_profiles)  # noqa: E402
-from evaluate import FROZEN_SCENES, make_scene  # noqa: E402
+from experiments.r3_model_mismatch.evaluate import FROZEN_SCENES, make_scene  # noqa: E402
 # Both R3 and R4 modules are named "evaluate"; use R4's score routine by
 # importing a uniquely named compatibility module below (not shadowed).
 from directional_metric import signed_alignment, artifact_proxy  # noqa: E402
