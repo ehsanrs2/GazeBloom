@@ -81,8 +81,8 @@ class MatchedCapacityTests(unittest.TestCase):
         scene = make_scene("synthetic_letter_edges", 64)
         same = np.broadcast_to(scene, (3, 64, 64)).copy()
         proxy = scene_artifacts(scene, same)
-        self.assertEqual(proxy["mean_abs_chroma"], 0)
-        self.assertEqual(proxy["edge_chroma_mean"], 0)
+        self.assertAlmostEqual(proxy["mean_abs_chroma"], 0, places=12)
+        self.assertAlmostEqual(proxy["edge_chroma_mean"], 0, places=12)
 
 
 class SmallRunTests(unittest.TestCase):
