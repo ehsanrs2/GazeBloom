@@ -20,11 +20,11 @@ R4 نشان داد وقتی کانال R و B در یک تصویر RGB آماد�
 
 | بازو | مدل اپتیکی بهینه‌ساز | تعداد متغیر |
 |---|---|---:|
-| \`mapped_rgb\` | PSFهای R/G/B با ترتیب اصلی R2 | 3HW |
-| \`permuted_fit_rgb\` | PSF کانال R و B در **مدل آموزش** تعویض شده است؛ هدف ثابت می‌ماند | 3HW |
-| \`achromatic_fit_rgb\` | میانگین سه OTF در **مدل آموزش** برای هر سه کانال استفاده می‌شود؛ هدف ثابت می‌ماند | 3HW |
+| `mapped_rgb` | PSFهای R/G/B با ترتیب اصلی R2 | 3HW |
+| `permuted_fit_rgb` | PSF کانال R و B در **مدل آموزش** تعویض شده است؛ هدف ثابت می‌ماند | 3HW |
+| `achromatic_fit_rgb` | میانگین سه OTF در **مدل آموزش** برای هر سه کانال استفاده می‌شود؛ هدف ثابت می‌ماند | 3HW |
 
-دو شاهد کمکی نیز داریم: \`optimized_gray\` با HW متغیر و \`unmodified\`.
+دو شاهد کمکی نیز داریم: `optimized_gray` با HW متغیر و `unmodified`.
 
 **احتیاط مهم:** هدف ثابت از مدل R2 با نگاشت درست تولید می‌شود، بنابراین بازوی mapped از لحاظ **درست‌بودن مشخصات مدل نسبت به هدف ساختگی** از ابتدا مزیت نظری دارد. این طراحی ظرفیت را برابر می‌کند، ولی تمام عامل‌های مخدوش‌گر را حذف نمی‌کند. مدل خنثی از نظر رنگ یک تقریب ریاضی است و نمایشگر بدون LCA واقعی را بازنمایی نمی‌کند.
 
@@ -40,9 +40,9 @@ R4 نشان داد وقتی کانال R و B در یک تصویر RGB آماد�
 - گزارش همگرایی بهینه‌ساز و تعداد متغیرهای هر بازو.
 
 **معیار از پیش تعیین‌شده:**
-- تعداد سطرهای \`A_mapped > A_permuted_fit\`
-- تعداد سطرهای \`A_mapped > A_achromatic_fit\`
-- تعداد سطرهای دارای \`A_mapped > 0\`
+- تعداد سطرهای `A_mapped > A_permuted_fit`
+- تعداد سطرهای `A_mapped > A_achromatic_fit`
+- تعداد سطرهای دارای `A_mapped > 0`
 - تمامی شکست‌ها، برابری‌ها، امتیازهای منفی و تغییرات L2 گزارش می‌شوند؛ نتیجه مثبت، **اثبات علت زیستی نیست**.
 
 ## آزمون‌ها و شروط نرم‌افزاری
@@ -53,7 +53,7 @@ R4 نشان داد وقتی کانال R و B در یک تصویر RGB آماد�
 - ساخت CSV، JSON و manifest شامل SHA-256 همه کدهای آموزشی و ارزیابی؛
 - اجرای کامل با uv در GitHub Actions روی Python 3.12 و آزمون‌های مستقل روی 3.12/3.13.
 
-\`\`\`bash
+```bash
 uv sync --locked --extra research
 uv run --locked --extra research python -m unittest discover \
   -s experiments/r5_equal_capacity_controls -p 'test_*.py' -v
@@ -61,7 +61,7 @@ uv run --locked --extra research python -m unittest discover \
 uv run --locked --extra research \
   python experiments/r5_equal_capacity_controls/evaluate.py \
   --out outputs/reproduction/r5_equal_capacity
-\`\`\`
+```
 
 ## محدودیت‌ها و گیت تصمیم
 
