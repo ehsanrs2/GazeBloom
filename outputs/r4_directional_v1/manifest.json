@@ -1,0 +1,15 @@
+{
+  "data_class": "synthetic and exploratory; no measured accommodation",
+  "output_names": [
+    "direction.csv",
+    "summary.json",
+    "manifest.json"
+  ],
+  "source_sha256": {
+    "r2_display_inverse/inverse.py": "f6f94fb1eb2bec539d4cfb55897d6da309c24c4e2c837b4a28f67c9209fc8651",
+    "r3_model_mismatch/alt_optics.py": "f75634d7db9dda8b753d3771a7b62514e047daa6cd6a6fdc448d0d2fcdc9b68a",
+    "r3_model_mismatch/evaluate.py": "201df2e1a2a28b140fc723694d9bb6e00fbc62328de4d7dc3e5f1c15f191d309",
+    "r4_directional_controls/evaluate.py": "3811cc9b7d91f8e32687786264c9c7f8013d94bd915430c22942bb861ca224ef"
+  },
+  "study": "R4_SIGNED_RGB_MAPPING_STRESS_V1"
+}

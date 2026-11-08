@@ -1,0 +1,72 @@
+{
+  "defined_directional_rows": 12,
+  "key_limitations": [
+    "Alignment means template-distance orientation, not human accommodation direction",
+    "Swapping R/B preserves RGB degrees and chroma amplitude, but is not an independently optimized null under the actual color mapping",
+    "Grayscale optimized control has only 1/3 as many pixel variables",
+    "R2 training and R3 scoring share scalar Fourier optics and an LCA equation",
+    "Target retinal images are synthetic, not optically measured",
+    "No display calibration, human accommodation, eye comfort, safety or clinical effect",
+    "Each scene separately optimized; no universal transferable filter evaluated"
+  ],
+  "median_gray_alignment": 0.009597569438409843,
+  "median_rb_swap_alignment": -0.601551533724863,
+  "median_rgb_alignment": 0.668564828467027,
+  "optimizer_statuses": [
+    {
+      "gray_iterations": 8,
+      "gray_success": true,
+      "rgb_iterations": 38,
+      "rgb_success": true,
+      "scene": "original_texture",
+      "sign_D": -0.45
+    },
+    {
+      "gray_iterations": 8,
+      "gray_success": true,
+      "rgb_iterations": 36,
+      "rgb_success": true,
+      "scene": "original_texture",
+      "sign_D": 0.45
+    },
+    {
+      "gray_iterations": 7,
+      "gray_success": true,
+      "rgb_iterations": 38,
+      "rgb_success": true,
+      "scene": "synthetic_letter_edges",
+      "sign_D": -0.45
+    },
+    {
+      "gray_iterations": 8,
+      "gray_success": true,
+      "rgb_iterations": 40,
+      "rgb_success": true,
+      "scene": "synthetic_letter_edges",
+      "sign_D": 0.45
+    }
+  ],
+  "optimizers_all_success": true,
+  "profiles": [
+    "alt_monochrome",
+    "spectral_3sample",
+    "spectral_aberrated",
+    "spectral_aberrated_gamma24",
+    "spectral_aberrated_pupil45",
+    "spectral_aberrated_leakage"
+  ],
+  "rgb_beats_channel_swap_count": 12,
+  "rgb_beats_gray_count": 12,
+  "rgb_positive_alignment_count": 12,
+  "rows": 12,
+  "scenes": [
+    "original_texture",
+    "synthetic_letter_edges"
+  ],
+  "signed_delta_D": [
+    -0.45,
+    0.45
+  ],
+  "study": "R4_SIGNED_RGB_MAPPING_STRESS_V1",
+  "verdict": "DIAGNOSTIC_ONLY_NO_ACCOMMODATION_CLAIM"
+}
