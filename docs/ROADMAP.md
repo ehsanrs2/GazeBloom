@@ -25,7 +25,9 @@
 - [x] Review R3 24-row synthetic mismatch output: RGB won all artificial profiles, yet physical validity remains unresolved ([report](../experiments/r3_model_mismatch/RESULTS_REVIEW_FA.md)).
 - [x] Implement R4 signed-template score, RGB red/blue-swap capacity-preserving null and numerical color-artifact proxies; results not yet reviewed.
 - [x] Review all 12 R4 paired model outputs: RGB signed alignment positive and R/B-swapped negative across frozen synthetic profiles; no human validation ([review](../experiments/r4_directional_controls/RESULTS_REVIEW_FA.md)).
-- [ ] Add an **independently optimized** equal-capacity null, psychophysical artifact limits, and real display characterization before physical claims.
+- [x] R5 implementation: two independently fitted 3HW RGB null optical operators (R/B swapped PSF and achromatic PSF), with identical synthetic targets and optimization constraints; results pending.
+- [ ] Compare R5 full-grid results and quality/energy-matched controls; never infer response of real eyes from synthetic signed alignment.
+- [ ] Define psychophysical artifact limits and real display characterization before physical claims.
 - [ ] Replicate with other scene families, measured RGB SPD/EOTF or independent optical measurements, and perceptual constraints.
 - [ ] Calibrate actual display primaries/gamma and test with independent PSF model; [0,1] normalization alone is not full display-aware validation.
 - [x] R1 pilot design sweeps distance, pixel pitch, pupil size and defocus sign/magnitude.
