@@ -172,6 +172,19 @@ See the [R4 protocol (Persian)](experiments/r4_directional_controls/README_FA.md
 Even positive directional scores do **not** demonstrate eye accommodation,
 safety, or therapeutic benefit.
 
+### R4 numerical results (November 8, 2026)
+
+In a **12-pair synthetic** alternative-optics evaluation, optimized RGB
+achieved positive signed template alignment in **12/12** profiles and outscored
+the red/blue-swapped equal-value RGB control in **12/12**. Median signed
+alignment: RGB **+0.6686**, swapped RGB **−0.6016**, optimized gray **+0.0096**.
+This identifies color-channel mapping sensitivity *within these models*;
+it is **not** measured accommodation, true optical feasibility, or therapy.
+
+See [R4 scientific review (Persian)](experiments/r4_directional_controls/RESULTS_REVIEW_FA.md),
+[exact 12-row CI CSV](outputs/r4_directional_v1/direction.csv), and
+[model provenance](outputs/r4_directional_v1/manifest.json).
+
 ## Core research questions
 
 - **Q1 — optical feasibility:** Can a static-screen image reproduce a desired *modeled retinal blur cue* under declared assumptions?
