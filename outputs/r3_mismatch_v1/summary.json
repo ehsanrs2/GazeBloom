@@ -1,0 +1,114 @@
+{
+  "all_optimizers_converged": true,
+  "conclusion_scope": "IN_SILICO_ONLY_NOT_INDEPENDENT_PHYSICAL_EVIDENCE",
+  "fitting_status": [
+    {
+      "delta_D": -0.45,
+      "gray_converged": true,
+      "gray_iterations": 8,
+      "rgb_converged": true,
+      "rgb_iterations": 38,
+      "scene": "original_texture"
+    },
+    {
+      "delta_D": 0.45,
+      "gray_converged": true,
+      "gray_iterations": 8,
+      "rgb_converged": true,
+      "rgb_iterations": 36,
+      "scene": "original_texture"
+    },
+    {
+      "delta_D": -0.45,
+      "gray_converged": true,
+      "gray_iterations": 7,
+      "rgb_converged": true,
+      "rgb_iterations": 38,
+      "scene": "synthetic_letter_edges"
+    },
+    {
+      "delta_D": 0.45,
+      "gray_converged": true,
+      "gray_iterations": 8,
+      "rgb_converged": true,
+      "rgb_iterations": 40,
+      "scene": "synthetic_letter_edges"
+    }
+  ],
+  "max_shared_minus_rgb_error": 0.03734021321348287,
+  "median_shared_minus_rgb_error": 0.02828402670681135,
+  "min_shared_minus_rgb_error": 0.015623438533568873,
+  "n_directions": 2,
+  "n_profiles": 6,
+  "n_scenes": 2,
+  "not_covered": [
+    "measured display RGB spectra",
+    "measured EOTF / ICC calibration",
+    "real optical wavefront/PSF",
+    "actual human accommodation",
+    "retinal physiology and cone spectral sensitivities",
+    "physical stimulus safety and clinical eye-strain outcomes",
+    "generalization of one prefilter across unseen images"
+  ],
+  "profile_definitions": [
+    {
+      "astig_opd_um": 0.0,
+      "channel_leakage": 0.0,
+      "coma_opd_um": 0.0,
+      "gamma_actual": 2.2,
+      "name": "alt_monochrome",
+      "pupil_mm": 4.0,
+      "spectral_halfwidth_nm": 0.0
+    },
+    {
+      "astig_opd_um": 0.0,
+      "channel_leakage": 0.0,
+      "coma_opd_um": 0.0,
+      "gamma_actual": 2.2,
+      "name": "spectral_3sample",
+      "pupil_mm": 4.0,
+      "spectral_halfwidth_nm": 18.0
+    },
+    {
+      "astig_opd_um": 0.1,
+      "channel_leakage": 0.0,
+      "coma_opd_um": 0.05,
+      "gamma_actual": 2.2,
+      "name": "spectral_aberrated",
+      "pupil_mm": 4.0,
+      "spectral_halfwidth_nm": 18.0
+    },
+    {
+      "astig_opd_um": 0.1,
+      "channel_leakage": 0.0,
+      "coma_opd_um": 0.05,
+      "gamma_actual": 2.4,
+      "name": "spectral_aberrated_gamma24",
+      "pupil_mm": 4.0,
+      "spectral_halfwidth_nm": 18.0
+    },
+    {
+      "astig_opd_um": 0.1,
+      "channel_leakage": 0.0,
+      "coma_opd_um": 0.05,
+      "gamma_actual": 2.2,
+      "name": "spectral_aberrated_pupil45",
+      "pupil_mm": 4.5,
+      "spectral_halfwidth_nm": 18.0
+    },
+    {
+      "astig_opd_um": 0.1,
+      "channel_leakage": 0.06,
+      "coma_opd_um": 0.05,
+      "gamma_actual": 2.2,
+      "name": "spectral_aberrated_leakage",
+      "pupil_mm": 4.0,
+      "spectral_halfwidth_nm": 18.0
+    }
+  ],
+  "rgb_beats_shared_count": 24,
+  "rgb_beats_unmodified_count": 24,
+  "robustness_gate": "SYNTHETIC_STRESS_CASES_ALL_WIN_NO_PHYSICAL_VALIDATION",
+  "rows": 24,
+  "study": "R3_ALTERNATE_SURROGATE_STRESS_V1"
+}

@@ -128,6 +128,33 @@ does *not* verify actual accommodation or eye-strain relief. The display spectra
 distribution, measured gamma, viewer-specific aberrations and out-of-model testing are
 not yet covered. See [R2 scientific protocol (Persian)](experiments/r2_display_inverse/README_FA.md).
 
+## Track B R3 — model-mismatch stress evaluation
+
+R2 is merged. The next stage freezes two synthetic scene families and six
+alternative forward-optics/display profiles (24 rows across both defocus signs).
+The R2-optimized images are evaluated with a **separate toy forward simulator**
+that includes polychromatic primary samples, synthetic astigmatism/coma, gamma
+mismatch and channel leakage. It is still simulation, not calibrated optics.
+
+```bash
+uv run --locked --extra research python experiments/r3_model_mismatch/evaluate.py \
+  --out outputs/reproduction/r3_mismatch
+```
+
+See the [R3 protocol (Persian)](experiments/r3_model_mismatch/README_FA.md).
+R3 cannot establish human accommodation or therapeutic benefit.
+
+### R3 completed synthetic pilot (November 8, 2026)
+
+All **24/24 frozen in-silico stress comparisons** favored optimized RGB over
+optimized shared-gray on the **alternative synthetic forward model**.
+Median relative retinal-image L2 discrepancy: **0.04725 RGB**, versus
+**0.07888 gray** and **0.09661 unmodified**. Gamma mismatch worsened fit.
+This is **not** independent physical validation, measured ocular accommodation,
+or evidence of an effective screen exercise. See the
+[R3 reviewed results (Persian)](experiments/r3_model_mismatch/RESULTS_REVIEW_FA.md)
+and [exact archived CSV](outputs/r3_mismatch_v1/stress.csv).
+
 ## Core research questions
 
 - **Q1 — optical feasibility:** Can a static-screen image reproduce a desired *modeled retinal blur cue* under declared assumptions?

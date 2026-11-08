@@ -1,0 +1,16 @@
+{
+  "hashes": {
+    "r2_inverse.py": "f6f94fb1eb2bec539d4cfb55897d6da309c24c4e2c837b4a28f67c9209fc8651",
+    "r3_alt_optics.py": "f75634d7db9dda8b753d3771a7b62514e047daa6cd6a6fdc448d0d2fcdc9b68a",
+    "r3_runner.py": "201df2e1a2a28b140fc723694d9bb6e00fbc62328de4d7dc3e5f1c15f191d309"
+  },
+  "original_target": "model-predicted hypothetical defocus target; no human or physical validation",
+  "output_files": [
+    "stress.csv",
+    "summary.json",
+    "manifest.json"
+  ],
+  "seed": 812,
+  "source": "R2 optimizer trained on monochromatic surrogate; R3 evaluation on alternative toy scalar pupil model",
+  "study": "R3_ALTERNATE_SURROGATE_STRESS_V1"
+}

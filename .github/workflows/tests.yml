@@ -65,6 +65,22 @@ jobs:
           path: ${{ runner.temp }}/gazebloom-r2-pilot/
           if-no-files-found: error
           retention-days: 30
+      - name: R3 alternative optics numerical invariants
+        run: uv run --locked --extra research python -m unittest discover -s experiments/r3_model_mismatch -p 'test_*.py' -v
+      - name: R3 frozen 24-case synthetic mismatch pilot
+        if: matrix.python-version == '3.12'
+        run: |
+          uv run --locked --extra research python experiments/r3_model_mismatch/evaluate.py --out "$RUNNER_TEMP/gazebloom-r3"
+          python -c 'import json,sys; d=json.load(open(sys.argv[1])); assert d["rows"] == 24 and d["all_optimizers_converged"], d' "$RUNNER_TEMP/gazebloom-r3/summary.json"
+          cat "$RUNNER_TEMP/gazebloom-r3/summary.json"
+      - name: Archive R3 synthetic stress results
+        if: matrix.python-version == '3.12'
+        uses: actions/upload-artifact@v4
+        with:
+          name: gazebloom-r3-synthetic-mismatch-v1
+          path: ${{ runner.temp }}/gazebloom-r3/
+          if-no-files-found: error
+          retention-days: 30
       - name: Generate small media
         run: uv run --locked --extra research python experiments/gaussian_lca_v0/chromablur_pilot.py --out /tmp/gazebloom-pilot --width 256 --height 240 --seconds 1 --fps 4
       - name: Generate wave-optics outputs
