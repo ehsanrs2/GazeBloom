@@ -1,4 +1,4 @@
-# GazeBloom roadmap — evidence before claims (2026-11-04)
+# GazeBloom roadmap — evidence before claims (2026-11-08)
 
 ## Track A — practical screen-break app (maintenance only during active Track B research)
 - [x] Target use case fixed: screen breaks and low-risk visual-wellness behavior.
@@ -23,7 +23,9 @@
 - [x] Review R2 pilot ([numerical report](../experiments/r2_display_inverse/RESULTS_REVIEW_FA.md)); RGB fits better on the same model, but physical Q1 remains unresolved.
 - [x] Implement R3 alternative-polychromatic forward simulator, synthetic aberrations and 24-row frozen mismatch protocol.
 - [x] Review R3 24-row synthetic mismatch output: RGB won all artificial profiles, yet physical validity remains unresolved ([report](../experiments/r3_model_mismatch/RESULTS_REVIEW_FA.md)).
-- [ ] Develop capacity-controlled comparisons, perceptual artifact metrics and display characterization (R4).
+- [x] Implement R4 signed-template score, RGB red/blue-swap capacity-preserving null and numerical color-artifact proxies; results not yet reviewed.
+- [x] Review all 12 R4 paired model outputs: RGB signed alignment positive and R/B-swapped negative across frozen synthetic profiles; no human validation ([review](../experiments/r4_directional_controls/RESULTS_REVIEW_FA.md)).
+- [ ] Add an **independently optimized** equal-capacity null, psychophysical artifact limits, and real display characterization before physical claims.
 - [ ] Replicate with other scene families, measured RGB SPD/EOTF or independent optical measurements, and perceptual constraints.
 - [ ] Calibrate actual display primaries/gamma and test with independent PSF model; [0,1] normalization alone is not full display-aware validation.
 - [x] R1 pilot design sweeps distance, pixel pitch, pupil size and defocus sign/magnitude.

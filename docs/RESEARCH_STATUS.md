@@ -1,4 +1,4 @@
-# GazeBloom — Research status (2026-11-04)
+# GazeBloom — Research status (2026-11-08)
 
 Goal: investigate whether image-only stimuli on a fixed-distance ordinary monitor can influence *objective* ocular accommodation, and eventually whether an eye-break application helps people working at monitors.
 
@@ -56,6 +56,27 @@ test is NOT physical validation, and does NOT measure eye accommodation.
 See [R3 protocol](../experiments/r3_model_mismatch/README_FA.md).
 
 The completed R3 experiment reported **24/24 in-model-family synthetic stress comparisons** with lower RGB relative image error than shared-gray, under six frozen alternative profiles. See [R3 results](../experiments/r3_model_mismatch/RESULTS_REVIEW_FA.md). These are *not* independent physical optic measurements and do not establish Q1, Q2 or Q3.
+
+## R4 — in-silico signed color-order control (numerical pilot complete)
+
+The R4 protocol compares paired ±0.45 D **synthetic templates** using an
+R2-trained chromatic stimulus and three controls: unchanged gray source,
+optimized grayscale source, and RGB with R/B channels swapped. The red/blue
+permutation preserves RGB pixel value distribution and channel capacity,
+but it is not a separately optimized null. A signed difference-in-differences
+template score is **not** a predicted or observed direction of human
+accommodation. Evaluation is on the R3 synthetic model family, never
+an optical instrument or human subject.
+
+[Protocol (Persian)](../experiments/r4_directional_controls/README_FA.md).
+
+The frozen R4 run completed **12/12** simulated signed-image pairs:
+median directional template alignment **+0.6686** (RGB), **−0.6016**
+(red/blue channel swap), and **+0.0096** (optimized gray). The swap preserved
+per-pixel RGB numeric mean, saturation count, chroma magnitude, and field
+capacity but was **not reoptimized independently**. These are *modeled*
+retinal template-order comparisons, not actual eye-response directions.
+[Reviewed results](../experiments/r4_directional_controls/RESULTS_REVIEW_FA.md).
 
 ## Evidence gates
 1. Check model optics, units, gamma and RGB spectral assumptions independently.
