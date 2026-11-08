@@ -30,6 +30,20 @@ the new run generates results into an ignored reproduction directory.
 Neither Q2 (human accommodation) nor Q3 (eye strain improvement) is measurable
 or established in this stage.
 
+## R2 — bounded-display inversion under review
+
+The new R2 simulator optimizes normalized RGB pixel intensities within [0,1]
+for one synthetic image. It compares unmodified source, independently optimized
+achromatic display image, and individually optimized R/G/B image, and measures
+model-internal relative retinal-image L2 discrepancy. Gamma and pupil perturbation
+are exploratory sensitivity checks. This model-based image metric is NOT comparable
+to the PSF kernel residuals reported in R1.
+
+Because the target is constructed with the same model used to optimize/evaluate,
+this experiment carries **inverse crime** risk and does not establish real-world
+optical accuracy. It is not a validated ChromaBlur reproduction or evidence that
+ocular accommodation changes. See [R2 protocol](../experiments/r2_display_inverse/README_FA.md).
+
 ## Evidence gates
 1. Check model optics, units, gamma and RGB spectral assumptions independently.
 2. Replace restricted Gaussian rendering with physically constrained screen image optimization; include achievable intensity, clipping, and colorimetry.

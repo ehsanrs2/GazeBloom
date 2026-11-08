@@ -19,7 +19,9 @@
 - [x] R1 numerical-invariant checks, descriptive FFT-grid convergence audit and deterministic model sensitivity runner.
 - [x] Execute and inspect full R1 16-case / 32-row pilot, including absolute residuals and a single-case FFT-grid comparison ([review](../experiments/r1_model_sensitivity/RESULTS_REVIEW_FA.md)).
 - [ ] Independently validate physical units and PSF sampling accuracy across multiple pupil/defocus scenarios.
-- [ ] Build physically constrained, display-aware retinal image optimizer (not just Gaussian per-channel blur).
+- [x] R2 bounded, image-specific RGB inverse optimization with [0,1] ideal linear-intensity constraints, optional chroma penalty and gamma perturbations (research prototype).
+- [ ] Review R2 pilot and image-specific error versus shared-gray control and out-of-model robustness.
+- [ ] Calibrate actual display primaries/gamma and test with independent PSF model; [0,1] normalization alone is not full display-aware validation.
 - [x] R1 pilot design sweeps distance, pixel pitch, pupil size and defocus sign/magnitude.
 - [ ] Add measured RGB spectra, calibrated gamma and monitor brightness; these are not covered by R1.
 - [ ] Literature-based synthesis; label predicted responses as hypotheses.

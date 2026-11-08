@@ -111,6 +111,23 @@ establish retinal accuracy, accommodation change, or eye-strain benefit.
 See [reviewed R1 results (Persian)](experiments/r1_model_sensitivity/RESULTS_REVIEW_FA.md)
 and [versioned simulation CSV](outputs/r1_pilot_v1/sweep.csv).
 
+## Active Track B research: R2 bounded RGB image inversion
+
+After the R1 PSF-only audit, the next experiment optimizes the **displayed RGB pixel values**
+under a normalized [0,1] intensity constraint, and predicts their retinal appearance
+using the **same simplified, fixed-focus eye model**. It includes a stronger optimized
+grayscale-image control, 8-bit gamma tests and pupil-parameter perturbations.
+
+```bash
+uv run --locked --extra research python experiments/r2_display_inverse/pilot.py \
+  --out outputs/reproduction/r2_pilot
+```
+
+**Important:** numerical image reconstruction on the same simulator used for optimization
+does *not* verify actual accommodation or eye-strain relief. The display spectral power
+distribution, measured gamma, viewer-specific aberrations and out-of-model testing are
+not yet covered. See [R2 scientific protocol (Persian)](experiments/r2_display_inverse/README_FA.md).
+
 ## Core research questions
 
 - **Q1 — optical feasibility:** Can a static-screen image reproduce a desired *modeled retinal blur cue* under declared assumptions?

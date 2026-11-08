@@ -1,0 +1,14 @@
+{
+  "schema_version": "1.0",
+  "name": "R2_DISPLAY_INVERSE_PILOT_V1",
+  "status": "COMPUTATIONAL_FIT_PASS__PHYSICAL_AND_BIOLOGICAL_VALIDITY_UNRESOLVED",
+  "run_id": 41836472142,
+  "run_url": "https://github.com/ehsanrs2/GazeBloom/actions/runs/41836472142",
+  "source_commit": "9579dd1bd36c49b8270b07eeb30618078bc22686",
+  "artifact_id": 13327865407,
+  "artifact_sha256": "88b6ef972847bce134f791446132c423b34597ade8837c59ae2f6b0863b2e8de",
+  "pilot_csv_sha256": "37f626ddaa0c9c174a746baa7f6914aa103e820eef747eb504e5d8da0cada63b",
+  "pilot_summary_sha256": "242145fee068ea4adf58def582c9cafeb5067126cf1d22306e2105140102fe47",
+  "optimizer_source_sha256": "f6f94fb1eb2bec539d4cfb55897d6da309c24c4e2c837b4a28f67c9209fc8651",
+  "observations": "Model-generated, same simulator used for target, fitting and evaluation; no optical instrument or human data"
+}
