@@ -155,6 +155,23 @@ or evidence of an effective screen exercise. See the
 [R3 reviewed results (Persian)](experiments/r3_model_mismatch/RESULTS_REVIEW_FA.md)
 and [exact archived CSV](outputs/r3_mismatch_v1/stress.csv).
 
+## Track B R4 — signed chromatic-template controls
+
+The active in-silico research stage tests if the RGB-optimized pattern's
+**signed model-template alignment** depends on its actual red/blue assignment.
+A red/blue channel swap preserves the same numeric RGB pixel field values and
+effective channel capacity but scrambles the optical channel mapping. It is
+not a separately optimized null or a measured accommodation response.
+
+```bash
+uv run --locked --extra research python experiments/r4_directional_controls/evaluate.py \
+  --out outputs/reproduction/r4_directional
+```
+
+See the [R4 protocol (Persian)](experiments/r4_directional_controls/README_FA.md).
+Even positive directional scores do **not** demonstrate eye accommodation,
+safety, or therapeutic benefit.
+
 ## Core research questions
 
 - **Q1 — optical feasibility:** Can a static-screen image reproduce a desired *modeled retinal blur cue* under declared assumptions?

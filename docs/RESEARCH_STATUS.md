@@ -57,6 +57,19 @@ See [R3 protocol](../experiments/r3_model_mismatch/README_FA.md).
 
 The completed R3 experiment reported **24/24 in-model-family synthetic stress comparisons** with lower RGB relative image error than shared-gray, under six frozen alternative profiles. See [R3 results](../experiments/r3_model_mismatch/RESULTS_REVIEW_FA.md). These are *not* independent physical optic measurements and do not establish Q1, Q2 or Q3.
 
+## R4 — in-silico signed color-order control (under review)
+
+The R4 protocol compares paired ±0.45 D **synthetic templates** using an
+R2-trained chromatic stimulus and three controls: unchanged gray source,
+optimized grayscale source, and RGB with R/B channels swapped. The red/blue
+permutation preserves RGB pixel value distribution and channel capacity,
+but it is not a separately optimized null. A signed difference-in-differences
+template score is **not** a predicted or observed direction of human
+accommodation. Evaluation is on the R3 synthetic model family, never
+an optical instrument or human subject.
+
+[Protocol (Persian)](../experiments/r4_directional_controls/README_FA.md).
+
 ## Evidence gates
 1. Check model optics, units, gamma and RGB spectral assumptions independently.
 2. Replace restricted Gaussian rendering with physically constrained screen image optimization; include achievable intensity, clipping, and colorimetry.

@@ -20,8 +20,9 @@ import numpy as np
 ROOT = Path(__file__).resolve().parents[1]
 sys.path.insert(0, str(ROOT / "r2_display_inverse"))
 sys.path.insert(0, str(ROOT / "r3_model_mismatch"))
+sys.path.insert(0, str(ROOT.parent))
 from inverse import forward, optical_otfs, optimize_display  # noqa: E402
-from evaluate import FROZEN_SCENES, make_scene  # noqa: E402
+from experiments.r3_model_mismatch.evaluate import FROZEN_SCENES, make_scene  # noqa: E402
 from alt_optics import (code_to_light, mix_channels, optical_forward, optics_otfs,
                         validation_profiles, relative_l2)  # noqa: E402
 
