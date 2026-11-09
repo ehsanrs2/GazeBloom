@@ -28,7 +28,8 @@
 - [x] R5 implementation: two independently fitted 3HW RGB null optical operators (R/B swapped PSF and achromatic PSF), with identical synthetic targets and optimization constraints; results pending.
 - [x] Analyze 12-row R5 independently optimized equal-3HW controls: mapped RGB wins all frozen synthetic profiles but reoptimized swapped/null models also retain positive signed alignment; [full review](../experiments/r5_equal_capacity_controls/RESULTS_REVIEW_FA.md).
 - [x] Implement R6 independent **synthetic R3 target-generator** for all R2-trained arms, exact assumed-luminance/chroma-proxy matching, and all-channel identical-PSF negative control.
-- [ ] Review R6 10-pair numerical results and explicitly check whether original mapping still wins after equalization and target-generator separation.
+- [x] R6 10-row numerical results reviewed: mapped beats swapped in 10/10 but achromatic training-PSF null beats mapped in 8/10 **after proxy matching** ([review](../experiments/r6_identifiability/RESULTS_REVIEW_FA.md)).
+- [ ] R7: preregister target-separation conditioning and add target-independent/closed-loop focus preference proxy with negative controls before using A for further claims.
 - [ ] Build true display spectral/EOTF characterization, target-model uncertainty sweep and independent optics evidence before physical Q1 claims.
 - [ ] Define psychophysical artifact limits and real display characterization before physical claims.
 - [ ] Replicate with other scene families, measured RGB SPD/EOTF or independent optical measurements, and perceptual constraints.
