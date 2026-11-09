@@ -1,0 +1,42 @@
+{
+  "project": "GazeBloom_R9_FEASIBILITY",
+  "updated_on": "2026-11-09",
+  "monitor": {
+    "model": null,
+    "panel_technology": null,
+    "settings_recorded": false,
+    "access": "unknown",
+    "serial_in_public_report": false
+  },
+  "resources": {
+    "published_spd": {
+      "access": "unknown",
+      "source_url": null,
+      "source_sha256": null,
+      "license_note": null,
+      "panel_match_note": null
+    },
+    "colorimeter": {
+      "access": "unknown",
+      "model": null,
+      "correction_reference": null
+    },
+    "spectrometer": {
+      "access": "unknown",
+      "model": null,
+      "emissive_mode_confirmed": false,
+      "calibration_record": null
+    },
+    "accommodation_instrument": {
+      "access": "unknown",
+      "model": null,
+      "operator_trained": false
+    }
+  },
+  "human_research": {
+    "ethics_approved": false,
+    "supervisor_confirmed": false,
+    "consent_protocol": false,
+    "device_safety_reviewed": false
+  }
+}
