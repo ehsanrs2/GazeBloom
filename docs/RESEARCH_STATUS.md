@@ -131,6 +131,24 @@ further scientific claims. The current design **does not identify the causal
 role of LCA or predict actual human accommodation**.
 [Detailed reviewed R6 results](../experiments/r6_identifiability/RESULTS_REVIEW_FA.md).
 
+## R7 — metric-identifiability audit (protocol frozen, results pending)
+
+R7 responds to R6's inflated signed-template scores when +/- target
+images became nearly indistinguishable. The original R4 formula is
+retained for **audit only**, but its usable counterpart abstains
+when the synthetic target-pair RMS difference is below a preregistered
+numeric resolution heuristic: max(10*sqrt(2)/(255*sqrt(12)),
+0.02*target RMS). Neither term is actual optical uncertainty or a
+valid 10-sigma inferential statement.
+
+A separate target-template-free *open-loop* 7-step focus scan scores
+the gradient energy of the modeled retinal image and reports a
+sampled sharpness peak and full-curve differences. An all-channel
+green-PSF control removes every interchannel optics difference
+(not selectively LCA). No human eye has been measured, and
+a sharpness-model optimum is not an accommodation response.
+[Scientific preregistration](../experiments/r7_metric_validation/README_FA.md).
+
 ## Evidence gates
 1. Check model optics, units, gamma and RGB spectral assumptions independently.
 2. Replace restricted Gaussian rendering with physically constrained screen image optimization; include achievable intensity, clipping, and colorimetry.
