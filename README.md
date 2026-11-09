@@ -268,6 +268,27 @@ and display characterization before generating new "eye exercises."
  · [Exact CI CSV](outputs/r6_identifiability_v1/identifiability.csv)
  · [Source provenance](outputs/r6_identifiability_v1/manifest.json).
 
+## Track B R7 — stability of directional metrics
+
+R6 showed that the original RGB superiority did not survive a stronger
+achromatic control after numerical color matching. Worse, the signed
+template score had values near +41 and -59 when positive and negative
+optical templates became nearly identical.
+
+R7 now introduces an explicitly preregistered conditioning threshold. If
+target separation is too small relative to a numeric noise-resolution
+heuristic, the usable score is abstained, while the historical raw score
+is retained solely for audit. Separately, an open-loop simulated
+sharpness/focus scan uses no synthetic target template; it is a
+computational autofocus proxy and **not** predicted human accommodation.
+
+The experiment reuses R6 color-proxy matching and 2 scenes x 5 held-out
+synthetic profiles. It includes a green-OTF-on-all-channels control.
+
+See [the Persian R7 protocol](experiments/r7_metric_validation/README_FA.md).
+Neither model numerics nor simulated focus preferences validate real
+retinal optics, effective eye exercises, or health outcomes.
+
 ## Core research questions
 
 - **Q1 — optical feasibility:** Can a static-screen image reproduce a desired *modeled retinal blur cue* under declared assumptions?
