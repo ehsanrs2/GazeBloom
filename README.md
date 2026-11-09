@@ -311,6 +311,32 @@ clinical benefit.
 [Full scientific review (Persian)](experiments/r7_metric_validation/RESULTS_REVIEW_FA.md)
 and [versioned CI data](outputs/r7_metric_validation_v1/r7_metrics.csv).
 
+## Track B R8 — preregistered sensitivity of the simulated autofocus proxy
+
+R7 showed no shift of the discrete sharpness optimum despite differences
+in the full synthetic focus curves. R8 tests whether this result depends
+on the selected sharpness function, simulated focus-grid spacing, scene
+content, or unmeasured hypothetical display primary spectra/gamma.
+
+It freezes **4 synthetic scenes × 4 toy spectral cases × 3 RGB arms ×
+3 autofocus metrics × 3 nested focus grids = 432 related numerical rows**.
+Three metrics are central gradient energy, Laplacian energy, and
+Fourier band power; grid spacings are 0.25, 0.125 and 0.0625 D.
+A numerical peak is abstained if its two best scores are near-tied,
+its curve is too flat, or its maximum is at the search boundary.
+All raw, reportable, abstained and common-channel-optics-null results
+must be retained.
+
+```bash
+uv run --locked --extra research python experiments/r8_sensitivity/evaluate.py \
+  --out outputs/reproduction/r8_sensitivity
+```
+
+The 3-point spectra, primary shifts and gamma are **not measured SPDs or
+a calibrated EOTF**. None of the metrics is an objective measurement or
+credible prediction of human accommodation, eye strain, or efficacy.
+[R8 preregistered protocol (Persian)](experiments/r8_sensitivity/README_FA.md).
+
 ## Core research questions
 
 - **Q1 — optical feasibility:** Can a static-screen image reproduce a desired *modeled retinal blur cue* under declared assumptions?
