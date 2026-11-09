@@ -100,6 +100,37 @@ See [R5 results](../experiments/r5_equal_capacity_controls/RESULTS_REVIEW_FA.md)
 The nominal target still favors the correct-fitting hypothesis, and color
 artifact energy is not matched. These are not human eye measurements.
 
+## R6 — synthetic identifiability challenge (under review)
+
+R6 replaces the nominal R2 **training target generator** with the R3
+`spectral_aberrated` alternative model. It is held out of evaluation.
+The three 3HW RGB arms remain independently optimized under R2. After
+fitting, all six RGB images per scene share the same assumed Rec.709
+per-pixel linear luminance and a bounded mean chroma-deviation proxy,
+without intensity clipping. A separate ablation repeats green-channel
+optics across R/G/B to remove **all interchannel PSF differences**.
+Undefined signed-template scores must be preserved as such.
+
+The altered target source and matching budget are **in-silico audit tools**,
+not real data, and do not validate any human accommodative response.
+See [R6 preregistered protocol](../experiments/r6_identifiability/README_FA.md).
+
+## R6 — review complete: previous strong superiority claim not robust
+
+The CI R6 pilot completed 10/10 matched synthetic comparisons. Mapped RGB
+outscored the independently reoptimized R/B-swapped PSF arm in 10/10, but
+only outscored the **achromatic training-PSF** null in 2/10 after
+luminance/chroma-proxy normalization. Median signed scores: mapped 0.12650,
+permuted 0.11794, achromatic 0.14172. The target-generator was R3's toy
+spectral_aberrated profile, held out from five toy scoring profiles.
+
+The all-channel green-PSF negative control produced wildly unstable A scores
+when synthetic +/- target templates were almost degenerate. Therefore the
+signed-template metric needs a preregistered conditioning criterion before
+further scientific claims. The current design **does not identify the causal
+role of LCA or predict actual human accommodation**.
+[Detailed reviewed R6 results](../experiments/r6_identifiability/RESULTS_REVIEW_FA.md).
+
 ## Evidence gates
 1. Check model optics, units, gamma and RGB spectral assumptions independently.
 2. Replace restricted Gaussian rendering with physically constrained screen image optimization; include achievable intensity, clipping, and colorimetry.

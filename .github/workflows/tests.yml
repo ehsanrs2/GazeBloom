@@ -22,8 +22,16 @@ jobs:
         with:
           version: "0.10.0"
           enable-cache: true
-      - name: Install Python
-        run: uv python install "${{ matrix.python-version }}"
+      - name: Install Python (bounded retries for transient hosting errors)
+        run: |
+          for attempt in 1 2 3; do
+            if uv python install "${{ matrix.python-version }}"; then
+              exit 0
+            fi
+            if [ "$attempt" -lt 3 ]; then sleep "$((attempt * 5))"; fi
+          done
+          echo "Python install failed after 3 bounded attempts" >&2
+          exit 1
       - name: Validate tracked uv.lock is current
         run: uv lock --check
       - name: Sync fully isolated research environment
@@ -111,6 +119,22 @@ jobs:
         with:
           name: gazebloom-r5-independent-rgb-nulls-v1
           path: ${{ runner.temp }}/gazebloom-r5/
+          if-no-files-found: error
+          retention-days: 30
+      - name: R6 cross-model and exact proxy-matching tests
+        run: uv run --locked --extra research python -m unittest discover -s experiments/r6_identifiability -p 'test_*.py' -v
+      - name: R6 frozen 10-pair cross-target identifiability pilot
+        if: matrix.python-version == '3.12'
+        run: |
+          uv run --locked --extra research python experiments/r6_identifiability/evaluate.py --out "$RUNNER_TEMP/gazebloom-r6"
+          python -c 'import json,sys; d=json.load(open(sys.argv[1])); assert d["rows"]==10 and d["directional_defined_rows"]==10 and d["all_optimizer_success"], d' "$RUNNER_TEMP/gazebloom-r6/summary.json"
+          cat "$RUNNER_TEMP/gazebloom-r6/summary.json"
+      - name: Archive R6 model-identifiability outputs
+        if: matrix.python-version == '3.12'
+        uses: actions/upload-artifact@v4
+        with:
+          name: gazebloom-r6-cross-model-identifiability-v1
+          path: ${{ runner.temp }}/gazebloom-r6/
           if-no-files-found: error
           retention-days: 30
       - name: Generate small media

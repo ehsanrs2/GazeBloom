@@ -1,0 +1,17 @@
+{
+  "data_kind": "synthetic-only no physical ocular measurement",
+  "products": [
+    "identifiability.csv",
+    "summary.json",
+    "manifest.json"
+  ],
+  "source_sha256": {
+    "r2_display_inverse/inverse.py": "f6f94fb1eb2bec539d4cfb55897d6da309c24c4e2c837b4a28f67c9209fc8651",
+    "r3_model_mismatch/alt_optics.py": "f75634d7db9dda8b753d3771a7b62514e047daa6cd6a6fdc448d0d2fcdc9b68a",
+    "r3_model_mismatch/evaluate.py": "201df2e1a2a28b140fc723694d9bb6e00fbc62328de4d7dc3e5f1c15f191d309",
+    "r4_directional_controls/evaluate.py": "3811cc9b7d91f8e32687786264c9c7f8013d94bd915430c22942bb861ca224ef",
+    "r5_equal_capacity_controls/evaluate.py": "d17f020588827f369008f1e5a9943afdff65edcd1ca3a46693fe9c1e4097d4d8",
+    "r6_identifiability/evaluate.py": "fb913322c532075e9c87f87c879619af76bd39f339a40848311bb4fbab0ad13d"
+  },
+  "study": "R6_CROSS_GENERATOR_LUMINANCE_CHROMA_MATCH_V1"
+}

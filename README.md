@@ -223,6 +223,51 @@ capacity matching alone does not remove this model-favoring confound.
  · [Original 12-row CSV](outputs/r5_equal_capacity_v1/equal_capacity.csv)
  · [CI summary](outputs/r5_equal_capacity_v1/summary.json).
 
+## Track B R6 — cross-generator targets and matched chroma/luminance
+
+R5's nominal target was built using the same optical model that trained the
+correct-mapping arm. R6 now constructs the *training target* using a **different
+R3 synthetic optical engine** (polychromatic and aberrated) while independently
+training the same three RGB fit hypotheses under R2. The target-generating
+profile is excluded from scoring; 2 scenes × 5 other profiles = 10 paired
+synthetic stress comparisons.
+
+All three fitted arms are also scored after a shared **assumed Rec.709 linear
+luminance** and identical mean chromatic-deviation budget, achieved with
+nonamplifying, gamut-preserving scaling. An all-green-OTF optical ablation
+removes every interchannel PSF difference; this is *not an isolated LCA
+knockout* and can give an undefined signed-template metric.
+
+```bash
+uv run --locked --extra research python experiments/r6_identifiability/evaluate.py \
+  --out outputs/reproduction/r6_identifiability
+```
+
+These are not calibrated displays, measured retinal images, human
+accommodation, or clinical claims. See the
+[R6 research protocol (Persian)](experiments/r6_identifiability/README_FA.md).
+
+### R6 outcome: original-mapping advantage failed the stronger null (2026-11-09)
+
+With externally generated *synthetic* training targets and equal assumed
+Rec.709 luminance/chroma-proxy budgets, original RGB still outscored the
+independently refitted swapped-PSF RGB in **10/10**, but outscored the
+independently optimized achromatic-PSF RGB in just **2/10** artificial profiles.
+Median signed template alignment after matching: mapped **0.12650**,
+swapped **0.11794**, achromatic training PSF **0.14172**.
+
+The channel-identical-PSF negative control also exposed a serious
+**near-degenerate-target / ill-conditioned score** problem: signed scores
+can explode to +41 or −59 despite the model templates being almost identical.
+This invalidates a strong interpretation of the R5 mapping advantage.
+It **does not** disprove physical chromatic-accommodation research, nor
+establish any response of human eyes. Prioritize metric identifiability
+and display characterization before generating new "eye exercises."
+
+[Full R6 scientific review (Persian)](experiments/r6_identifiability/RESULTS_REVIEW_FA.md)
+ · [Exact CI CSV](outputs/r6_identifiability_v1/identifiability.csv)
+ · [Source provenance](outputs/r6_identifiability_v1/manifest.json).
+
 ## Core research questions
 
 - **Q1 — optical feasibility:** Can a static-screen image reproduce a desired *modeled retinal blur cue* under declared assumptions?
