@@ -153,6 +153,23 @@ jobs:
           path: ${{ runner.temp }}/gazebloom-r7/
           if-no-files-found: error
           retention-days: 30
+      - name: R8 frozen metric, spectrum and focus-grid unit tests
+        run: uv run --locked --extra research python -m unittest discover -s experiments/r8_sensitivity -p 'test_*.py' -v
+      - name: R8 full preregistered 432-row synthetic sensitivity grid
+        if: matrix.python-version == '3.12'
+        timeout-minutes: 35
+        run: |
+          uv run --locked --extra research python experiments/r8_sensitivity/evaluate.py --out "$RUNNER_TEMP/gazebloom-r8"
+          python -c 'import json,sys; d=json.load(open(sys.argv[1])); assert d["rows"]==432 and d["all_optimizers_success"] and sum(x["rows"] for x in d["sensitivity_cells"].values())==432, d' "$RUNNER_TEMP/gazebloom-r8/summary.json"
+          cat "$RUNNER_TEMP/gazebloom-r8/summary.json"
+      - name: Archive R8 synthetic focus sensitivity
+        if: matrix.python-version == '3.12'
+        uses: actions/upload-artifact@v4
+        with:
+          name: gazebloom-r8-spectral-focus-sensitivity-v1
+          path: ${{ runner.temp }}/gazebloom-r8/
+          if-no-files-found: error
+          retention-days: 30
       - name: Generate small media
         run: uv run --locked --extra research python experiments/gaussian_lca_v0/chromablur_pilot.py --out /tmp/gazebloom-pilot --width 256 --height 240 --seconds 1 --fps 4
       - name: Generate wave-optics outputs
