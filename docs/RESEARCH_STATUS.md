@@ -207,6 +207,26 @@ approval. A versioned Python feasibility assessment outputs
 or upgrade evidence claims.
 [Feasibility review (Persian)](../experiments/r9_measurement_readiness/FEASIBILITY_REPORT_FA.md).
 
+## R10 — optional phone camera + empirical human perception feasibility
+
+Equipment-based display SPD/EOTF and objective accommodative readings
+are **optional future validation branches**, not technical blockers for
+a separate adult-voluntary **perceptual feasibility** pilot.
+R10's proposed H1 outcomes are reading accuracy, perceived image
+clarity, comfort, interruptions/adverse events and response
+completion, **not direct accommodation or relief of eye strain**.
+
+Camera H1-VIDEO is **optional, with separate consent**; offline manual
+blink annotations or pupil/iris relative ratios are exploratory,
+illumination-confounded behavioral proxies. The provided research-only
+Python planner never opens a camera or displays optical stimuli and
+contains no participant data. R10 has **no actual human measurements yet**.
+Stimulus-safety review, withdrawal ability, privacy and locally applicable
+ethics clearance remain prerequisites to participating; no specialist
+instrument or purchase is required for these safeguards.
+[Research plan (Persian)](../experiments/r10_human_feasibility/PROTOCOL_FA.md)
+ · [Safety/consent](../experiments/r10_human_feasibility/CONSENT_AND_SAFETY_FA.md).
+
 ## Evidence gates
 1. Check model optics, units, gamma and RGB spectral assumptions independently.
 2. Replace restricted Gaussian rendering with physically constrained screen image optimization; include achievable intensity, clipping, and colorimetry.
