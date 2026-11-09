@@ -188,6 +188,25 @@ produced more nonzero shifts than nominal-mapped RGB, so a
 specific causal LCA-driven human response is **not identified**.
 [Reviewed R8 results](../experiments/r8_sensitivity/RESULTS_REVIEW_FA.md).
 
+## R9 — measurement feasibility without mandatory equipment acquisition
+
+R8's numerical focus-peaks remained strongly metric, grid, scene and
+toy spectrum dependent; Q1 physical stimulus feasibility, Q2 measured
+ocular accommodation and Q3 symptom benefit are unvalidated.
+R9 therefore pauses additional visual effect development and
+establishes **four conditional routes**: P0 no-instrument document/data
+analysis; P1 borrowed colorimeter for measured XYZ/luminance/EOTF;
+P2 borrowed spectrometer capable of measuring real display emission
+SPD; and P3 a separate expert-/ethics-reviewed human objective-eye
+study. Any route can remain unavailable. Procurement is NOT required.
+
+The default inventory records **UNKNOWN** hardware access rather than
+assuming a particular display, instrument, source spectral dataset or
+approval. A versioned Python feasibility assessment outputs
+`FEASIBILITY_ONLY_NO_OBSERVATIONS` and cannot authorize use of humans
+or upgrade evidence claims.
+[Feasibility review (Persian)](../experiments/r9_measurement_readiness/FEASIBILITY_REPORT_FA.md).
+
 ## Evidence gates
 1. Check model optics, units, gamma and RGB spectral assumptions independently.
 2. Replace restricted Gaussian rendering with physically constrained screen image optimization; include achievable intensity, clipping, and colorimetry.
