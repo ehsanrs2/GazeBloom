@@ -137,6 +137,22 @@ jobs:
           path: ${{ runner.temp }}/gazebloom-r6/
           if-no-files-found: error
           retention-days: 30
+      - name: R7 conditioned score and target-free focus numerical tests
+        run: uv run --locked --extra research python -m unittest discover -s experiments/r7_metric_validation -p 'test_*.py' -v
+      - name: R7 frozen 10-pair synthetic focus pilot
+        if: matrix.python-version == '3.12'
+        run: |
+          uv run --locked --extra research python experiments/r7_metric_validation/evaluate.py --out "$RUNNER_TEMP/gazebloom-r7"
+          python -c 'import json,sys; s=json.load(open(sys.argv[1])); assert s["rows"]==10 and s["all_optimizer_success"], s' "$RUNNER_TEMP/gazebloom-r7/summary.json"
+          cat "$RUNNER_TEMP/gazebloom-r7/summary.json"
+      - name: Archive R7 model-only focus diagnostics
+        if: matrix.python-version == '3.12'
+        uses: actions/upload-artifact@v4
+        with:
+          name: gazebloom-r7-conditioned-score-focus-scan-v1
+          path: ${{ runner.temp }}/gazebloom-r7/
+          if-no-files-found: error
+          retention-days: 30
       - name: Generate small media
         run: uv run --locked --extra research python experiments/gaussian_lca_v0/chromablur_pilot.py --out /tmp/gazebloom-pilot --width 256 --height 240 --seconds 1 --fps 4
       - name: Generate wave-optics outputs

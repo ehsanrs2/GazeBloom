@@ -1,0 +1,180 @@
+{
+  "all_optimizer_success": true,
+  "clinical_claim": "NONE",
+  "common_psf_focus_control_max_curve_difference": 0.006723521521761701,
+  "evaluation_profiles": [
+    "alt_monochrome",
+    "spectral_3sample",
+    "spectral_aberrated_gamma24",
+    "spectral_aberrated_pupil45",
+    "spectral_aberrated_leakage"
+  ],
+  "fit_status": [
+    {
+      "arm": "mapped_rgb",
+      "free_parameters": 12288,
+      "iterations": 38,
+      "nominal_R2_target_used": false,
+      "scene": "original_texture",
+      "sign_D": -0.45,
+      "success": true
+    },
+    {
+      "arm": "permuted_fit_rgb",
+      "free_parameters": 12288,
+      "iterations": 35,
+      "nominal_R2_target_used": false,
+      "scene": "original_texture",
+      "sign_D": -0.45,
+      "success": true
+    },
+    {
+      "arm": "achromatic_fit_rgb",
+      "free_parameters": 12288,
+      "iterations": 13,
+      "nominal_R2_target_used": false,
+      "scene": "original_texture",
+      "sign_D": -0.45,
+      "success": true
+    },
+    {
+      "arm": "mapped_rgb",
+      "free_parameters": 12288,
+      "iterations": 34,
+      "nominal_R2_target_used": false,
+      "scene": "original_texture",
+      "sign_D": 0.45,
+      "success": true
+    },
+    {
+      "arm": "permuted_fit_rgb",
+      "free_parameters": 12288,
+      "iterations": 35,
+      "nominal_R2_target_used": false,
+      "scene": "original_texture",
+      "sign_D": 0.45,
+      "success": true
+    },
+    {
+      "arm": "achromatic_fit_rgb",
+      "free_parameters": 12288,
+      "iterations": 13,
+      "nominal_R2_target_used": false,
+      "scene": "original_texture",
+      "sign_D": 0.45,
+      "success": true
+    },
+    {
+      "arm": "mapped_rgb",
+      "free_parameters": 12288,
+      "iterations": 40,
+      "nominal_R2_target_used": false,
+      "scene": "synthetic_letter_edges",
+      "sign_D": -0.45,
+      "success": true
+    },
+    {
+      "arm": "permuted_fit_rgb",
+      "free_parameters": 12288,
+      "iterations": 38,
+      "nominal_R2_target_used": false,
+      "scene": "synthetic_letter_edges",
+      "sign_D": -0.45,
+      "success": true
+    },
+    {
+      "arm": "achromatic_fit_rgb",
+      "free_parameters": 12288,
+      "iterations": 15,
+      "nominal_R2_target_used": false,
+      "scene": "synthetic_letter_edges",
+      "sign_D": -0.45,
+      "success": true
+    },
+    {
+      "arm": "mapped_rgb",
+      "free_parameters": 12288,
+      "iterations": 38,
+      "nominal_R2_target_used": false,
+      "scene": "synthetic_letter_edges",
+      "sign_D": 0.45,
+      "success": true
+    },
+    {
+      "arm": "permuted_fit_rgb",
+      "free_parameters": 12288,
+      "iterations": 36,
+      "nominal_R2_target_used": false,
+      "scene": "synthetic_letter_edges",
+      "sign_D": 0.45,
+      "success": true
+    },
+    {
+      "arm": "achromatic_fit_rgb",
+      "free_parameters": 12288,
+      "iterations": 13,
+      "nominal_R2_target_used": false,
+      "scene": "synthetic_letter_edges",
+      "sign_D": 0.45,
+      "success": true
+    }
+  ],
+  "focus_grid_D": [
+    -0.75,
+    -0.5,
+    -0.25,
+    0.0,
+    0.25,
+    0.5,
+    0.75
+  ],
+  "focus_proxy": "periodic centered-gradient energy of assumed luminance; argmax sampled synthetic defocus, NOT a measured eye response",
+  "generator_name": "spectral_aberrated",
+  "human_accommodation": "NOT_MEASURED",
+  "mapped_better_than_achromatic_in_usable_rows": 2,
+  "matching": [
+    {
+      "common_chroma_abs": 0.013544107717456453,
+      "max_assumed_linear_luminance_mismatch": 2.220446049250313e-16,
+      "max_chroma_abs_mismatch": 3.469446951953614e-18,
+      "reference_luminance": "achromatic input scene, not measured cd/m^2",
+      "scene": "original_texture",
+      "selection": "min feasible chroma of all 6 candidate images, cap 0.020"
+    },
+    {
+      "common_chroma_abs": 0.012501913077379155,
+      "max_assumed_linear_luminance_mismatch": 2.220446049250313e-16,
+      "max_chroma_abs_mismatch": 1.734723475976807e-18,
+      "reference_luminance": "achromatic input scene, not measured cd/m^2",
+      "scene": "synthetic_letter_edges",
+      "selection": "min feasible chroma of all 6 candidate images, cap 0.020"
+    }
+  ],
+  "median_conditioned_achromatic_A": 0.14171620247339836,
+  "median_conditioned_mapped_A": 0.1264980438128899,
+  "reported_limitations": [
+    "8-bit uniform quantization and 10-sigma are heuristic, not measured optical uncertainty",
+    "Target metric still uses synthetic target labels; only sharpness scan is template-free",
+    "Sharpness maximization is a computational autofocus assumption and not human accommodation",
+    "All 3 channel OTFs equal to green is an all-channel PSF ablation, not LCA-only knockout",
+    "Focus peak estimates are discretized and boundary-censored; no smooth response or closed loop",
+    "Cross-target producer and evaluator share scalar optics, chromatic relation, synthetic displays",
+    "R6 luminance/chroma matching not equal to spectral or perceptual color matching",
+    "No human participant, eye tracking, autorefractor or eye-strain outcome was involved"
+  ],
+  "rows": 10,
+  "scenes": [
+    "original_texture",
+    "synthetic_letter_edges"
+  ],
+  "study": "R7_CONDITIONED_TEMPLATE_AND_FOCUS_SCAN_V1",
+  "target_gate": {
+    "abstained_common_psf_control_rows": 10,
+    "heuristic_not_calibrated": true,
+    "min_separation_definition": "max(10*sqrt(2)/(255*sqrt(12)),0.02*RMS(target_pair))",
+    "quantization_multiplier": 10.0,
+    "quantization_pair_sigma_proxy": 0.0016009736880935807,
+    "relative_target_rms_floor": 0.02,
+    "usable_regular_rows": 10
+  }
+}

@@ -131,6 +131,35 @@ further scientific claims. The current design **does not identify the causal
 role of LCA or predict actual human accommodation**.
 [Detailed reviewed R6 results](../experiments/r6_identifiability/RESULTS_REVIEW_FA.md).
 
+## R7 — metric-identifiability audit (numerical pilot completed)
+
+R7 responds to R6's inflated signed-template scores when +/- target
+images became nearly indistinguishable. The original R4 formula is
+retained for **audit only**, but its usable counterpart abstains
+when the synthetic target-pair RMS difference is below a preregistered
+numeric resolution heuristic: max(10*sqrt(2)/(255*sqrt(12)),
+0.02*target RMS). Neither term is actual optical uncertainty or a
+valid 10-sigma inferential statement.
+
+A separate target-template-free *open-loop* 7-step focus scan scores
+the gradient energy of the modeled retinal image and reports a
+sampled sharpness peak and full-curve differences. An all-channel
+green-PSF control removes every interchannel optics difference
+(not selectively LCA). No human eye has been measured, and
+a sharpness-model optimum is not an accommodation response.
+[Scientific preregistration](../experiments/r7_metric_validation/README_FA.md).
+
+R7 completed its frozen synthetic 10-pair study with all CI jobs passing.
+The preregistered separation screen retained 10/10 regular target
+pairs and correctly abstained on 10/10 common-green-PSF target pairs.
+A separate open-loop model-only gradient-focus proxy found **zero
+differences in discrete preferred focus** between the + and -
+stimuli in all 3 RGB candidate arms across 10 profiles (0.25 D grid).
+The curves themselves varied but did not show a peak displacement.
+The findings limit interpretations of earlier template scores and
+do not demonstrate actual human accommodation.
+[Results review](../experiments/r7_metric_validation/RESULTS_REVIEW_FA.md).
+
 ## Evidence gates
 1. Check model optics, units, gamma and RGB spectral assumptions independently.
 2. Replace restricted Gaussian rendering with physically constrained screen image optimization; include achievable intensity, clipping, and colorimetry.
