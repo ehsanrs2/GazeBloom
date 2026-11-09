@@ -29,7 +29,10 @@
 - [x] Analyze 12-row R5 independently optimized equal-3HW controls: mapped RGB wins all frozen synthetic profiles but reoptimized swapped/null models also retain positive signed alignment; [full review](../experiments/r5_equal_capacity_controls/RESULTS_REVIEW_FA.md).
 - [x] Implement R6 independent **synthetic R3 target-generator** for all R2-trained arms, exact assumed-luminance/chroma-proxy matching, and all-channel identical-PSF negative control.
 - [x] R6 10-row numerical results reviewed: mapped beats swapped in 10/10 but achromatic training-PSF null beats mapped in 8/10 **after proxy matching** ([review](../experiments/r6_identifiability/RESULTS_REVIEW_FA.md)).
-- [ ] R7: preregister target-separation conditioning and add target-independent/closed-loop focus preference proxy with negative controls before using A for further claims.
+- [x] Implement R7 preregistered numerical conditioning: abstain on near-degenerate synthetic +/- target separation instead of interpreting inflated A.
+- [x] Implement a template-independent **open-loop** seven-sample synthetic gradient-energy focus scan, with common-green-PSF control; this is NOT measured accommodation or a physiological closed-loop model.
+- [ ] Review complete R7 test grid, explicitly count abstentions and distinguish focus-curve differences from discrete peak shifts.
+- [ ] Independently calibrate display optics and build credible human-response evidence before any product claim.
 - [ ] Build true display spectral/EOTF characterization, target-model uncertainty sweep and independent optics evidence before physical Q1 claims.
 - [ ] Define psychophysical artifact limits and real display characterization before physical claims.
 - [ ] Replicate with other scene families, measured RGB SPD/EOTF or independent optical measurements, and perceptual constraints.
