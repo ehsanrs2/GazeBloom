@@ -4,7 +4,9 @@
 - [x] Target use case fixed: screen breaks and low-risk visual-wellness behavior.
 - [x] Initial evidence register, explicit confidence boundaries, intervention catalogue and low-cost evaluation proposal.
 - [x] R10 human-perception *protocol* for voluntary static A/B readability and comfort, opt-in phone video proxies and private data management (without physical optics instruments).
-- [ ] Determine locally applicable ethics/consent requirements, review actual static candidate/control stimuli and stop procedures **before inviting participants**; generating a schedule is not permission to run the study.
+- [x] R11 implement deterministic four paired static grayscale / weak-chroma candidate PNGs with numeric luminance/range audits and exact image SHA-256 manifests; files are **NOT APPROVED for human use**.
+- [ ] R11 inspect actual generated PNGs and display rendering, document pattern/contrast/color risk review and operator/consent/privacy controls before any participant exposure.
+- [ ] Determine locally applicable ethics/consent requirements and explicitly approve specific R11 static candidate/control images and safe stop procedures **before inviting participants**; neither scripts nor CI authorize testing.
 - [ ] Conduct H1 participant feasibility pilot only after these safeguards, using real opt-in responses; do not publish identifiable footage or interpret subjective responses as accommodation.
 - [x] Monotonic-clock timer, private opt-in local event log and first manual desktop Tkinter UI.
 - [x] Build opt-in Linux idle-awareness probe (GNOME D-Bus / X11 xprintidle), conservative hold policy and offline tests.

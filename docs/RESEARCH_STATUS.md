@@ -227,6 +227,20 @@ instrument or purchase is required for these safeguards.
 [Research plan (Persian)](../experiments/r10_human_feasibility/PROTOCOL_FA.md)
  · [Safety/consent](../experiments/r10_human_feasibility/CONSENT_AND_SAFETY_FA.md).
 
+## R11 — static candidate/control scene preflight (pending operator review)
+
+R11 uses four matched word scenes rendered as low-contrast, static
+RGB PNGs: an achromatic control (X) and a weak color-opponent
+edge variant (Y). A numerical preflight checks model-space assumed
+luminance and 8-bit color spread, with exact output hashes. The
+**physical display is not calibrated**, no images are automatically
+presented, and the candidate images remain labeled NOT APPROVED.
+Even static, moderate-contrast pictures need a separate visual
+risk review and documented locally appropriate participant consent
+before H1. The R10 no-equipment study may continue after that;
+Q2 objective accommodation measurement remains optional/unavailable.
+[R11 preregistered protocol](../experiments/r11_static_stimuli/PROTOCOL_FA.md).
+
 ## Evidence gates
 1. Check model optics, units, gamma and RGB spectral assumptions independently.
 2. Replace restricted Gaussian rendering with physically constrained screen image optimization; include achievable intensity, clipping, and colorimetry.

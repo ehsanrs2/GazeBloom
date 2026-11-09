@@ -415,6 +415,31 @@ The desktop break-reminder product remains isolated from these
 experimental studies, and lack of an autorefractor is **not** treated
 as evidence that human perceptual studies are impossible.
 
+## R11 — reproducible still-image candidates for R10 perceptual research
+
+Four simple large-word scenes are generated as **paired, static,
+moderate-contrast PNGs**. Condition X is grayscale; condition Y
+has a very small color-opponent edge component under an assumed
+Rec.709 linear-light luminance model. The same scene content is
+used in both conditions; source code and numeric color-range checks
+are versioned and hashes of all eight images are output.
+
+**They are not approved for participant display merely because code
+tests pass.** Every artifact is labeled unapproved, with no camera
+capture, participant interaction, automatic presentation, claimed
+LCA mechanism or ocular accommodation inference. The R10 operator
+must review the *actual* pixels, display configuration, pattern
+risks, ethical/consent obligations and stop controls before H1.
+No specialized optical instruments are required for that
+non-instrumental, perception-focused research path.
+
+```bash
+uv run --locked --extra research python experiments/r11_static_stimuli/generate.py \
+  --out /tmp/gazebloom-r11-review
+```
+
+[R11 preregistered Persian stimulus/audit protocol](experiments/r11_static_stimuli/PROTOCOL_FA.md).
+
 ## Core research questions
 
 - **Q1 — optical feasibility:** Can a static-screen image reproduce a desired *modeled retinal blur cue* under declared assumptions?

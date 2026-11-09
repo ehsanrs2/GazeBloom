@@ -200,6 +200,22 @@ jobs:
           path: ${{ runner.temp }}/gazebloom-r10/
           if-no-files-found: error
           retention-days: 30
+      - name: R11 static paired candidate image generator unit tests
+        run: uv run --locked --extra research python -m unittest discover -s experiments/r11_static_stimuli -p 'test_*.py' -v
+      - name: R11 unapproved candidate review artifacts (never human display)
+        if: matrix.python-version == '3.12'
+        run: |
+          uv run --locked --extra research python experiments/r11_static_stimuli/generate.py --out "$RUNNER_TEMP/gazebloom-r11"
+          python -c 'import json,sys,pathlib; p=pathlib.Path(sys.argv[1]); d=json.loads(p.read_text()); assert len(d["scenes"])==4 and sum(len(s["files"]) for s in d["scenes"])==8 and not d["human_exposure_authorized"] and not d["human_participant_images_displayed"] and "MANUAL_SAFETY_AND_ETHICS_PENDING" in d["review_state"],d' "$RUNNER_TEMP/gazebloom-r11/audit_manifest.json"
+          cat "$RUNNER_TEMP/gazebloom-r11/audit_manifest.json"
+      - name: Archive R11 review-only static images and numeric audit
+        if: matrix.python-version == '3.12'
+        uses: actions/upload-artifact@v4
+        with:
+          name: gazebloom-r11-static-candidates-NOT-human-approved
+          path: ${{ runner.temp }}/gazebloom-r11/
+          if-no-files-found: error
+          retention-days: 30
       - name: Generate small media
         run: uv run --locked --extra research python experiments/gaussian_lca_v0/chromablur_pilot.py --out /tmp/gazebloom-pilot --width 256 --height 240 --seconds 1 --fps 4
       - name: Generate wave-optics outputs
