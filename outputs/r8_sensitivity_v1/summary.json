@@ -1,0 +1,437 @@
+{
+  "all_optimizers_success": true,
+  "fitting_status": [
+    {
+      "arm": "mapped_rgb",
+      "free_parameters": 12288,
+      "iterations": 38,
+      "nominal_R2_target_used": false,
+      "scene": "original_texture",
+      "sign_D": -0.45,
+      "success": true
+    },
+    {
+      "arm": "permuted_fit_rgb",
+      "free_parameters": 12288,
+      "iterations": 35,
+      "nominal_R2_target_used": false,
+      "scene": "original_texture",
+      "sign_D": -0.45,
+      "success": true
+    },
+    {
+      "arm": "achromatic_fit_rgb",
+      "free_parameters": 12288,
+      "iterations": 13,
+      "nominal_R2_target_used": false,
+      "scene": "original_texture",
+      "sign_D": -0.45,
+      "success": true
+    },
+    {
+      "arm": "mapped_rgb",
+      "free_parameters": 12288,
+      "iterations": 34,
+      "nominal_R2_target_used": false,
+      "scene": "original_texture",
+      "sign_D": 0.45,
+      "success": true
+    },
+    {
+      "arm": "permuted_fit_rgb",
+      "free_parameters": 12288,
+      "iterations": 35,
+      "nominal_R2_target_used": false,
+      "scene": "original_texture",
+      "sign_D": 0.45,
+      "success": true
+    },
+    {
+      "arm": "achromatic_fit_rgb",
+      "free_parameters": 12288,
+      "iterations": 13,
+      "nominal_R2_target_used": false,
+      "scene": "original_texture",
+      "sign_D": 0.45,
+      "success": true
+    },
+    {
+      "arm": "mapped_rgb",
+      "free_parameters": 12288,
+      "iterations": 40,
+      "nominal_R2_target_used": false,
+      "scene": "synthetic_letter_edges",
+      "sign_D": -0.45,
+      "success": true
+    },
+    {
+      "arm": "permuted_fit_rgb",
+      "free_parameters": 12288,
+      "iterations": 38,
+      "nominal_R2_target_used": false,
+      "scene": "synthetic_letter_edges",
+      "sign_D": -0.45,
+      "success": true
+    },
+    {
+      "arm": "achromatic_fit_rgb",
+      "free_parameters": 12288,
+      "iterations": 15,
+      "nominal_R2_target_used": false,
+      "scene": "synthetic_letter_edges",
+      "sign_D": -0.45,
+      "success": true
+    },
+    {
+      "arm": "mapped_rgb",
+      "free_parameters": 12288,
+      "iterations": 38,
+      "nominal_R2_target_used": false,
+      "scene": "synthetic_letter_edges",
+      "sign_D": 0.45,
+      "success": true
+    },
+    {
+      "arm": "permuted_fit_rgb",
+      "free_parameters": 12288,
+      "iterations": 36,
+      "nominal_R2_target_used": false,
+      "scene": "synthetic_letter_edges",
+      "sign_D": 0.45,
+      "success": true
+    },
+    {
+      "arm": "achromatic_fit_rgb",
+      "free_parameters": 12288,
+      "iterations": 13,
+      "nominal_R2_target_used": false,
+      "scene": "synthetic_letter_edges",
+      "sign_D": 0.45,
+      "success": true
+    },
+    {
+      "arm": "mapped_rgb",
+      "free_parameters": 12288,
+      "iterations": 31,
+      "nominal_R2_target_used": false,
+      "scene": "radial_rings",
+      "sign_D": -0.45,
+      "success": true
+    },
+    {
+      "arm": "permuted_fit_rgb",
+      "free_parameters": 12288,
+      "iterations": 37,
+      "nominal_R2_target_used": false,
+      "scene": "radial_rings",
+      "sign_D": -0.45,
+      "success": true
+    },
+    {
+      "arm": "achromatic_fit_rgb",
+      "free_parameters": 12288,
+      "iterations": 12,
+      "nominal_R2_target_used": false,
+      "scene": "radial_rings",
+      "sign_D": -0.45,
+      "success": true
+    },
+    {
+      "arm": "mapped_rgb",
+      "free_parameters": 12288,
+      "iterations": 36,
+      "nominal_R2_target_used": false,
+      "scene": "radial_rings",
+      "sign_D": 0.45,
+      "success": true
+    },
+    {
+      "arm": "permuted_fit_rgb",
+      "free_parameters": 12288,
+      "iterations": 30,
+      "nominal_R2_target_used": false,
+      "scene": "radial_rings",
+      "sign_D": 0.45,
+      "success": true
+    },
+    {
+      "arm": "achromatic_fit_rgb",
+      "free_parameters": 12288,
+      "iterations": 11,
+      "nominal_R2_target_used": false,
+      "scene": "radial_rings",
+      "sign_D": 0.45,
+      "success": true
+    },
+    {
+      "arm": "mapped_rgb",
+      "free_parameters": 12288,
+      "iterations": 16,
+      "nominal_R2_target_used": false,
+      "scene": "oblique_gratings",
+      "sign_D": -0.45,
+      "success": true
+    },
+    {
+      "arm": "permuted_fit_rgb",
+      "free_parameters": 12288,
+      "iterations": 24,
+      "nominal_R2_target_used": false,
+      "scene": "oblique_gratings",
+      "sign_D": -0.45,
+      "success": true
+    },
+    {
+      "arm": "achromatic_fit_rgb",
+      "free_parameters": 12288,
+      "iterations": 4,
+      "nominal_R2_target_used": false,
+      "scene": "oblique_gratings",
+      "sign_D": -0.45,
+      "success": true
+    },
+    {
+      "arm": "mapped_rgb",
+      "free_parameters": 12288,
+      "iterations": 23,
+      "nominal_R2_target_used": false,
+      "scene": "oblique_gratings",
+      "sign_D": 0.45,
+      "success": true
+    },
+    {
+      "arm": "permuted_fit_rgb",
+      "free_parameters": 12288,
+      "iterations": 11,
+      "nominal_R2_target_used": false,
+      "scene": "oblique_gratings",
+      "sign_D": 0.45,
+      "success": true
+    },
+    {
+      "arm": "achromatic_fit_rgb",
+      "free_parameters": 12288,
+      "iterations": 4,
+      "nominal_R2_target_used": false,
+      "scene": "oblique_gratings",
+      "sign_D": 0.45,
+      "success": true
+    }
+  ],
+  "focus_grid": [
+    -0.75,
+    -0.6875,
+    -0.625,
+    -0.5625,
+    -0.5,
+    -0.4375,
+    -0.375,
+    -0.3125,
+    -0.25,
+    -0.1875,
+    -0.125,
+    -0.0625,
+    0.0,
+    0.0625,
+    0.125,
+    0.1875,
+    0.25,
+    0.3125,
+    0.375,
+    0.4375,
+    0.5,
+    0.5625,
+    0.625,
+    0.6875,
+    0.75
+  ],
+  "important_caveats": [
+    "All focus measures are assumptions of algorithmic autofocus, not human eye behavior",
+    "Three metrics and three grids yield correlated comparisons, not independent biological replicates",
+    "Toy SPD 3-wavelength primaries; altered widths/shifts and gamma are synthetic not measured",
+    "The gamma24 and shifted-primary controls are not a full factorial design",
+    "R6 chroma/luminance balancing and R3 scalar optics are imperfect model-family assumptions",
+    "Strong green-OTF common control removes all interchannel PSF variation, not just LCA",
+    "Peak-threshold rules are numeric heuristics, not biological or inferential significance",
+    "No physical monitor data, eye wavefront, autorefractor or human eye-strain outcomes"
+  ],
+  "interpretation": "EXPLORATORY_SYNTHETIC_NUMERICAL_SENSITIVITY_ONLY",
+  "matching": [
+    {
+      "common_chroma_abs": 0.013544107717456436,
+      "max_assumed_linear_luminance_mismatch": 2.220446049250313e-16,
+      "max_chroma_abs_mismatch": 3.469446951953614e-18,
+      "reference_luminance": "achromatic input scene, not measured cd/m^2",
+      "scene": "original_texture",
+      "selection": "min feasible chroma of all 6 candidate images, cap 0.020"
+    },
+    {
+      "common_chroma_abs": 0.012501913077379268,
+      "max_assumed_linear_luminance_mismatch": 2.220446049250313e-16,
+      "max_chroma_abs_mismatch": 3.469446951953614e-18,
+      "reference_luminance": "achromatic input scene, not measured cd/m^2",
+      "scene": "synthetic_letter_edges",
+      "selection": "min feasible chroma of all 6 candidate images, cap 0.020"
+    },
+    {
+      "common_chroma_abs": 0.02,
+      "max_assumed_linear_luminance_mismatch": 2.220446049250313e-16,
+      "max_chroma_abs_mismatch": 3.469446951953614e-18,
+      "reference_luminance": "achromatic input scene, not measured cd/m^2",
+      "scene": "radial_rings",
+      "selection": "min feasible chroma of all 6 candidate images, cap 0.020"
+    },
+    {
+      "common_chroma_abs": 0.02,
+      "max_assumed_linear_luminance_mismatch": 2.220446049250313e-16,
+      "max_chroma_abs_mismatch": 3.469446951953614e-18,
+      "reference_luminance": "achromatic input scene, not measured cd/m^2",
+      "scene": "oblique_gratings",
+      "selection": "min feasible chroma of all 6 candidate images, cap 0.020"
+    }
+  ],
+  "metrics": [
+    "gradient",
+    "laplacian",
+    "bandpass"
+  ],
+  "overall_common_psf_nonzero_raw": 0,
+  "overall_nonzero_reportable": 96,
+  "overall_reportable": 397,
+  "peak_criterion": {
+    "abstain_boundary": true,
+    "minimum_relative_span": 0.01,
+    "not_confidence_or_human_noise": true,
+    "relative_second_best_gap": 0.002
+  },
+  "rows": 432,
+  "scenes": [
+    "original_texture",
+    "synthetic_letter_edges",
+    "radial_rings",
+    "oblique_gratings"
+  ],
+  "sensitivity_cells": {
+    "bandpass_0.0625": {
+      "control_nonzero_raw": 0,
+      "control_reportable": 48,
+      "nonzero_raw": 22,
+      "nonzero_reportable": 12,
+      "reportable": 33,
+      "rows": 48
+    },
+    "bandpass_0.1250": {
+      "control_nonzero_raw": 0,
+      "control_reportable": 48,
+      "nonzero_raw": 26,
+      "nonzero_reportable": 25,
+      "reportable": 42,
+      "rows": 48
+    },
+    "bandpass_0.2500": {
+      "control_nonzero_raw": 0,
+      "control_reportable": 48,
+      "nonzero_raw": 0,
+      "nonzero_reportable": 0,
+      "reportable": 48,
+      "rows": 48
+    },
+    "gradient_0.0625": {
+      "control_nonzero_raw": 0,
+      "control_reportable": 48,
+      "nonzero_raw": 30,
+      "nonzero_reportable": 23,
+      "reportable": 39,
+      "rows": 48
+    },
+    "gradient_0.1250": {
+      "control_nonzero_raw": 0,
+      "control_reportable": 48,
+      "nonzero_raw": 10,
+      "nonzero_reportable": 9,
+      "reportable": 45,
+      "rows": 48
+    },
+    "gradient_0.2500": {
+      "control_nonzero_raw": 0,
+      "control_reportable": 48,
+      "nonzero_raw": 0,
+      "nonzero_reportable": 0,
+      "reportable": 48,
+      "rows": 48
+    },
+    "laplacian_0.0625": {
+      "control_nonzero_raw": 0,
+      "control_reportable": 45,
+      "nonzero_raw": 21,
+      "nonzero_reportable": 20,
+      "reportable": 47,
+      "rows": 48
+    },
+    "laplacian_0.1250": {
+      "control_nonzero_raw": 0,
+      "control_reportable": 48,
+      "nonzero_raw": 8,
+      "nonzero_reportable": 7,
+      "reportable": 47,
+      "rows": 48
+    },
+    "laplacian_0.2500": {
+      "control_nonzero_raw": 0,
+      "control_reportable": 48,
+      "nonzero_raw": 0,
+      "nonzero_reportable": 0,
+      "reportable": 48,
+      "rows": 48
+    }
+  },
+  "spectrum_cases": [
+    {
+      "gamma": 2.2,
+      "halfwidth_nm": 8.0,
+      "name": "narrow8_gamma22",
+      "peak_shifts_nm": [
+        0.0,
+        0.0,
+        0.0
+      ]
+    },
+    {
+      "gamma": 2.2,
+      "halfwidth_nm": 28.0,
+      "name": "wide28_gamma22",
+      "peak_shifts_nm": [
+        0.0,
+        0.0,
+        0.0
+      ]
+    },
+    {
+      "gamma": 2.2,
+      "halfwidth_nm": 18.0,
+      "name": "shifted8_gamma22",
+      "peak_shifts_nm": [
+        8.0,
+        -6.0,
+        8.0
+      ]
+    },
+    {
+      "gamma": 2.4,
+      "halfwidth_nm": 28.0,
+      "name": "wide28_gamma24",
+      "peak_shifts_nm": [
+        0.0,
+        0.0,
+        0.0
+      ]
+    }
+  ],
+  "steps_D": [
+    0.25,
+    0.125,
+    0.0625
+  ],
+  "study": "R8_FOCUS_METRIC_SPECTRAL_UNCERTAINTY_V1",
+  "training_generator": "spectral_aberrated"
+}
