@@ -1,0 +1,17 @@
+{
+  "files": [
+    "equal_capacity.csv",
+    "summary.json",
+    "manifest.json"
+  ],
+  "human_data": false,
+  "optical_instrument_data": false,
+  "sha256": {
+    "r2_inverse": "f6f94fb1eb2bec539d4cfb55897d6da309c24c4e2c837b4a28f67c9209fc8651",
+    "r3_alt": "f75634d7db9dda8b753d3771a7b62514e047daa6cd6a6fdc448d0d2fcdc9b68a",
+    "r3_eval": "201df2e1a2a28b140fc723694d9bb6e00fbc62328de4d7dc3e5f1c15f191d309",
+    "r5_eval": "d17f020588827f369008f1e5a9943afdff65edcd1ca3a46693fe9c1e4097d4d8",
+    "r5_metric": "7e6696429d637b490c9d87aa8f8a4edeba2eb7a65fc6456e4ccd6bb7a817efb0"
+  },
+  "study": "R5_INDEPENDENT_EQUAL_PARAMETER_RGB_NULLS_V1"
+}

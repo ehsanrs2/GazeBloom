@@ -97,6 +97,22 @@ jobs:
           path: ${{ runner.temp }}/gazebloom-r4/
           if-no-files-found: error
           retention-days: 30
+      - name: R5 equal-capacity null numerical tests
+        run: uv run --locked --extra research python -m unittest discover -s experiments/r5_equal_capacity_controls -p 'test_*.py' -v
+      - name: R5 independently fitted 12-pair synthetic grid
+        if: matrix.python-version == '3.12'
+        run: |
+          uv run --locked --extra research python experiments/r5_equal_capacity_controls/evaluate.py --out "$RUNNER_TEMP/gazebloom-r5"
+          python -c 'import json,sys; s=json.load(open(sys.argv[1])); assert s["rows"] == 12 and s["paired_directional_rows"] == 12 and s["all_optimizers_converged"], s' "$RUNNER_TEMP/gazebloom-r5/summary.json"
+          cat "$RUNNER_TEMP/gazebloom-r5/summary.json"
+      - name: Archive R5 model-only equal-capacity evidence
+        if: matrix.python-version == '3.12'
+        uses: actions/upload-artifact@v4
+        with:
+          name: gazebloom-r5-independent-rgb-nulls-v1
+          path: ${{ runner.temp }}/gazebloom-r5/
+          if-no-files-found: error
+          retention-days: 30
       - name: Generate small media
         run: uv run --locked --extra research python experiments/gaussian_lca_v0/chromablur_pilot.py --out /tmp/gazebloom-pilot --width 256 --height 240 --seconds 1 --fps 4
       - name: Generate wave-optics outputs

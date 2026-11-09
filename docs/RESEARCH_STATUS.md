@@ -78,6 +78,28 @@ capacity but was **not reoptimized independently**. These are *modeled*
 retinal template-order comparisons, not actual eye-response directions.
 [Reviewed results](../experiments/r4_directional_controls/RESULTS_REVIEW_FA.md).
 
+## R5 — independent same-parameter RGB training nulls (numerical pilot complete)
+
+This stage independently reoptimizes three **3HW RGB** pixel fields for
+the exact same nominal R2 synthetic target under identical initial values,
+regularizers, RGB bounds and solver. The alternative model assumptions are
+the red/blue-swapped training PSFs and a channel-average PSF. A control whose
+training operator is purposely mismatched to the target-generator can
+perform worse **by construction**: parameter matching does not remove that
+confound. Models are evaluated in the R3 toy multi-wavelength profiles
+using the frozen R4 signed-template metric. No real eye, monitor, comfort
+or therapeutic outcome is measured. [R5 protocol](../experiments/r5_equal_capacity_controls/README_FA.md).
+
+R5 completed in GitHub Actions: 12/12 **synthetic** comparisons favored
+correct optical-channel mapping over independently optimized R/B-swapped
+and channel-average PSF fit models (median scores +0.6686, +0.6007, +0.4938).
+Unlike the negative R4 score after swapping an **unrefitted** image, the
+independently reoptimized R/B mapping had **positive** model-template alignment.
+This changes the interpretation of R4: the sign reversal was not unavoidable.
+See [R5 results](../experiments/r5_equal_capacity_controls/RESULTS_REVIEW_FA.md).
+The nominal target still favors the correct-fitting hypothesis, and color
+artifact energy is not matched. These are not human eye measurements.
+
 ## Evidence gates
 1. Check model optics, units, gamma and RGB spectral assumptions independently.
 2. Replace restricted Gaussian rendering with physically constrained screen image optimization; include achievable intensity, clipping, and colorimetry.
