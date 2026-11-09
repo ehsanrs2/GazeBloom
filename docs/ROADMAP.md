@@ -32,7 +32,9 @@
 - [x] Implement R7 preregistered numerical conditioning: abstain on near-degenerate synthetic +/- target separation instead of interpreting inflated A.
 - [x] Implement a template-independent **open-loop** seven-sample synthetic gradient-energy focus scan, with common-green-PSF control; this is NOT measured accommodation or a physiological closed-loop model.
 - [x] Review R7 frozen 10-pair data: common-green-PSF targets all abstain; regular targets all pass the numeric screen; no discrete focus-peak displacement in 3 RGB candidates ([review](../experiments/r7_metric_validation/RESULTS_REVIEW_FA.md)).
-- [ ] R8 preregister focus-proxy sensitivity and independent spectral/physical uncertainty checks before interpreting synthetic direction as accommodation.
+- [x] Preregister R8 432-row toy-spectrum / four-scene / three-sharpness-metric / nested-focus-grid sensitivity and frozen peak-abstention rules.
+- [ ] Review R8 evidence, including all null outcomes and disagreement across metrics, before considering any further stimulus optimization.
+- [ ] Seek **actual** measured SPD/EOTF display parameters and independent optics; synthetic spectral shifts cannot satisfy this physical evidence gate.
 - [ ] Independently calibrate display optics and build credible human-response evidence before any product claim.
 - [ ] Build true display spectral/EOTF characterization, target-model uncertainty sweep and independent optics evidence before physical Q1 claims.
 - [ ] Define psychophysical artifact limits and real display characterization before physical claims.
