@@ -160,7 +160,7 @@ The findings limit interpretations of earlier template scores and
 do not demonstrate actual human accommodation.
 [Results review](../experiments/r7_metric_validation/RESULTS_REVIEW_FA.md).
 
-## R8 — focus proxy and toy spectral sensitivity (preregistered, result pending)
+## R8 — synthetic focus/spectral sensitivity (numerical pilot complete)
 
 R8 extends the **open-loop, target-free synthetic sharpness scan**, not the
 eye-break application. Its 432 correlated rows span 4 artificial scenes,
@@ -174,6 +174,19 @@ human accommodation is involved.
 The wavelengths and gamma are **hypothetical uncertainty cases**, never
 measured display SPDs, measured EOTF or physical confidence intervals.
 [Scientific R8 preregistration (Persian)](../experiments/r8_sensitivity/README_FA.md).
+
+The frozen R8 pilot finished **432 related synthetic numerical cells**
+with 397 reportable focus peak comparisons, 35 near-tie abstentions,
+and 96 small positive nonzero shifts, all at 0.125 or 0.0625 D
+simulation-grid spacing. There were **0** nonzero shifts at 0.25 D,
+reproducing the coarser R7 null. All-common-green-PSF controls
+showed **zero peak displacement in 432/432** but some nonzero curve
+difference under digitization/gamma assumptions. Results depend
+on scene spatial structure, sharpness metric and unmeasured toy
+RGB spectral assumptions. The achromatic-trained RGB null
+produced more nonzero shifts than nominal-mapped RGB, so a
+specific causal LCA-driven human response is **not identified**.
+[Reviewed R8 results](../experiments/r8_sensitivity/RESULTS_REVIEW_FA.md).
 
 ## Evidence gates
 1. Check model optics, units, gamma and RGB spectral assumptions independently.

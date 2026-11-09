@@ -33,7 +33,8 @@
 - [x] Implement a template-independent **open-loop** seven-sample synthetic gradient-energy focus scan, with common-green-PSF control; this is NOT measured accommodation or a physiological closed-loop model.
 - [x] Review R7 frozen 10-pair data: common-green-PSF targets all abstain; regular targets all pass the numeric screen; no discrete focus-peak displacement in 3 RGB candidates ([review](../experiments/r7_metric_validation/RESULTS_REVIEW_FA.md)).
 - [x] Preregister R8 432-row toy-spectrum / four-scene / three-sharpness-metric / nested-focus-grid sensitivity and frozen peak-abstention rules.
-- [ ] Review R8 evidence, including all null outcomes and disagreement across metrics, before considering any further stimulus optimization.
+- [x] Review all R8 432 related comparisons: 0/144 discrete shifts at 0.25 D, 41/144 at 0.125 D, 55/144 at 0.0625 D; 35 near-tie abstentions and zero control peak shifts. Strong scene/metric/toy-spectra dependence; [R8 scientific review](../experiments/r8_sensitivity/RESULTS_REVIEW_FA.md).
+- [ ] R9 scientific measurement-readiness stage: specify feasible physical monitor SPD/EOTF/luminance characterization and independent optical/eye-accommodation measurements, with acceptance and safety gates; don't expose experimental stimuli to app users.
 - [ ] Seek **actual** measured SPD/EOTF display parameters and independent optics; synthetic spectral shifts cannot satisfy this physical evidence gate.
 - [ ] Independently calibrate display optics and build credible human-response evidence before any product claim.
 - [ ] Build true display spectral/EOTF characterization, target-model uncertainty sweep and independent optics evidence before physical Q1 claims.

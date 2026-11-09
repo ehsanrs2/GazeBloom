@@ -337,6 +337,27 @@ a calibrated EOTF**. None of the metrics is an objective measurement or
 credible prediction of human accommodation, eye strain, or efficacy.
 [R8 preregistered protocol (Persian)](experiments/r8_sensitivity/README_FA.md).
 
+### R8 completed synthetic focus and spectrum sensitivity (2026-11-09)
+
+The complete preregistered **432-row** in-silico study found 397
+numerically reportable paired-peak comparisons and 96 small nonzero
+shifts (+0.0625 D or +0.125 D in the *simulation grid* only).
+There were **0/144 at focus step 0.25 D**, 41/144 at 0.125 D,
+and 55/144 at 0.0625 D, with 35 near-tie abstentions overall.
+All 432 common-green-PSF controls had **zero raw peak displacement**.
+
+Findings are sensitive to **metric, scene content and toy spectral
+assumptions**, and the achromatic-PSF *training* RGB null produced
+more nonzero shifts (41) than the nominal RGB mapping (29).
+A finer optical simulation grid is **not** proof of measured human
+accommodation, causal LCA, optical display validity or relief of eye strain.
+The next justified stage is independent **display SPD/EOTF and eye-optics
+measurement planning**, rather than iterating arbitrary visual effects.
+
+[Full R8 science review (Persian)](experiments/r8_sensitivity/RESULTS_REVIEW_FA.md)
+ · [Exact 432-row CI CSV](outputs/r8_sensitivity_v1/sensitivity.csv)
+ · [Provenance hashes](outputs/r8_sensitivity_v1/manifest.json).
+
 ## Core research questions
 
 - **Q1 — optical feasibility:** Can a static-screen image reproduce a desired *modeled retinal blur cue* under declared assumptions?
