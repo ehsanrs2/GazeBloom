@@ -20,6 +20,7 @@ import numpy as np
 EXPERIMENTS = Path(__file__).resolve().parents[1]
 sys.path.insert(0, str(EXPERIMENTS.parent))
 sys.path.insert(0, str(EXPERIMENTS / "r3_model_mismatch"))
+sys.path.insert(0, str(EXPERIMENTS / "r5_equal_capacity_controls"))
 
 from experiments.r3_model_mismatch.evaluate import FROZEN_SCENES, make_scene
 from experiments.r3_model_mismatch.alt_optics import (
