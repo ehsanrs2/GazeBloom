@@ -11,6 +11,7 @@ import csv
 from hashlib import sha256
 import json
 from math import isfinite
+import os
 from pathlib import Path
 import re
 
@@ -204,6 +205,9 @@ def analyze_camera_annotations(rows: list[dict]) -> dict:
 
 
 def main() -> None:
+    # Session plans and any actual participant annotations stay local/private.
+    # Restrictive file permissions protect files created by this CLI.
+    os.umask(0o077)
     parser=argparse.ArgumentParser(description=__doc__)
     commands=parser.add_subparsers(dest="command",required=True)
     plan=commands.add_parser("plan")
