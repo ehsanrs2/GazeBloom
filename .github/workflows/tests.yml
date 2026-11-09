@@ -22,8 +22,16 @@ jobs:
         with:
           version: "0.10.0"
           enable-cache: true
-      - name: Install Python
-        run: uv python install "${{ matrix.python-version }}"
+      - name: Install Python (bounded retries for transient hosting errors)
+        run: |
+          for attempt in 1 2 3; do
+            if uv python install "${{ matrix.python-version }}"; then
+              exit 0
+            fi
+            if [ "$attempt" -lt 3 ]; then sleep "$((attempt * 5))"; fi
+          done
+          echo "Python install failed after 3 bounded attempts" >&2
+          exit 1
       - name: Validate tracked uv.lock is current
         run: uv lock --check
       - name: Sync fully isolated research environment
