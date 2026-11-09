@@ -358,6 +358,32 @@ measurement planning**, rather than iterating arbitrary visual effects.
  · [Exact 432-row CI CSV](outputs/r8_sensitivity_v1/sensitivity.csv)
  · [Provenance hashes](outputs/r8_sensitivity_v1/manifest.json).
 
+## Track B R9 — measurement feasibility without mandatory procurement
+
+After R8's 432 synthetic stress comparisons, GazeBloom now prioritizes
+**scientific measurement readiness over inventing new visual effects**.
+R9 offers an equipment-independent P0 research path and optional, gated
+paths for borrowed display colorimeters, emission-capable spectrometers,
+and laboratory-based objective accommodation measurement.
+
+Without physical instruments, public spectral datasets can inform
+**other-display sensitivity modeling**, but **cannot calibrate this
+monitor**. A colorimeter can inform luminance/XYZ/EOTF under proper
+corrections but does **not** independently provide full display SPD.
+Objective human accommodation requires appropriate instrumentation,
+trained experts, ethics and safety approval.
+
+The offline CLI explicitly distinguishes confirmed access from unknown
+availability and treats **feasibility as neither a measurement nor
+authorization for a human study**.
+
+```bash
+uv run --locked python experiments/r9_measurement_readiness/evaluate_readiness.py \
+  --inventory experiments/r9_measurement_readiness/inventory_template.json
+```
+
+[Full R9 no-purchase feasibility report (Persian)](experiments/r9_measurement_readiness/FEASIBILITY_REPORT_FA.md).
+
 ## Core research questions
 
 - **Q1 — optical feasibility:** Can a static-screen image reproduce a desired *modeled retinal blur cue* under declared assumptions?

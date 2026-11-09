@@ -170,6 +170,21 @@ jobs:
           path: ${{ runner.temp }}/gazebloom-r8/
           if-no-files-found: error
           retention-days: 30
+      - name: R9 no-instrument feasibility and evidence classification unit tests
+        run: uv run --locked python -m unittest discover -s experiments/r9_measurement_readiness -p 'test_*.py' -v
+      - name: R9 default unknown-access readiness assessment
+        if: matrix.python-version == '3.12'
+        run: |
+          uv run --locked python experiments/r9_measurement_readiness/evaluate_readiness.py --inventory experiments/r9_measurement_readiness/inventory_template.json --out "$RUNNER_TEMP/gazebloom-r9/readiness.json"
+          python -c 'import json,sys; v=json.load(open(sys.argv[1])); assert v["evidence_state"]=="FEASIBILITY_ONLY_NO_OBSERVATIONS" and v["readiness"]["P0_document_and_model_audit"] and not any(value for key,value in v["readiness"].items() if key!="P0_document_and_model_audit") and not v["human_participant_testing_authorized"], v' "$RUNNER_TEMP/gazebloom-r9/readiness.json"
+      - name: Archive R9 evidence-gated feasibility decision
+        if: matrix.python-version == '3.12'
+        uses: actions/upload-artifact@v4
+        with:
+          name: gazebloom-r9-no-procurement-readiness-v1
+          path: ${{ runner.temp }}/gazebloom-r9/
+          if-no-files-found: error
+          retention-days: 30
       - name: Generate small media
         run: uv run --locked --extra research python experiments/gaussian_lca_v0/chromablur_pilot.py --out /tmp/gazebloom-pilot --width 256 --height 240 --seconds 1 --fps 4
       - name: Generate wave-optics outputs

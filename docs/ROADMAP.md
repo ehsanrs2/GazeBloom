@@ -34,7 +34,10 @@
 - [x] Review R7 frozen 10-pair data: common-green-PSF targets all abstain; regular targets all pass the numeric screen; no discrete focus-peak displacement in 3 RGB candidates ([review](../experiments/r7_metric_validation/RESULTS_REVIEW_FA.md)).
 - [x] Preregister R8 432-row toy-spectrum / four-scene / three-sharpness-metric / nested-focus-grid sensitivity and frozen peak-abstention rules.
 - [x] Review all R8 432 related comparisons: 0/144 discrete shifts at 0.25 D, 41/144 at 0.125 D, 55/144 at 0.0625 D; 35 near-tie abstentions and zero control peak shifts. Strong scene/metric/toy-spectra dependence; [R8 scientific review](../experiments/r8_sensitivity/RESULTS_REVIEW_FA.md).
-- [ ] R9 scientific measurement-readiness stage: specify feasible physical monitor SPD/EOTF/luminance characterization and independent optical/eye-accommodation measurements, with acceptance and safety gates; don't expose experimental stimuli to app users.
+- [x] R9 no-purchase feasibility specification: P0 public-data modeling, P1 colorimetry, P2 emissive spectra and P3 supervised objective accommodation, each with explicit evidence and safety gates; [Persian report](../experiments/r9_measurement_readiness/FEASIBILITY_REPORT_FA.md).
+- [x] R9 conservative offline inventory/readiness validator: unknown or possible access cannot be treated as confirmed hardware or actual measurements.
+- [ ] If no instrument exists: identify and verify licensed public display spectral data with SHA-256 and spectral instrument provenance; explore only other-display sensitivity modeling.
+- [ ] If borrowing is possible: confirm instrument-specific capability, calibration, Linux support and data usage rights before any acquisition or study.
 - [ ] Seek **actual** measured SPD/EOTF display parameters and independent optics; synthetic spectral shifts cannot satisfy this physical evidence gate.
 - [ ] Independently calibrate display optics and build credible human-response evidence before any product claim.
 - [ ] Build true display spectral/EOTF characterization, target-model uncertainty sweep and independent optics evidence before physical Q1 claims.
