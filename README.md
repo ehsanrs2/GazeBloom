@@ -384,6 +384,37 @@ uv run --locked python experiments/r9_measurement_readiness/evaluate_readiness.p
 
 [Full R9 no-purchase feasibility report (Persian)](experiments/r9_measurement_readiness/FEASIBILITY_REPORT_FA.md).
 
+## R10 — empirical human perception is not blocked by missing optics gear
+
+Professional accommodation or spectral instruments are **optional routes**
+for objective physiological (Q2) and optical (Q1) measurement, not a
+prerequisite to exploring **voluntary perception and visual comfort**
+under appropriately reviewed, low-risk study conditions.
+
+The R10 research-only pilot provides counterbalanced **coded X/Y static**
+conditions, an offline local trial planner and feedback analyzer
+(readability, perceived clarity and comfort), and an **optional smartphone
+camera annotation** channel for human-labelled blinks and pupil/iris
+ratio proxies. Camera is **off by default**, never captures images in
+code, never exports faces, and **never reports diopters or clinical
+effects**. No human measurements or safe-to-display stimulus files
+are included. Participant consent, privacy, ethics determination
+where applicable, fixed comfortable light, no flash/oscillating
+patterns, and an immediate stop option are separate gates before use.
+
+```bash
+python experiments/r10_human_feasibility/pilot.py plan \
+  --participant-code P001 --seed YOUR_LOCAL_PRIVATE_SALT \
+  --out /tmp/gazebloom-r10-private
+```
+
+[R10 empirical research protocol (Persian)](experiments/r10_human_feasibility/PROTOCOL_FA.md)
+ · [Consent and safety checklist](experiments/r10_human_feasibility/CONSENT_AND_SAFETY_FA.md).
+
+The desktop break-reminder product remains isolated from these
+experimental studies, and lack of an autorefractor is **not** treated
+as evidence that human perceptual studies are impossible.
+
 ## Core research questions
 
 - **Q1 — optical feasibility:** Can a static-screen image reproduce a desired *modeled retinal blur cue* under declared assumptions?

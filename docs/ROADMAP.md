@@ -3,7 +3,9 @@
 ## Track A — practical screen-break app (maintenance only during active Track B research)
 - [x] Target use case fixed: screen breaks and low-risk visual-wellness behavior.
 - [x] Initial evidence register, explicit confidence boundaries, intervention catalogue and low-cost evaluation proposal.
-- [ ] Confirm evaluation design and outcome measures; approve any participant study before starting.
+- [x] R10 human-perception *protocol* for voluntary static A/B readability and comfort, opt-in phone video proxies and private data management (without physical optics instruments).
+- [ ] Determine locally applicable ethics/consent requirements, review actual static candidate/control stimuli and stop procedures **before inviting participants**; generating a schedule is not permission to run the study.
+- [ ] Conduct H1 participant feasibility pilot only after these safeguards, using real opt-in responses; do not publish identifiable footage or interpret subjective responses as accommodation.
 - [x] Monotonic-clock timer, private opt-in local event log and first manual desktop Tkinter UI.
 - [x] Build opt-in Linux idle-awareness probe (GNOME D-Bus / X11 xprintidle), conservative hold policy and offline tests.
 - [x] Owner reported successful manual idle-aware behavior on Ubuntu (2026-11-04); platform-wide suspend/Wayland matrix remains untested.
@@ -47,7 +49,7 @@
 - [x] R1 pilot design sweeps distance, pixel pitch, pupil size and defocus sign/magnitude.
 - [ ] Add measured RGB spectra, calibrated gamma and monitor brightness; these are not covered by R1.
 - [ ] Literature-based synthesis; label predicted responses as hypotheses.
-- [ ] Actual human accommodation measurement remains **out of scope** without appropriate optical instruments and expert oversight.
+- [ ] **Direct measurement of human accommodation remains optional and unavailable** without a validated objective optical method and appropriate expertise. This does not block H1 perceptual/comfort observations with the separate R10 safety/consent gates.
 
 ## Constraints
 - No therapeutic or muscle-strengthening claims.

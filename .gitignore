@@ -7,3 +7,7 @@ __pycache__/
 .DS_Store
 *.log
 outputs/reproduction/
+
+# R10 private consent/participant/session data (never commit)
+research-private/
+experiments/r10_human_feasibility/local_sessions/

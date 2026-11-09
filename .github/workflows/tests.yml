@@ -185,6 +185,21 @@ jobs:
           path: ${{ runner.temp }}/gazebloom-r9/
           if-no-files-found: error
           retention-days: 30
+      - name: R10 optional phone and human-perception pilot tests (no humans)
+        run: uv run --locked python -m unittest discover -s experiments/r10_human_feasibility -p 'test_*.py' -v
+      - name: R10 synthetic-code dry run, no stimuli or participant data
+        if: matrix.python-version == '3.12'
+        run: |
+          uv run --locked python experiments/r10_human_feasibility/pilot.py plan --participant-code P000 --seed ci-dry-run-not-a-person --out "$RUNNER_TEMP/gazebloom-r10"
+          python -c 'import json,sys; m=json.load(open(sys.argv[1])); assert not m["human_test_authorized_by_script"] and not m["research_stimuli_included"] and not m["camera_required"] and m["count_per_condition"]=={"X":4,"Y":4}' "$RUNNER_TEMP/gazebloom-r10/manifest.json"
+      - name: Archive only the R10 test-only blank research schedule
+        if: matrix.python-version == '3.12'
+        uses: actions/upload-artifact@v4
+        with:
+          name: gazebloom-r10-no-human-data-dry-run
+          path: ${{ runner.temp }}/gazebloom-r10/
+          if-no-files-found: error
+          retention-days: 30
       - name: Generate small media
         run: uv run --locked --extra research python experiments/gaussian_lca_v0/chromablur_pilot.py --out /tmp/gazebloom-pilot --width 256 --height 240 --seconds 1 --fps 4
       - name: Generate wave-optics outputs
