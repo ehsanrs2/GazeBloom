@@ -57,11 +57,12 @@ class PlanTests(unittest.TestCase):
             self.assertEqual(len(plan),8)
             self.assertTrue(all(x["clarity_0_10"]=="" for x in responses))
             self.assertTrue(all(x["stopped"]=="" for x in responses))
-            with self.assertRaises(ValueError):
-                subprocess.run([sys.executable,str(script),"plan",
-                                "--participant-code","P002","--seed","private-fixed-salt",
-                                "--out",str(out)],capture_output=True,text=True,
-                               check=True) if False else make_plan("P002","small")
+            second=subprocess.run(
+                [sys.executable,str(script),"plan","--participant-code","P002",
+                 "--seed","private-fixed-salt","--out",str(out)],
+                capture_output=True,text=True)
+            self.assertNotEqual(second.returncode,0)
+            self.assertIn("must be empty",second.stderr)
 
 
 class ResponseTests(unittest.TestCase):
@@ -175,6 +176,8 @@ class PhoneAnnotationTests(unittest.TestCase):
             analyze_camera_annotations([self.row(0,pupil="12",iris="10")])
         with self.assertRaises(ValueError):
             analyze_camera_annotations([self.row(0,pupil="-1",iris="10")])
+        with self.assertRaises(ValueError):
+            analyze_camera_annotations([self.row(0,pupil="5",iris="inf")])
 
     def test_no_camera_rows_returns_no_camera_measurements(self):
         r=analyze_camera_annotations([])
