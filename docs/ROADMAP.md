@@ -31,7 +31,8 @@
 - [x] R6 10-row numerical results reviewed: mapped beats swapped in 10/10 but achromatic training-PSF null beats mapped in 8/10 **after proxy matching** ([review](../experiments/r6_identifiability/RESULTS_REVIEW_FA.md)).
 - [x] Implement R7 preregistered numerical conditioning: abstain on near-degenerate synthetic +/- target separation instead of interpreting inflated A.
 - [x] Implement a template-independent **open-loop** seven-sample synthetic gradient-energy focus scan, with common-green-PSF control; this is NOT measured accommodation or a physiological closed-loop model.
-- [ ] Review complete R7 test grid, explicitly count abstentions and distinguish focus-curve differences from discrete peak shifts.
+- [x] Review R7 frozen 10-pair data: common-green-PSF targets all abstain; regular targets all pass the numeric screen; no discrete focus-peak displacement in 3 RGB candidates ([review](../experiments/r7_metric_validation/RESULTS_REVIEW_FA.md)).
+- [ ] R8 preregister focus-proxy sensitivity and independent spectral/physical uncertainty checks before interpreting synthetic direction as accommodation.
 - [ ] Independently calibrate display optics and build credible human-response evidence before any product claim.
 - [ ] Build true display spectral/EOTF characterization, target-model uncertainty sweep and independent optics evidence before physical Q1 claims.
 - [ ] Define psychophysical artifact limits and real display characterization before physical claims.

@@ -289,6 +289,28 @@ See [the Persian R7 protocol](experiments/r7_metric_validation/README_FA.md).
 Neither model numerics nor simulated focus preferences validate real
 retinal optics, effective eye exercises, or health outcomes.
 
+### R7 completed: conditioned template and target-free scan (2026-11-09)
+
+In the frozen 10-pair synthetic R7 run, all 10 common-green-PSF
+negative controls were flagged **ABSTAIN** under the preregistered numeric
+separation threshold. All 10 regular profiles passed the conditioning
+check. The earlier R6 result remained: mapped RGB outscored the
+achromatic-PSF trained RGB control in just 2/10.
+
+A separate target-template-free focus scan found **no shift of the
+discrete sharpness peak** between + and - stimulus designs in any of
+the 3 RGB arms or 10 profiles (0.25 D grid). Full sharpness curves
+differed, but curve variation does not establish changed focus.
+Common-green PSF removed the differences almost entirely except
+for a residual in a toy channel-leakage model.
+
+These are only **synthetic scalar-optics diagnostics**, not eye
+accommodation measurements, validated eye exercises or proof of
+clinical benefit.
+
+[Full scientific review (Persian)](experiments/r7_metric_validation/RESULTS_REVIEW_FA.md)
+and [versioned CI data](outputs/r7_metric_validation_v1/r7_metrics.csv).
+
 ## Core research questions
 
 - **Q1 — optical feasibility:** Can a static-screen image reproduce a desired *modeled retinal blur cue* under declared assumptions?
