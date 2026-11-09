@@ -216,6 +216,22 @@ jobs:
           path: ${{ runner.temp }}/gazebloom-r11/
           if-no-files-found: error
           retention-days: 30
+      - name: R12 readable static image and non-authorizing operator review tests
+        run: uv run --locked --extra research python -m unittest discover -s experiments/r12_display_review -p 'test_*.py' -v
+      - name: R12 unapproved larger-contrast PNG candidates and pending review
+        if: matrix.python-version == '3.12'
+        run: |
+          uv run --locked --extra research python experiments/r12_display_review/generate_candidates.py --out "$RUNNER_TEMP/gazebloom-r12"
+          uv run --locked --extra research python experiments/r12_display_review/review_gate.py --candidates "$RUNNER_TEMP/gazebloom-r12" --review experiments/r12_display_review/review_template.json --out "$RUNNER_TEMP/gazebloom-r12/DEFAULT_PENDING_REVIEW.json"
+          python -c 'import json,sys; from pathlib import Path; d=json.loads(Path(sys.argv[1]).read_text()); r=json.loads(Path(sys.argv[2]).read_text()); assert len(d["candidate_pairs"])==4 and all(not p["human_display_approved"] for p in d["candidate_pairs"]) and not d["human_exposure_authorized"] and r["review_state"]=="PENDING_REVIEW_NO_HUMAN_EXPOSURE" and not r["human_exposure_authorized"]' "$RUNNER_TEMP/gazebloom-r12/manifest.json" "$RUNNER_TEMP/gazebloom-r12/DEFAULT_PENDING_REVIEW.json"
+      - name: Archive R12 candidate images unapproved for human exposure
+        if: matrix.python-version == '3.12'
+        uses: actions/upload-artifact@v4
+        with:
+          name: gazebloom-r12-readable-candidates-NOT-human-approved
+          path: ${{ runner.temp }}/gazebloom-r12/
+          if-no-files-found: error
+          retention-days: 30
       - name: Generate small media
         run: uv run --locked --extra research python experiments/gaussian_lca_v0/chromablur_pilot.py --out /tmp/gazebloom-pilot --width 256 --height 240 --seconds 1 --fps 4
       - name: Generate wave-optics outputs
