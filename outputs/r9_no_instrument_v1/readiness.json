@@ -1,0 +1,39 @@
+{
+  "automatic_procurement_authorized": false,
+  "blockers": {
+    "P0_external_SPD_modeling": [
+      "Record source URL, license, SHA-256, panel-match caveat and verified access"
+    ],
+    "P1_colorimetry": [
+      "Confirm monitor model/settings and verified colorimeter access, model and display correction"
+    ],
+    "P2_spectra": [
+      "Confirm monitor/settings and emissive spectral instrument access, model, calibration record"
+    ],
+    "P3_objective_accommodation": [
+      "Requires P2 readiness, objective measurement device, trained operator, oversight, ethics, consent and safety review"
+    ]
+  },
+  "evidence_state": "FEASIBILITY_ONLY_NO_OBSERVATIONS",
+  "human_participant_testing_authorized": false,
+  "inventory_date": "2026-11-09",
+  "next_non_procurement_action": "P0: search licensed published display spectra and record full provenance; no equipment purchase",
+  "permitted_evidence_claims": [
+    "software_reproduction_and_model_uncertainty",
+    "externally_published_SPD_may_support_other_display_scenario_only"
+  ],
+  "prohibited_claims": [
+    "own_monitor_SPD_measured_from_inventory",
+    "own_monitor_EOTF_measured_from_inventory",
+    "retinal_PSF_or_human_accommodation_validated",
+    "eye_strain_or_therapeutic_benefit"
+  ],
+  "readiness": {
+    "P0_document_and_model_audit": true,
+    "P0_external_SPD_modeling_ready": false,
+    "P1_own_monitor_XYZ_EOTF_capture_ready": false,
+    "P2_own_monitor_emissive_SPD_capture_ready": false,
+    "P3_objective_eye_study_planning_ready": false
+  },
+  "study": "GAZEBLOOM_R9_NO_PURCHASE_MEASUREMENT_READINESS_V1"
+}
