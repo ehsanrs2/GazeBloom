@@ -10,6 +10,7 @@ import argparse
 import csv
 from hashlib import sha256
 import json
+from math import isfinite
 from pathlib import Path
 import re
 
@@ -39,7 +40,10 @@ def _read_csv(path: Path, fields: tuple[str, ...]) -> list[dict]:
         reader = csv.DictReader(f)
         if reader.fieldnames != list(fields):
             raise ValueError(f"{path.name}: expected exactly {','.join(fields)}")
-        return list(reader)
+        rows = list(reader)
+        if any(None in row for row in rows):
+            raise ValueError("extra unlabeled CSV fields are not allowed")
+        return rows
 
 
 def make_plan(code: str, seed: str) -> tuple[list[dict], dict]:
@@ -157,7 +161,7 @@ def analyze_camera_annotations(rows: list[dict]) -> dict:
     prev_good=False
     for row in rows:
         t=float(row["time_s"])
-        if not 0 <= t < 86400 or t != t or (last is not None and t<=last):
+        if not isfinite(t) or not 0 <= t < 86400 or (last is not None and t<=last):
             raise ValueError("timestamps must be finite, strictly increasing and >=0")
         face=_as_bool(row["face_visible"])
         light=_as_bool(row["lighting_stable"])
@@ -176,7 +180,7 @@ def analyze_camera_annotations(rows: list[dict]) -> dict:
                 raise ValueError("pupil-to-iris annotation requires good frame and both radii")
             pup=float(row["pupil_px"])
             iris=float(row["iris_px"])
-            if not 0<pup<iris or iris<2 or pup!=pup or iris!=iris:
+            if not isfinite(pup) or not isfinite(iris) or not 0<pup<iris or iris<2:
                 raise ValueError("radii must be positive, bounded and pupil < iris")
             ratios.append(pup/iris)
         last=t
