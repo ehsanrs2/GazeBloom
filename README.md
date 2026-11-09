@@ -223,6 +223,30 @@ capacity matching alone does not remove this model-favoring confound.
  · [Original 12-row CSV](outputs/r5_equal_capacity_v1/equal_capacity.csv)
  · [CI summary](outputs/r5_equal_capacity_v1/summary.json).
 
+## Track B R6 — cross-generator targets and matched chroma/luminance
+
+R5's nominal target was built using the same optical model that trained the
+correct-mapping arm. R6 now constructs the *training target* using a **different
+R3 synthetic optical engine** (polychromatic and aberrated) while independently
+training the same three RGB fit hypotheses under R2. The target-generating
+profile is excluded from scoring; 2 scenes × 5 other profiles = 10 paired
+synthetic stress comparisons.
+
+All three fitted arms are also scored after a shared **assumed Rec.709 linear
+luminance** and identical mean chromatic-deviation budget, achieved with
+nonamplifying, gamut-preserving scaling. An all-green-OTF optical ablation
+removes every interchannel PSF difference; this is *not an isolated LCA
+knockout* and can give an undefined signed-template metric.
+
+```bash
+uv run --locked --extra research python experiments/r6_identifiability/evaluate.py \
+  --out outputs/reproduction/r6_identifiability
+```
+
+These are not calibrated displays, measured retinal images, human
+accommodation, or clinical claims. See the
+[R6 research protocol (Persian)](experiments/r6_identifiability/README_FA.md).
+
 ## Core research questions
 
 - **Q1 — optical feasibility:** Can a static-screen image reproduce a desired *modeled retinal blur cue* under declared assumptions?
