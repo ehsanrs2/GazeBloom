@@ -28,7 +28,7 @@ sys.path.insert(0, str(EXPERIMENTS / "r10_human_feasibility"))
 
 from generate_candidates import SCENES, STUDY as R12_STUDY  # noqa: E402
 from review_gate import verify_artifact, assess  # noqa: E402
-from pilot import PLAN_FIELDS, _read_csv  # noqa: E402
+from pilot import PLAN_FIELDS, STUDY as R10_STUDY, _read_csv  # noqa: E402
 
 STUDY = "GAZEBLOOM_R13_LOCAL_OPERATOR_REVIEW_V1"
 BINDING_FIELDS = (
@@ -97,6 +97,8 @@ def prepare_review(root: Path, out: Path) -> dict:
 def _validate_plan(plan: list[dict], plan_manifest: dict) -> None:
     if len(plan) != 8 or plan_manifest.get("n_planned_trials") != 8:
         raise ValueError("exact eight R10 plan trials required")
+    if plan_manifest.get("study") != R10_STUDY:
+        raise ValueError("only the original R10 research-only plan format is supported")
     if plan_manifest.get("human_test_authorized_by_script") is not False:
         raise ValueError("only non-authorizing R10 plans are allowed")
     if plan_manifest.get("camera_required") is not False:
