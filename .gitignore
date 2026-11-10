@@ -11,3 +11,6 @@ outputs/reproduction/
 # R10 private consent/participant/session data (never commit)
 research-private/
 experiments/r10_human_feasibility/local_sessions/
+
+# R13 local operator reviews, private participant/screen planning (do not commit)
+experiments/r13_operator_h0/local_sessions/

@@ -261,6 +261,24 @@ tested; no human eyes, accommodation or actual monitor EOTF
 were measured. Optional phone camera remains off by default.
 [Persian protocol/findings](../experiments/r12_display_review/PROTOCOL_AND_FINDINGS_FA.md).
 
+## R13 — operator-only H0 review and paired-stimulus H1 planning
+
+R12 produces eight candidate still PNGs. R13 offers a
+**manual-only** Tk viewer for the operator and a SHA-256-bound,
+all-PENDING private monitor/consent checklist; it has no
+automated participant presentation. The old R10 eight-trial
+condition sequence was not bound to word identities, permitting
+scene-confounding; R13 assigns each of four words to exactly
+one X and one Y, separated by four trials, reproducibly with
+a private local seed and no participant data.
+
+A complete administrative checklist still does **NOT**
+authorize human exposure. Actual monitor review, relevant
+ethics/legal requirements, consent and immediate stopping remain
+outside CI. The optional phone-camera feature remains off;
+no eye accommodation or therapeutic effect has been measured.
+[Persian protocol](../experiments/r13_operator_h0/PROTOCOL_FA.md).
+
 ## Evidence gates
 1. Check model optics, units, gamma and RGB spectral assumptions independently.
 2. Replace restricted Gaussian rendering with physically constrained screen image optimization; include achievable intensity, clipping, and colorimetry.
