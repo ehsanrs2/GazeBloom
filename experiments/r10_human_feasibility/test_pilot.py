@@ -97,6 +97,27 @@ class ResponseTests(unittest.TestCase):
         self.assertEqual(r["not_submitted_trials"],7)
         self.assertEqual(sum(x["completed_n"] for x in r["condition_summary"].values()),0)
 
+    def test_stop_is_irreversible_and_no_later_response_accepted(self):
+        rows=[self.response("T01",clarity="",comfort="",reading="",
+                            discomfort="1",stopped="1"),
+              self.response("T02")]
+        with self.assertRaisesRegex(ValueError,"irreversible STOP"):
+            analyze_responses(self.plan,rows)
+
+    def test_discomfort_cannot_continue_without_stop(self):
+        with self.assertRaisesRegex(ValueError,"discomfort must terminate"):
+            analyze_responses(self.plan,[self.response("T01",discomfort="1")])
+
+    def test_unordered_responses_are_rejected(self):
+        with self.assertRaisesRegex(ValueError,"exact planned trial order"):
+            analyze_responses(self.plan,[self.response("T02")])
+
+    def test_stopped_trial_has_no_fabricated_ratings(self):
+        with self.assertRaisesRegex(ValueError,"must not invent response scores"):
+            analyze_responses(self.plan,[self.response("T01",
+                                clarity="7",comfort="6",reading="1",
+                                stopped="1")])
+
     def test_no_data_means_no_observed_outcomes(self):
         s=analyze_responses(self.plan,[])
         self.assertEqual(s["rows_submitted"],0)
