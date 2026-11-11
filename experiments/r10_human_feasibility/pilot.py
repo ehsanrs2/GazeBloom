@@ -101,22 +101,34 @@ def analyze_responses(plan: list[dict], responses: list[dict]) -> dict:
     if set(x["condition_code"] for x in plan)!={"X","Y"}:
         raise ValueError("plan must contain both conditions")
     observed=set()
+    ordered_ids=[r["trial_id"] for r in plan]
+    terminated=False
     counts={"X":{"n":0,"clarity":[],"comfort":[],"reading_correct":[]},
             "Y":{"n":0,"clarity":[],"comfort":[],"reading_correct":[]}}
     stopped_count=0
     discomfort_count=0
-    for row in responses:
+    for index,row in enumerate(responses):
         trial=row["trial_id"]
         if trial not in by_id or trial in observed:
             raise ValueError(f"unknown or duplicated trial id {trial!r}")
+        if terminated:
+            raise ValueError("no trial records may follow an irreversible STOP")
+        if index>=len(ordered_ids) or trial!=ordered_ids[index]:
+            raise ValueError("responses must follow the exact planned trial order")
         observed.add(trial)
         stopped=_as_bool(row["stopped"])
         discomfort=_as_bool(row["discomfort_flag"])
-        # A request to stop is not missingness to erase; it is an outcome.
+        # R14 stop policy: discomfort always ends a session; do not continue.
+        if discomfort and not stopped:
+            raise ValueError("discomfort must terminate the session, never continue")
         if discomfort:
             discomfort_count+=1
         if stopped:
+            if any(row[field] for field in
+                   ("clarity_0_10","comfort_0_10","reading_correct")):
+                raise ValueError("a stopped trial must not invent response scores")
             stopped_count+=1
+            terminated=True
             continue
         clarity=_as_score(row["clarity_0_10"])
         comfort=_as_score(row["comfort_0_10"])
