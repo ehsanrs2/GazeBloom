@@ -470,6 +470,32 @@ consent, privacy, and locally applicable ethical oversight** must
 first be resolved. No app feature or automatic participant exposure
 is introduced. [R12 protocol and findings (Persian)](experiments/r12_display_review/PROTOCOL_AND_FINDINGS_FA.md).
 
+## R13 — local operator review and balanced R10/R12 trial map
+
+A **research operator** can inspect the eight R12 image candidates
+on the *actual intended monitor*, one static frame at a time,
+using an explicitly invoked, read-only Tk window. The viewer
+does not run a participant session, time stimulus exposures,
+record any camera footage, or mark safety checks as passed.
+
+A second offline tool prepares a **local/private all-pending**
+review file bound to the verified image-manifest SHA-256; the
+R12 gate still prohibits automated human-study authorization.
+It also binds each of the four words to **one X trial and one Y
+trial exactly four slots apart** in the existing balanced R10
+schedule. All output filenames say NOT APPROVED, and no
+response or real participant data is created.
+
+```bash
+uv run --locked --extra research python experiments/r13_operator_h0/workflow.py --help
+```
+
+[Persian R13 local operator review and privacy protocol](experiments/r13_operator_h0/PROTOCOL_FA.md).
+Real monitor inspection, review of applicable ethics and consent,
+and explicit owner approval of an actual session are separate steps.
+The phone-camera path and specialist optical measurement remain optional.
+No direct accommodation/medical benefit is inferred.
+
 ## Core research questions
 
 - **Q1 — optical feasibility:** Can a static-screen image reproduce a desired *modeled retinal blur cue* under declared assumptions?

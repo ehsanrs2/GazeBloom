@@ -232,6 +232,24 @@ jobs:
           path: ${{ runner.temp }}/gazebloom-r12/
           if-no-files-found: error
           retention-days: 30
+      - name: R13 private operator review and balanced four-scene mapping tests
+        run: uv run --locked --extra research python -m unittest discover -s experiments/r13_operator_h0 -p 'test_*.py' -v
+      - name: R13 synthetic-code H0-only dry run with no humans or actual monitor
+        if: matrix.python-version == '3.12'
+        run: |
+          uv run --locked --extra research python experiments/r12_display_review/generate_candidates.py --out "$RUNNER_TEMP/gazebloom-r13/r12_candidates"
+          uv run --locked python experiments/r10_human_feasibility/pilot.py plan --participant-code P000 --seed ci-fake-participant-no-human --out "$RUNNER_TEMP/gazebloom-r13/r10_dummy"
+          uv run --locked --extra research python experiments/r13_operator_h0/workflow.py prepare-review --candidates "$RUNNER_TEMP/gazebloom-r13/r12_candidates" --out "$RUNNER_TEMP/gazebloom-r13/review_pending"
+          uv run --locked --extra research python experiments/r13_operator_h0/workflow.py bind --candidates "$RUNNER_TEMP/gazebloom-r13/r12_candidates" --plan "$RUNNER_TEMP/gazebloom-r13/r10_dummy/trials.csv" --plan-manifest "$RUNNER_TEMP/gazebloom-r13/r10_dummy/manifest.json" --seed ci-fake-binding-secret-no-human --out "$RUNNER_TEMP/gazebloom-r13/binding_dummy"
+          python -c 'import json,sys,csv,pathlib; r=pathlib.Path(sys.argv[1]); q=json.loads((r/"review_pending/review_status_PENDING.json").read_text()); m=json.loads((r/"binding_dummy/binding_manifest_NOT_APPROVED.json").read_text()); rows=list(csv.DictReader((r/"binding_dummy/trial_image_binding_NOT_APPROVED.csv").open())); assert q["review_state"]=="PENDING_REVIEW_NO_HUMAN_EXPOSURE" and not q["human_exposure_authorized"] and q["checkpoints_completed"]==1; assert len(rows)==8 and m["repeat_separation_trials"]==4 and not m["human_exposure_authorized"] and not m["camera_required"]; assert all(rows[i]["word"]==rows[i+4]["word"] and rows[i]["condition_code"]!=rows[i+4]["condition_code"] for i in range(4))' "$RUNNER_TEMP/gazebloom-r13"
+      - name: Archive R13 artificial H0-only reviewer checklist and word binding
+        if: matrix.python-version == '3.12'
+        uses: actions/upload-artifact@v4
+        with:
+          name: gazebloom-r13-operator-plan-only-NOT-human-approved
+          path: ${{ runner.temp }}/gazebloom-r13/
+          if-no-files-found: error
+          retention-days: 30
       - name: Generate small media
         run: uv run --locked --extra research python experiments/gaussian_lca_v0/chromablur_pilot.py --out /tmp/gazebloom-pilot --width 256 --height 240 --seconds 1 --fps 4
       - name: Generate wave-optics outputs

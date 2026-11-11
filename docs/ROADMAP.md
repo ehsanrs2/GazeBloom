@@ -7,7 +7,9 @@
 - [x] R11 implement deterministic four paired static grayscale / weak-chroma candidate PNGs with numeric luminance/range audits and exact image SHA-256 manifests; files are **NOT APPROVED for human use**.
 - [x] R12 visually inspect *digital* R11 still images and identify modeled contrast ≈1.40:1 as a risk of near-floor readability; preserve R11 artifact, prepare a new separate higher-legibility four-pair set.
 - [x] Implement R12 candidate generator with model-only ≥3:1 large-word contrast, exact source-image hashes and offline real-display/consent/ethics checklist with no self-authorization.
-- [ ] R12 operator views the exact 8 alternative PNGs on the **actual study monitor**, records any discomfort, display configuration and document hash; independent human research/consent review and explicit session approval remain outstanding.
+- [x] R13 implement explicit operator-only Tk static image review (NO autonomous participant presentation), private R12 SHA-256-pinned checklist creation and per-word balanced X/Y binding to R10 eight-trial plan.
+- [ ] R13 operator actually reviews eight image files on the intended monitor and records real-world image/lighting/comfort checks; **not completed by CI or PR merge**.
+- [ ] Independently determine applicable ethics/consent requirements and authorize specific static stimuli and stop/privacy controls before H1, separately from software readiness.
 - [ ] Determine locally applicable ethics/consent requirements and explicitly approve specific R11 static candidate/control images and safe stop procedures **before inviting participants**; neither scripts nor CI authorize testing.
 - [ ] Conduct H1 participant feasibility pilot only after these safeguards, using real opt-in responses; do not publish identifiable footage or interpret subjective responses as accommodation.
 - [x] Monotonic-clock timer, private opt-in local event log and first manual desktop Tkinter UI.
