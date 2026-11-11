@@ -250,6 +250,21 @@ jobs:
           path: ${{ runner.temp }}/gazebloom-r13/
           if-no-files-found: error
           retention-days: 30
+      - name: R14 virtual H1 stop/rest/consent-boundary regression tests (NO human subjects)
+        run: uv run --locked python -m unittest discover -s experiments/r14_h1_safety_engine -p 'test_*.py' -v
+      - name: R14 no-participant virtual timing and STOP simulation
+        if: matrix.python-version == '3.12'
+        run: |
+          uv run --locked python experiments/r14_h1_safety_engine/simulate.py --out "$RUNNER_TEMP/gazebloom-r14/simulation_no_humans.json"
+          python -c 'import json,sys; m=json.load(open(sys.argv[1])); assert m["all_cases_complete"] and len(m["cases"])==4 and m["human_participants"]==0 and m["camera_recordings"]==0 and m["actual_pngs_opened"]==0 and not m["human_exposure_authorized"] and m["cases"]["normal_eight_trials"]["response_rows"]==8 and m["cases"]["stop_while_simulated_viewing"]["terminal_state"]=="STOPPED" and m["cases"]["discomfort_permanent_stop"]["terminal_state"]=="STOPPED"' "$RUNNER_TEMP/gazebloom-r14/simulation_no_humans.json"
+      - name: Archive R14 fake timing/STOP software evidence only
+        if: matrix.python-version == '3.12'
+        uses: actions/upload-artifact@v4
+        with:
+          name: gazebloom-r14-virtual-only-NO-PARTICIPANTS
+          path: ${{ runner.temp }}/gazebloom-r14/
+          if-no-files-found: error
+          retention-days: 30
       - name: Generate small media
         run: uv run --locked --extra research python experiments/gaussian_lca_v0/chromablur_pilot.py --out /tmp/gazebloom-pilot --width 256 --height 240 --seconds 1 --fps 4
       - name: Generate wave-optics outputs
@@ -270,3 +285,5 @@ jobs:
         run: uv sync --python /usr/bin/python3 --no-managed-python
       - name: Verify uv environment preserves Tk
         run: uv run --python /usr/bin/python3 --no-managed-python python -c 'import sys, _tkinter, tkinter, gazebloom; print(sys.executable, _tkinter.TK_VERSION)'
+      - name: R14 operator-only demo CLI help smoke without opening Tk window
+        run: uv run --python /usr/bin/python3 --no-managed-python python experiments/r14_h1_safety_engine/demo_gui.py --help

@@ -14,3 +14,6 @@ experiments/r10_human_feasibility/local_sessions/
 
 # R13 local operator reviews, private participant/screen planning (do not commit)
 experiments/r13_operator_h0/local_sessions/
+
+# R14 virtual safety-engine local tests / future private H1 data
+experiments/r14_h1_safety_engine/local_sessions/
