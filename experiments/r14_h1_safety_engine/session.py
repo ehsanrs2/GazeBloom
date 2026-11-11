@@ -47,13 +47,11 @@ def validate_binding(rows: list[dict]) -> None:
                 or p.parts[0] != "UNAPPROVED_images"
                 or p.suffix != ".png"):
             raise SessionViolation("unexpected R12 candidate-image relative path")
-        if p.name != f"{i%4+1:02d}_unused.png":
-            # The canonical word index is immutable in R12, while R13 shuffles
-            # scene order across trials. Validate by the canonical name below.
-            scene_index = ("NOVA", "LUMA", "MIRA", "TORA").index(r["word"])+1
-            expected = f"{scene_index:02d}_{r['word']}_{r['condition_code']}.png"
-            if p.name != expected:
-                raise SessionViolation("candidate path does not match word and arm")
+        # R12 has fixed canonical filenames; R13 only shuffles trial order.
+        scene_index = ("NOVA", "LUMA", "MIRA", "TORA").index(r["word"])+1
+        expected = f"{scene_index:02d}_{r['word']}_{r['condition_code']}.png"
+        if p.name != expected:
+            raise SessionViolation("candidate path does not match word and arm")
     for i in range(4):
         a,b=rows[i],rows[i+4]
         if a["word"] != b["word"] or a["condition_code"] == b["condition_code"]:
