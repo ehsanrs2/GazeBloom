@@ -440,6 +440,36 @@ uv run --locked --extra research python experiments/r11_static_stimuli/generate.
 
 [R11 preregistered Persian stimulus/audit protocol](experiments/r11_static_stimuli/PROTOCOL_FA.md).
 
+## Track B R12 — readability audit and independent real-display review
+
+Visual inspection of the eight R11 still PNGs identified a major
+**baseline legibility confound**: the modeled word/background contrast
+was about **1.40:1**. As a reference, WCAG 2.2 recommends **3:1
+for large text** in accessible content; this is neither a clinical
+safety threshold nor proof of a research stimulus being acceptable.
+
+R12 retains R11 for history and generates a separate four-pair
+still-image set with **modeled** large-word contrast around 3.2:1,
+plus weak, matched-chroma edge differences. All eight images are
+explicitly **NOT APPROVED FOR HUMAN DISPLAY**. The output includes
+exact SHA-256 checks, a *default-pending* operator checklist for the
+actual screen, and a read-only gate that never authorizes a session.
+
+```bash
+uv run --locked --extra research python experiments/r12_display_review/generate_candidates.py \
+  --out /tmp/gazebloom-r12-preview
+uv run --locked --extra research python experiments/r12_display_review/review_gate.py \
+  --candidates /tmp/gazebloom-r12-preview \
+  --review experiments/r12_display_review/review_template.json
+```
+
+No device optical calibration or human accommodative measure is
+inferred. An adult-voluntary H1 perception pilot remains possible
+without specialist equipment, but **real display/operator review,
+consent, privacy, and locally applicable ethical oversight** must
+first be resolved. No app feature or automatic participant exposure
+is introduced. [R12 protocol and findings (Persian)](experiments/r12_display_review/PROTOCOL_AND_FINDINGS_FA.md).
+
 ## Core research questions
 
 - **Q1 — optical feasibility:** Can a static-screen image reproduce a desired *modeled retinal blur cue* under declared assumptions?

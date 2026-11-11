@@ -5,7 +5,9 @@
 - [x] Initial evidence register, explicit confidence boundaries, intervention catalogue and low-cost evaluation proposal.
 - [x] R10 human-perception *protocol* for voluntary static A/B readability and comfort, opt-in phone video proxies and private data management (without physical optics instruments).
 - [x] R11 implement deterministic four paired static grayscale / weak-chroma candidate PNGs with numeric luminance/range audits and exact image SHA-256 manifests; files are **NOT APPROVED for human use**.
-- [ ] R11 inspect actual generated PNGs and display rendering, document pattern/contrast/color risk review and operator/consent/privacy controls before any participant exposure.
+- [x] R12 visually inspect *digital* R11 still images and identify modeled contrast ≈1.40:1 as a risk of near-floor readability; preserve R11 artifact, prepare a new separate higher-legibility four-pair set.
+- [x] Implement R12 candidate generator with model-only ≥3:1 large-word contrast, exact source-image hashes and offline real-display/consent/ethics checklist with no self-authorization.
+- [ ] R12 operator views the exact 8 alternative PNGs on the **actual study monitor**, records any discomfort, display configuration and document hash; independent human research/consent review and explicit session approval remain outstanding.
 - [ ] Determine locally applicable ethics/consent requirements and explicitly approve specific R11 static candidate/control images and safe stop procedures **before inviting participants**; neither scripts nor CI authorize testing.
 - [ ] Conduct H1 participant feasibility pilot only after these safeguards, using real opt-in responses; do not publish identifiable footage or interpret subjective responses as accommodation.
 - [x] Monotonic-clock timer, private opt-in local event log and first manual desktop Tkinter UI.

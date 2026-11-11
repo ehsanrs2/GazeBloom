@@ -241,6 +241,26 @@ before H1. The R10 no-equipment study may continue after that;
 Q2 objective accommodation measurement remains optional/unavailable.
 [R11 preregistered protocol](../experiments/r11_static_stimuli/PROTOCOL_FA.md).
 
+## R12 — R11 image readability audit and higher-contrast candidate review
+
+Digital visual inspection of R11's four X/Y pairs showed very faint
+large text; assumed model luminances (0.37 foreground, 0.54
+background) imply a **1.40:1 model contrast ratio**. This could
+confound a reading-response feasibility study. R12 introduces a
+separate static image set using 0.14 foreground / 0.56 background,
+giving a **~3.21:1 model design target**. The 3:1 number is drawn
+from large-text accessibility guidance, not an epilepsy,
+medical or universal human-study safety threshold.
+
+An offline gate validates image SHA-256 and captures operator
+review statuses on the *actual monitor*, consent, privacy and
+locally applicable ethics determination. The default record
+always remains PENDING. **Even a completed checklist is not
+authorization to begin participant exposures.** No one has been
+tested; no human eyes, accommodation or actual monitor EOTF
+were measured. Optional phone camera remains off by default.
+[Persian protocol/findings](../experiments/r12_display_review/PROTOCOL_AND_FINDINGS_FA.md).
+
 ## Evidence gates
 1. Check model optics, units, gamma and RGB spectral assumptions independently.
 2. Replace restricted Gaussian rendering with physically constrained screen image optimization; include achievable intensity, clipping, and colorimetry.

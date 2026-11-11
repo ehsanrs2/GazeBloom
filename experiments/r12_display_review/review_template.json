@@ -1,0 +1,30 @@
+{
+  "study": "GAZEBLOOM_R12_STATIC_CONTRAST_SAFETY_PREVIEW_V1",
+  "reviewed_manifest_sha256": null,
+  "real_display": {
+    "operator_viewed_actual_monitor": false,
+    "display_alias": null,
+    "brightness_comfortable": "pending",
+    "stable_ambient_light": "pending",
+    "hdr_and_nightlight_not_changed_during_review": "pending",
+    "static_only_without_flashing_or_flicker": "pending"
+  },
+  "per_pair": {
+    "NOVA": {"legibility": "pending", "color_comfort": "pending", "pattern_risk": "pending"},
+    "LUMA": {"legibility": "pending", "color_comfort": "pending", "pattern_risk": "pending"},
+    "MIRA": {"legibility": "pending", "color_comfort": "pending", "pattern_risk": "pending"},
+    "TORA": {"legibility": "pending", "color_comfort": "pending", "pattern_risk": "pending"}
+  },
+  "participant_safeguards": {
+    "locally_applicable_ethics_determination": "pending",
+    "review_reference": null,
+    "informed_consent_plan_reviewed": false,
+    "immediate_stop_mechanism_reviewed": false,
+    "privacy_and_retention_plan_reviewed": false,
+    "optional_phone_separate_consent_reviewed": false,
+    "camera_off_by_default": true,
+    "adult_voluntary_participation_only": true
+  },
+  "human_exposure_requested": false,
+  "public_media_or_participant_data": false
+}
