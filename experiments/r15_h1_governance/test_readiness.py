@@ -4,6 +4,7 @@ from __future__ import annotations
 from copy import deepcopy
 from hashlib import sha256
 import json
+import os
 from pathlib import Path
 import subprocess
 import sys
@@ -126,6 +127,37 @@ class GovernanceAudit(unittest.TestCase):
         m["checkpoints_completed"]=True
         with self.assertRaises(ValueError):
             audit(m,template())
+
+    def test_unhashable_remaining_check_is_rejected_cleanly(self):
+        m=fake_r12()
+        m["remaining_checks"][0]={"unexpected":"nested"}
+        with self.assertRaisesRegex(ValueError,"incoherent R12"):
+            audit(m,template())
+
+    @unittest.skipUnless(os.name == "posix", "POSIX file permissions")
+    def test_private_report_exclusive_creation_and_mode(self):
+        with tempfile.TemporaryDirectory() as td:
+            root=Path(td)
+            (root/"r12.json").write_text(json.dumps(fake_r12()),encoding="utf-8")
+            (root/"form.json").write_text(json.dumps(template()),encoding="utf-8")
+            out=root/"private"/"status.json"
+            cmd=[sys.executable,str(HERE/"readiness.py"),
+                 "--r12-report",str(root/"r12.json"),
+                 "--form",str(root/"form.json"),"--out",str(out)]
+            subprocess.run(cmd,check=True,capture_output=True,text=True)
+            self.assertEqual(out.stat().st_mode & 0o777,0o600)
+            self.assertEqual(out.parent.stat().st_mode & 0o777,0o700)
+            original=out.read_bytes()
+            repeat=subprocess.run(cmd,capture_output=True,text=True)
+            self.assertNotEqual(repeat.returncode,0)
+            self.assertEqual(out.read_bytes(),original)
+            out.unlink()
+            target=root/"target.txt"
+            target.write_text("DO NOT CHANGE",encoding="utf-8")
+            out.symlink_to(target)
+            linked=subprocess.run(cmd,capture_output=True,text=True)
+            self.assertNotEqual(linked.returncode,0)
+            self.assertEqual(target.read_text(encoding="utf-8"),"DO NOT CHANGE")
 
     def test_pending_ethics_country_must_not_be_implied(self):
         f=template()
