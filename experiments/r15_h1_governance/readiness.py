@@ -11,6 +11,7 @@ from __future__ import annotations
 import argparse
 from hashlib import sha256
 import json
+import os
 from pathlib import Path
 import re
 
@@ -58,8 +59,8 @@ def audit(r12: dict, form: dict) -> dict:
         raise ValueError("invalid R12 checklist counts")
     remaining=r12.get("remaining_checks")
     if (not isinstance(remaining,list) or len(remaining)!=total-completed
-            or len(set(remaining))!=len(remaining)
-            or not all(isinstance(x,str) and x for x in remaining)):
+            or not all(isinstance(x,str) and x for x in remaining)
+            or len(set(remaining))!=len(remaining)):
         raise ValueError("incoherent R12 pending-check inventory")
     if form.get("study")!=STUDY:
         raise ValueError("R15 input study mismatch")
@@ -159,10 +160,15 @@ def main() -> None:
     )
     payload=json.dumps(result,ensure_ascii=False,sort_keys=True,indent=2)+"\n"
     if args.out:
-        if args.out.exists():
-            raise FileExistsError("refuse overwrite of prior private governance status")
-        args.out.parent.mkdir(parents=True,exist_ok=True)
-        args.out.write_text(payload,encoding="utf-8")
+        args.out.parent.mkdir(parents=True,exist_ok=True,mode=0o700)
+        # An exclusive create rejects both an existing file and a symlink;
+        # private local governance outputs must not inherit a world-readable umask.
+        try:
+            fd = os.open(args.out, os.O_WRONLY | os.O_CREAT | os.O_EXCL, 0o600)
+        except FileExistsError as exc:
+            raise FileExistsError("refuse overwrite of prior private governance status") from exc
+        with os.fdopen(fd, "w", encoding="utf-8") as stream:
+            stream.write(payload)
     print(payload,end="")
 
 
