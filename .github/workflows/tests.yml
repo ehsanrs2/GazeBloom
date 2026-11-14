@@ -265,6 +265,23 @@ jobs:
           path: ${{ runner.temp }}/gazebloom-r14/
           if-no-files-found: error
           retention-days: 30
+      - name: R15 governance input audit and no-human-authorization tests
+        run: uv run --locked python -m unittest discover -s experiments/r15_h1_governance -p 'test_*.py' -v
+      - name: R15 dummy 20-of-25 governance report with no real consent or humans
+        if: matrix.python-version == '3.12'
+        run: |
+          mkdir -p "$RUNNER_TEMP/gazebloom-r15"
+          python -c 'import json,sys; from pathlib import Path; d={"study":"GAZEBLOOM_R12_STATIC_CONTRAST_SAFETY_PREVIEW_V1","source_manifest_sha256":"1b533d4dcf9c7225749529a79f2e6bda8d497d3807398270f8059d869e9fefdf","checkpoints_completed":20,"checkpoints_total":25,"remaining_checks":["ethics_reference_present","informed_consent_plan_reviewed","immediate_stop_mechanism_reviewed","privacy_and_retention_plan_reviewed","optional_phone_separate_consent_reviewed"],"human_exposure_authorized":False,"phone_recording_authorized":False,"human_data_collected":False}; Path(sys.argv[1]).write_text(json.dumps(d))' "$RUNNER_TEMP/gazebloom-r15/r12_FAKE_review.json"
+          uv run --locked python experiments/r15_h1_governance/readiness.py --r12-report "$RUNNER_TEMP/gazebloom-r15/r12_FAKE_review.json" --form experiments/r15_h1_governance/readiness_template.json --out "$RUNNER_TEMP/gazebloom-r15/readiness_NO_HUMANS.json"
+          python -c 'import json,sys; d=json.load(open(sys.argv[1])); assert d["decision"]=="H1_NOT_AUTHORIZED__GOVERNANCE_AND_REAL_RUNNER_PENDING" and d["r12_checkpoints"]=="20/25" and not d["human_exposure_authorized"] and not d["phone_recording_authorized"] and not d["human_study_data_collected"]' "$RUNNER_TEMP/gazebloom-r15/readiness_NO_HUMANS.json"
+      - name: Archive R15 simulated governance-only decision evidence
+        if: matrix.python-version == '3.12'
+        uses: actions/upload-artifact@v4
+        with:
+          name: gazebloom-r15-NO-HUMANS-gate-audit
+          path: ${{ runner.temp }}/gazebloom-r15/
+          if-no-files-found: error
+          retention-days: 30
       - name: Generate small media
         run: uv run --locked --extra research python experiments/gaussian_lca_v0/chromablur_pilot.py --out /tmp/gazebloom-pilot --width 256 --height 240 --seconds 1 --fps 4
       - name: Generate wave-optics outputs

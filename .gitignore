@@ -17,3 +17,6 @@ experiments/r13_operator_h0/local_sessions/
 
 # R14 virtual safety-engine local tests / future private H1 data
 experiments/r14_h1_safety_engine/local_sessions/
+
+# R15 local governance determinations, personal review and private consent data
+experiments/r15_h1_governance/local_sessions/
