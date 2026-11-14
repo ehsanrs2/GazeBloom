@@ -9,7 +9,11 @@
 - [x] Implement R12 candidate generator with model-only ≥3:1 large-word contrast, exact source-image hashes and offline real-display/consent/ethics checklist with no self-authorization.
 - [x] R13 implement explicit operator-only Tk static image review (NO autonomous participant presentation), private R12 SHA-256-pinned checklist creation and per-word balanced X/Y binding to R10 eight-trial plan.
 - [ ] R13 operator actually reviews eight image files on the intended monitor and records real-world image/lighting/comfort checks; **not completed by CI or PR merge**.
-- [ ] Independently determine applicable ethics/consent requirements and authorize specific static stimuli and stop/privacy controls before H1, separately from software readiness.
+- [x] R14 implement pure virtual-time H1 state machine for max 10-second view, min 30-second rest, explicit next, irreversible STOP from all active phases, and discomfort-driven terminal stop; strengthen R10 response parser against post-stop/ordered-data violations.
+- [x] R14 create operator-only neutral-text Tk demonstration, fake time/STOP CI cases, and **unapproved** Persian draft consent, privacy/retention and independent ethics review documents.
+- [ ] Operator actually tests the R14 no-stimulus timer/STOP UI on local monitor and records usability; CI does not verify OS display timing or actual stop accessibility.
+- [ ] Independent review of final informed consent, real data retention/deletion, optional camera consent and applicable ethics requirement/approval before H1. Reported R13 20/25 is not authorization; never auto-toggle checkboxes.
+- [ ] Independently authorize specific R12 still PNGs, real display procedure and release an H1 participant runner only after all jurisdiction-dependent gates. Direct accommodation measurement remains optional, unavailable and scientifically separate.
 - [ ] Determine locally applicable ethics/consent requirements and explicitly approve specific R11 static candidate/control images and safe stop procedures **before inviting participants**; neither scripts nor CI authorize testing.
 - [ ] Conduct H1 participant feasibility pilot only after these safeguards, using real opt-in responses; do not publish identifiable footage or interpret subjective responses as accommodation.
 - [x] Monotonic-clock timer, private opt-in local event log and first manual desktop Tkinter UI.

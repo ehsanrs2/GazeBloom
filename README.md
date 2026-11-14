@@ -496,6 +496,31 @@ and explicit owner approval of an actual session are separate steps.
 The phone-camera path and specialist optical measurement remain optional.
 No direct accommodation/medical benefit is inferred.
 
+## R14 — no-human H1 safety engine and consent/privacy preparation
+
+The R13 local operator review documented 20/25 checklist items,
+including four paired readability/color/pattern observations, but
+five safeguards still need independent evidence. R14 **does not
+declare these checks PASS**: it develops a pure virtual-time, no-image
+session state machine enforcing a 10-second viewing limit, a
+30-second rest and a permanent STOP (including discomfort). An
+operator-only Tk demo shows **plain placeholders** instead of the
+real experimental PNG images. Four fake scenarios are validated
+in CI, and R10 analysis now rejects ratings recorded after STOP,
+continued trials after discomfort and out-of-order responses.
+
+No human display, recordings, participant data, consent or objective
+accommodation measurement occurs in R14. A drafted Persian consent
+notice, privacy/retention plan and jurisdiction-dependent ethics
+checklist are available but have **not** been approved or enacted.
+
+```bash
+uv run --locked python -m unittest discover -s experiments/r14_h1_safety_engine -p 'test_*.py' -v
+uv run --locked python experiments/r14_h1_safety_engine/demo_gui.py --operator-demo
+```
+
+[R14 Persian protocol and next authorization gates](experiments/r14_h1_safety_engine/PROTOCOL_FA.md).
+
 ## Core research questions
 
 - **Q1 — optical feasibility:** Can a static-screen image reproduce a desired *modeled retinal blur cue* under declared assumptions?

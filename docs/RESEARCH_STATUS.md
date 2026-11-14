@@ -279,6 +279,30 @@ outside CI. The optional phone-camera feature remains off;
 no eye accommodation or therapeutic effect has been measured.
 [Persian protocol](../experiments/r13_operator_h0/PROTOCOL_FA.md).
 
+## R14 — simulated H1 STOP/timing engine; no participants yet
+
+Local R13 operator observations for NOVA, LUMA, MIRA, TORA were
+reported PASS on pair-level readability, color comfort and visual
+pattern screening. The local R12 checklist reported **20/25**,
+but **five checks remain** (ethics evidence reference, consent,
+real participant STOP controls, privacy/retention and optional
+camera consent). The source of the ethics pass must be verified;
+without a real determination it must be reset to pending.
+
+R14 adds a test-only, virtual-clock state machine with a
+**terminal STOP**, immutable eight-trial word-to-condition binding,
+10-second view/30-second rest and explicit manual next. R10
+analysis is hardened so response logs cannot claim data after
+STOP or discomfort. The manual Tk demo only displays neutral
+placeholder text, never experimental images. Persian consent
+and privacy documents are **drafts**, not approvals.
+
+No human has been exposed through R14; no real-world monitor
+timer measured, camera/video collected, diopters measured or
+human consent given. R14 software CI success establishes only
+simulation correctness, not participant readiness.
+[R14 protocol (Persian)](../experiments/r14_h1_safety_engine/PROTOCOL_FA.md).
+
 ## Evidence gates
 1. Check model optics, units, gamma and RGB spectral assumptions independently.
 2. Replace restricted Gaussian rendering with physically constrained screen image optimization; include achievable intensity, clipping, and colorimetry.
