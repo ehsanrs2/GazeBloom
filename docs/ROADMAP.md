@@ -61,6 +61,15 @@
 - [ ] Literature-based synthesis; label predicted responses as hypotheses.
 - [ ] **Direct measurement of human accommodation remains optional and unavailable** without a validated objective optical method and appropriate expertise. This does not block H1 perceptual/comfort observations with the separate R10 safety/consent gates.
 
+## R15 — operator-reviewed simulation and H1 decision evidence
+
+- [x] Record the user's positive local functional review of the R14 **neutral-placeholder operator demo** with its narrow evidence scope. No actual display latency or accommodation measurement is implied.
+- [x] Implement read-only R15 H1 governance audit using the private R12 report and private decision template, refusing implicit human authorization, camera activation and mismatched R12 image provenance.
+- [ ] Determine the **actual study country** and independent/university/institutional context without inferring it from IP or travel location.
+- [ ] Finalize consent language, privacy/retention/deletion, ethics determination with genuine authoritative record, and independent optional-phone consent; record references privately.
+- [ ] Validate a separately designed **real H1 participant runner** and its instantaneous STOP behaviour before any approved volunteer exposure.
+- [ ] Treat remaining R12 5 gates as PENDING until genuinely reviewed; a 20/25 score is not human-study authorization.
+
 ## Constraints
 - No therapeutic or muscle-strengthening claims.
 - Subjective blur, comfort or perceived depth do not validate accommodation response.

@@ -1,0 +1,40 @@
+{
+  "study": "GAZEBLOOM_R15_H1_GOVERNANCE_READINESS_V1",
+  "jurisdiction": {
+    "country": null,
+    "study_context": null
+  },
+  "ethics": {
+    "review_status": "pending",
+    "competent_authority_reference": null,
+    "decision_reference": null,
+    "formal_approval_if_required": false
+  },
+  "consent": {
+    "review_status": "pending",
+    "final_document_sha256": null,
+    "review_reference": null
+  },
+  "privacy": {
+    "review_status": "pending",
+    "data_controller_reference": null,
+    "retention_days": null,
+    "deletion_policy_reference": null
+  },
+  "human_stop": {
+    "review_status": "pending",
+    "real_participant_runner_test_report": null
+  },
+  "optional_camera": {
+    "camera_off_by_default": true,
+    "review_status": "pending",
+    "separate_consent_policy_reference": null
+  },
+  "operator_r14_demo": {
+    "reported_functional": true,
+    "scope": "OPERATOR_ONLY_NEUTRAL_PLACEHOLDERS",
+    "real_human_stimuli_displayed": false,
+    "measured_stop_latency_ms": null
+  },
+  "human_exposure_requested": false
+}

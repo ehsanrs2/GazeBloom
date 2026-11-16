@@ -303,6 +303,25 @@ human consent given. R14 software CI success establishes only
 simulation correctness, not participant readiness.
 [R14 protocol (Persian)](../experiments/r14_h1_safety_engine/PROTOCOL_FA.md).
 
+## R15 — R14 local operator demo reported functional
+
+The local operator confirmed the R14 neutral-placeholder demonstration
+worked. This is user-reported usability evidence and is **not** an
+instrumented latency measurement or verification of disabling actual
+chromatic experimental images during a human session.
+
+The previous R12 private checklist reported **20/25**, with five
+governance/safety items remaining: documented ethics determination
+reference; finalized informed consent; actual H1 real-runner STOP;
+data retention/deletion; and a separate optional-phone consent
+policy. R15 adds a read-only source-hash-bound audit that lists the
+open gates and **never produces human authorization**. Country and
+institutional context of the intended study are still unknown,
+and no participant data, phone recordings or direct accommodation
+measurements have been collected in this phase.
+
+[R15 Persian protocol](../experiments/r15_h1_governance/PROTOCOL_FA.md).
+
 ## Evidence gates
 1. Check model optics, units, gamma and RGB spectral assumptions independently.
 2. Replace restricted Gaussian rendering with physically constrained screen image optimization; include achievable intensity, clipping, and colorimetry.

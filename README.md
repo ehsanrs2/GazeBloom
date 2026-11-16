@@ -521,6 +521,23 @@ uv run --locked python experiments/r14_h1_safety_engine/demo_gui.py --operator-d
 
 [R14 Persian protocol and next authorization gates](experiments/r14_h1_safety_engine/PROTOCOL_FA.md).
 
+## R15 — operator-demo confirmation and H1 governance readiness
+
+R14's neutral-placeholder UI was reported functional by the local
+operator. This is **not** a measured STOP latency or approval of an
+actual image-based participant session. R15 records that limited
+observation and provides a **read-only** validator for the current
+R12 20/25 checklist plus a private human-governance worksheet.
+
+The remaining consent, real-study STOP, retention/deletion, ethical
+authority and optional-camera gates stay PENDING. The validator
+**never authorizes human exposure** even if all input fields are
+marked reviewed; it does not validate legal/ethics signatures.
+The phone stays off, no real patient/participant responses are
+used, and objective accommodation remains unmeasured.
+
+[R15 Persian protocol](experiments/r15_h1_governance/PROTOCOL_FA.md).
+
 ## Core research questions
 
 - **Q1 — optical feasibility:** Can a static-screen image reproduce a desired *modeled retinal blur cue* under declared assumptions?
