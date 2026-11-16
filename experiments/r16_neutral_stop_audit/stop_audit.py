@@ -50,6 +50,7 @@ class StopLatch:
         self.state = "STOPPED"
         began = self._clock()
         if not isinstance(began, (int, float)) or not math.isfinite(began):
+            self.last_result = StopResult("STOPPED", source, None, False)
             raise ValueError("invalid monotonic clock")
         try:
             self._neutralize()
