@@ -49,8 +49,8 @@ class StopLatch:
         # Fail closed before the display callback, including on callback error.
         self.state = "STOPPED"
         began = self._clock()
-        if not isinstance(began, (int, float)) or isinstance(began, bool)
-                or not math.isfinite(began) or began < 0:
+        if (not isinstance(began, (int, float)) or isinstance(began, bool)
+                or not math.isfinite(began) or began < 0):
             self.last_result = StopResult("STOPPED", source, None, False)
             raise ValueError("invalid monotonic clock")
         try:
@@ -59,8 +59,8 @@ class StopLatch:
             self.last_result = StopResult("STOPPED", source, None, False)
             raise
         ended = self._clock()
-        if not isinstance(ended, (int, float)) or isinstance(ended, bool)
-                or not math.isfinite(ended) or ended < began:
+        if (not isinstance(ended, (int, float)) or isinstance(ended, bool)
+                or not math.isfinite(ended) or ended < began):
             self.last_result = StopResult("STOPPED", source, None, False)
             raise ValueError("clock moved backwards or became invalid")
         self.last_result = StopResult("STOPPED", source, (ended - began) * 1000, True)
