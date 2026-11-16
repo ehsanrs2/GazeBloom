@@ -282,6 +282,8 @@ jobs:
           path: ${{ runner.temp }}/gazebloom-r15/
           if-no-files-found: error
           retention-days: 30
+      - name: R16 neutral-only STOP dispatch unit tests (no Tk, humans or images)
+        run: uv run --locked python -m unittest discover -s experiments/r16_neutral_stop_audit -p 'test_*.py' -v
       - name: Generate small media
         run: uv run --locked --extra research python experiments/gaussian_lca_v0/chromablur_pilot.py --out /tmp/gazebloom-pilot --width 256 --height 240 --seconds 1 --fps 4
       - name: Generate wave-optics outputs
@@ -304,3 +306,15 @@ jobs:
         run: uv run --python /usr/bin/python3 --no-managed-python python -c 'import sys, _tkinter, tkinter, gazebloom; print(sys.executable, _tkinter.TK_VERSION)'
       - name: R14 operator-only demo CLI help smoke without opening Tk window
         run: uv run --python /usr/bin/python3 --no-managed-python python experiments/r14_h1_safety_engine/demo_gui.py --help
+      - name: R16 neutral-only Tk STOP callback smoke under Xvfb
+        run: |
+          sudo apt-get install -y xvfb
+          xvfb-run -a uv run --python /usr/bin/python3 --no-managed-python python experiments/r16_neutral_stop_audit/stop_audit.py --ci-smoke --samples 10 --out "$RUNNER_TEMP/gazebloom-r16-neutral.json"
+          /usr/bin/python3 -c 'import json,sys; d=json.load(open(sys.argv[1])); assert d["sample_count"]==10 and d["environment"]=="CI_TK_SYNTHETIC_CALLBACK" and d["human_participants"]==0 and d["actual_pngs_opened"]==0 and not d["human_exposure_authorized"] and not d["h1_runner_available"] and not d["threshold_certification"]' "$RUNNER_TEMP/gazebloom-r16-neutral.json"
+      - name: Archive R16 synthetic Tk-dispatch measurements, not physical display evidence
+        uses: actions/upload-artifact@v4
+        with:
+          name: gazebloom-r16-neutral-Tk-callback-NO-HUMANS
+          path: ${{ runner.temp }}/gazebloom-r16-neutral.json
+          if-no-files-found: error
+          retention-days: 30
