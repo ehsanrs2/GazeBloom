@@ -1,0 +1,16 @@
+{
+  "study": "GAZEBLOOM_R18_TWO_CHANNEL_BENCH_V1",
+  "source_kind": "DECLARED_BENCH_CAPTURE",
+  "shared_acquisition_clock_declared": false,
+  "trigger_low": null,
+  "trigger_high": null,
+  "optical_active": null,
+  "optical_neutral": null,
+  "trace_sha256": "REPLACE_WITH_SHA256",
+  "instrument_reference": "",
+  "trigger_reference": "",
+  "display_reference": "",
+  "human_participants": 0,
+  "camera_used": false,
+  "experimental_images_used": false
+}
