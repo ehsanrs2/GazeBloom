@@ -85,6 +85,12 @@
 - [ ] Establish independently verified hardware trigger/sensor clock synchronization, measured optical response and calibration uncertainty on a neutral display only.
 - [ ] Separately validate real STOP behavior with appropriate physical instrumentation; retain R15 H1 ethics, consent, privacy and independent participant runner authorization as pending.
 
+## R18 — neutral-display bench kit
+- [x] One-shot neutral gray patch GUI with irreversible STOP and independent two-channel trace analyzer, synthetic-only CI.
+- [ ] Confirm available oscilloscope/DAQ, photodiode readout and correlated electrical marker/USB input hardware.
+- [ ] Acquire and independently review actual neutral-display traces, including sensor/trigger uncertainty and multiple panel positions.
+- [ ] Physical and H1 governance gates remain separate; no authorization.
+
 ## Constraints
 - No therapeutic or muscle-strengthening claims.
 - Subjective blur, comfort or perceived depth do not validate accommodation response.

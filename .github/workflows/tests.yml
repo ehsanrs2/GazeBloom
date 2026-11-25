@@ -286,6 +286,8 @@ jobs:
         run: uv run --locked python -m unittest discover -s experiments/r16_neutral_stop_audit -p 'test_*.py' -v
       - name: R17 synthetic-only photodiode trace audit tests (no sensor or humans)
         run: uv run --locked python -m unittest discover -s experiments/r17_optical_stop_audit -p 'test_*.py' -v
+      - name: R18 synthetic two-channel optical bench tests
+        run: uv run --locked python -m unittest discover -s experiments/r18_neutral_display_bench -p 'test_*.py' -v
       - name: Generate small media
         run: uv run --locked --extra research python experiments/gaussian_lca_v0/chromablur_pilot.py --out /tmp/gazebloom-pilot --width 256 --height 240 --seconds 1 --fps 4
       - name: Generate wave-optics outputs
@@ -320,3 +322,5 @@ jobs:
           path: ${{ runner.temp }}/gazebloom-r16-neutral.json
           if-no-files-found: error
           retention-days: 30
+      - name: R18 one-shot neutral patch widget smoke (virtual display only)
+        run: xvfb-run -a uv run --python /usr/bin/python3 --no-managed-python python experiments/r18_neutral_display_bench/bench_gui.py --ci-smoke
