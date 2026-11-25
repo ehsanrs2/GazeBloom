@@ -41,7 +41,8 @@ def validate_manifest(manifest: dict, raw_csv: bytes) -> dict:
         raise ValueError("event and sensor require one declared acquisition clock")
     if manifest["shared_clock_claimed"] is not True:
         raise ValueError("shared acquisition clock must be explicitly claimed")
-    if (manifest["human_participants"] != 0 or manifest["camera_used"] is not False
+    if (type(manifest["human_participants"]) is not int
+            or manifest["human_participants"] != 0 or manifest["camera_used"] is not False
             or manifest["experimental_images_used"] is not False):
         raise ValueError("R17 excludes participants, cameras and experimental images")
     for field in ("instrument_reference", "display_reference"):
@@ -115,6 +116,8 @@ def audit(manifest: dict, raw_csv: bytes) -> dict:
                 first_neutral_t = candidate[0][0]
                 if first_neutral_t-previous_t > MAX_BRACKET_MS:
                     status = "INSUFFICIENT_TIME_RESOLUTION"
+                elif any(fraction(v) > THRESHOLD for _,v in after[i+CONFIRM:]):
+                    status = "REBOUND_AFTER_NEUTRAL_CONFIRMATION"
                 else:
                     status = "DETECTED_SAMPLE_BRACKET__NOT_CERTIFIED"
                     bounds = {"latency_lower_ms": previous_t-stop,
