@@ -70,6 +70,13 @@
 - [ ] Validate a separately designed **real H1 participant runner** and its instantaneous STOP behaviour before any approved volunteer exposure.
 - [ ] Treat remaining R12 5 gates as PENDING until genuinely reviewed; a 20/25 score is not human-study authorization.
 
+## R16 — neutral-only STOP callback and Tk scheduling audit
+
+- [x] Implement irreversible, idempotent STOP latch with callback failures explicitly not counted as success.
+- [x] Add neutral-placeholder Tk callback timing instrument and no-human unit tests; no research images or H1 runner.
+- [ ] Independently evaluate actual hardware display suppression and physical OS input event latency; Tk callback timing **is not** that measurement.
+- [ ] R15 ethics, consent, retention and human H1 runner gates remain open and must never be auto-granted.
+
 ## Constraints
 - No therapeutic or muscle-strengthening claims.
 - Subjective blur, comfort or perceived depth do not validate accommodation response.
