@@ -27,6 +27,7 @@ R16 زمان بین ورود به callback نرم‌افزاری STOP و باز�
 
 - نخستین نمونه بعد STOP از قبل خنثی باشد: `AMBIGUOUS_ALREADY_NEUTRAL_AT_FIRST_POST_SAMPLE`
 - افت پایدار پیدا نشود: `RIGHT_CENSORED_NO_CONFIRMED_NEUTRAL`
+- پس از سه نمونه خنثی، سیگنال دوباره از آستانه بالاتر برود: `REBOUND_AFTER_NEUTRAL_CONFIRMATION` (بدون بازه تأییدشده)
 - فاصله نمونه‌ها بیش از ۲۰ms باشد: `INSUFFICIENT_TIME_RESOLUTION`
 - افت پایدار ثبت شود: `DETECTED_SAMPLE_BRACKET__NOT_CERTIFIED`
 
