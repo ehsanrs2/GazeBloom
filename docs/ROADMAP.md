@@ -91,6 +91,11 @@
 - [ ] Acquire and independently review actual neutral-display traces, including sensor/trigger uncertainty and multiple panel positions.
 - [ ] Physical and H1 governance gates remain separate; no authorization.
 
+## R19 — hardware marker reference
+- [x] Implement Pico RP2040 one-shot GPIO marker preceding USB HID Escape, host-only regression tests and Persian bench protocol.
+- [ ] Verify exact hardware, firmware versions, sensor response, shared clock and real captures locally.
+- [ ] No H1 or physiological claims; pending independent physical and governance review.
+
 ## Constraints
 - No therapeutic or muscle-strengthening claims.
 - Subjective blur, comfort or perceived depth do not validate accommodation response.
