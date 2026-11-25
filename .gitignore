@@ -23,3 +23,6 @@ experiments/r15_h1_governance/local_sessions/
 
 # R18 private local bench captures
 experiments/r18_neutral_display_bench/local_sessions/
+
+# R19 local hardware traces
+experiments/r19_pico_hid_marker/local_sessions/

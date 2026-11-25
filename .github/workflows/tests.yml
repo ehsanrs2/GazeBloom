@@ -288,6 +288,8 @@ jobs:
         run: uv run --locked python -m unittest discover -s experiments/r17_optical_stop_audit -p 'test_*.py' -v
       - name: R18 synthetic two-channel optical bench tests
         run: uv run --locked python -m unittest discover -s experiments/r18_neutral_display_bench -p 'test_*.py' -v
+      - name: R19 single-shot marker and HID ordering tests (no hardware)
+        run: uv run --locked python -m unittest discover -s experiments/r19_pico_hid_marker -p 'test_*.py' -v
       - name: Generate small media
         run: uv run --locked --extra research python experiments/gaussian_lca_v0/chromablur_pilot.py --out /tmp/gazebloom-pilot --width 256 --height 240 --seconds 1 --fps 4
       - name: Generate wave-optics outputs
