@@ -284,6 +284,8 @@ jobs:
           retention-days: 30
       - name: R16 neutral-only STOP dispatch unit tests (no Tk, humans or images)
         run: uv run --locked python -m unittest discover -s experiments/r16_neutral_stop_audit -p 'test_*.py' -v
+      - name: R17 synthetic-only photodiode trace audit tests (no sensor or humans)
+        run: uv run --locked python -m unittest discover -s experiments/r17_optical_stop_audit -p 'test_*.py' -v
       - name: Generate small media
         run: uv run --locked --extra research python experiments/gaussian_lca_v0/chromablur_pilot.py --out /tmp/gazebloom-pilot --width 256 --height 240 --seconds 1 --fps 4
       - name: Generate wave-optics outputs
