@@ -19,6 +19,8 @@ def fixture(*, mode="cross", source="SYNTHETIC"):
     for t in range(50):
         if mode == "cross":
             v = 1.0 if t < 23 else 0.0
+        elif mode == "rebound":
+            v = 1.0 if t < 23 or t >= 29 else 0.0
         elif mode == "censored":
             v = 1.0
         elif mode == "already":
@@ -58,6 +60,12 @@ class OpticalAuditTests(unittest.TestCase):
         self.assertFalse(report["safety_threshold_certified"])
         self.assertFalse(report["human_exposure_authorized"])
 
+    def test_post_confirmation_rebound_is_not_counted_as_success(self):
+        meta, raw = fixture(mode="rebound")
+        report = audit(meta, raw)
+        self.assertEqual(report["state"], "REBOUND_AFTER_NEUTRAL_CONFIRMATION")
+        self.assertIsNone(report["sample_bracket"])
+
     def test_no_transition_is_censored(self):
         meta, raw = fixture(mode="censored")
         result = audit(meta, raw)
@@ -85,6 +93,7 @@ class OpticalAuditTests(unittest.TestCase):
     def test_no_human_camera_stimulus_or_unshared_clock(self):
         for key,val in (
             ("human_participants", 1),
+            ("human_participants", False),
             ("camera_used", True),
             ("experimental_images_used", True),
             ("shared_clock_claimed", False),
